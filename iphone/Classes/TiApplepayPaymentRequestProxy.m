@@ -23,15 +23,6 @@
 {
     if (paymentRequest == nil) {
         paymentRequest = [PKPaymentRequest new];
-        
-        /* Test proxy before rebuilding
-        TiApplepaySummaryItemProxy *itemProxy = [[TiApplepaySummaryItemProxy alloc] _initWithPageContext:[self pageContext]];
-        [itemProxy setTitle:@"Ti.Skateboard"];
-        [itemProxy setType:[NSNumber numberWithFloat:0.0]];
-        [itemProxy setPrice:[NSNumber numberWithFloat:99.99]];
-                
-        [paymentRequest setPaymentSummaryItems:@[[itemProxy item],[itemProxy item],[itemProxy item],[itemProxy item],[itemProxy item]]];
-         */
     }
     
     return paymentRequest;
@@ -50,7 +41,6 @@
     ENSURE_SINGLE_ARG(args, NSNumber)
 
     [[self paymentRequest] setMerchantCapabilities:[TiUtils intValue:args]];
-//    [[self paymentRequest] setMerchantCapabilities:PKMerchantCapability3DS | PKMerchantCapabilityCredit];
 }
 
 -(void)setCountryCode:(id)value
@@ -74,6 +64,35 @@
     }
     
     [[self paymentRequest] setSupportedNetworks:args];
+}
+
+-(void)setShippingType:(id)value
+{
+    ENSURE_TYPE(value, NSNumber);
+    
+    [[self paymentRequest] setShippingType:[TiUtils intValue:value def:PKShippingTypeShipping]];
+}
+
+-(void)setRequiredBillingAddressFields:(id)args
+{
+    ENSURE_TYPE(args, NSArray);
+    
+    for (id arg in args) {
+        ENSURE_TYPE(arg, NSNumber);
+    }
+    
+    [[self paymentRequest] setRequiredBillingAddressFields:args];
+}
+
+-(void)setRequiredShippingAddressFields:(id)args
+{
+    ENSURE_TYPE(args, NSArray);
+    
+    for (id arg in args) {
+        ENSURE_TYPE(arg, NSNumber);
+    }
+    
+    [[self paymentRequest] setRequiredShippingAddressFields:args];
 }
 
 -(void)setApplicationData:(id)args
