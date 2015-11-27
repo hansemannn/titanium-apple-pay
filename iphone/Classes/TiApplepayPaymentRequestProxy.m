@@ -75,22 +75,14 @@
 
 -(void)setRequiredBillingAddressFields:(id)args
 {
-    ENSURE_TYPE(args, NSArray);
-    
-    for (id arg in args) {
-        ENSURE_TYPE(arg, NSNumber);
-    }
+    ENSURE_TYPE(args, NSNumber);
     
     [[self paymentRequest] setRequiredBillingAddressFields:args];
 }
 
 -(void)setRequiredShippingAddressFields:(id)args
 {
-    ENSURE_TYPE(args, NSArray);
-    
-    for (id arg in args) {
-        ENSURE_TYPE(arg, NSNumber);
-    }
+    ENSURE_TYPE(args, NSNumber);
     
     [[self paymentRequest] setRequiredShippingAddressFields:args];
 }
