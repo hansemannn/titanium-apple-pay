@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		24DD6CF91134B3F500162E58 /* TiApplepayModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* TiApplepayModule.h */; };
+		24DD6CFA1134B3F500162E58 /* TiApplepayModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiApplepayModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* TiApplepayModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiApplepayModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* TiApplepayModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiApplepayModuleAssets.m */; };
+		3A15719D1C05788C00EA749D /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A15719C1C05788C00EA749D /* PassKit.framework */; };
+		3A1571A01C05791100EA749D /* TiApplepayPaymentRequestProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A15719E1C05791100EA749D /* TiApplepayPaymentRequestProxy.h */; };
+		3A1571A11C05791100EA749D /* TiApplepayPaymentRequestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A15719F1C05791100EA749D /* TiApplepayPaymentRequestProxy.m */; };
+		3A1D0F691C079485006C5167 /* TiApplepayPaymentButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A1D0F671C079485006C5167 /* TiApplepayPaymentButton.h */; };
+		3A1D0F6A1C079485006C5167 /* TiApplepayPaymentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1D0F681C079485006C5167 /* TiApplepayPaymentButton.m */; };
+		3A3B2EA61C06BE950048E291 /* TiApplepayPaymentButtonProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A3B2EA41C06BE940048E291 /* TiApplepayPaymentButtonProxy.h */; };
+		3A3B2EA71C06BE950048E291 /* TiApplepayPaymentButtonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B2EA51C06BE950048E291 /* TiApplepayPaymentButtonProxy.m */; };
+		3A3B2EAF1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A3B2EAD1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.h */; };
+		3A3B2EB01C06BEC60048E291 /* TiApplepayPaymentDialogProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B2EAE1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.m */; };
+		3A7501991C077A970036ABDD /* TiApplepaySummaryItemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A7501971C077A970036ABDD /* TiApplepaySummaryItemProxy.h */; };
+		3A75019A1C077A970036ABDD /* TiApplepaySummaryItemProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7501981C077A970036ABDD /* TiApplepaySummaryItemProxy.m */; };
+		AA747D9F0F9514B9006C5449 /* TiApplepay_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = ti.applepay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24DD6CF71134B3F500162E58 /* TiApplepayModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayModule.h; path = Classes/TiApplepayModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* TiApplepayModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayModule.m; path = Classes/TiApplepayModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* TiApplepayModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayModuleAssets.h; path = Classes/TiApplepayModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* TiApplepayModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayModuleAssets.m; path = Classes/TiApplepayModuleAssets.m; sourceTree = "<group>"; };
+		3A15719C1C05788C00EA749D /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		3A15719E1C05791100EA749D /* TiApplepayPaymentRequestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayPaymentRequestProxy.h; path = Classes/TiApplepayPaymentRequestProxy.h; sourceTree = "<group>"; };
+		3A15719F1C05791100EA749D /* TiApplepayPaymentRequestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentRequestProxy.m; path = Classes/TiApplepayPaymentRequestProxy.m; sourceTree = "<group>"; };
+		3A1D0F671C079485006C5167 /* TiApplepayPaymentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayPaymentButton.h; path = Classes/TiApplepayPaymentButton.h; sourceTree = "<group>"; };
+		3A1D0F681C079485006C5167 /* TiApplepayPaymentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentButton.m; path = Classes/TiApplepayPaymentButton.m; sourceTree = "<group>"; };
+		3A3B2EA41C06BE940048E291 /* TiApplepayPaymentButtonProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayPaymentButtonProxy.h; path = Classes/TiApplepayPaymentButtonProxy.h; sourceTree = "<group>"; };
+		3A3B2EA51C06BE950048E291 /* TiApplepayPaymentButtonProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentButtonProxy.m; path = Classes/TiApplepayPaymentButtonProxy.m; sourceTree = "<group>"; };
+		3A3B2EAD1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayPaymentDialogProxy.h; path = Classes/TiApplepayPaymentDialogProxy.h; sourceTree = "<group>"; };
+		3A3B2EAE1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentDialogProxy.m; path = Classes/TiApplepayPaymentDialogProxy.m; sourceTree = "<group>"; };
+		3A7501971C077A970036ABDD /* TiApplepaySummaryItemProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepaySummaryItemProxy.h; path = Classes/TiApplepaySummaryItemProxy.h; sourceTree = "<group>"; };
+		3A7501981C077A970036ABDD /* TiApplepaySummaryItemProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepaySummaryItemProxy.m; path = Classes/TiApplepaySummaryItemProxy.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiApplepay_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libTiApplepay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiApplepay.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A15719D1C05788C00EA749D /* PassKit.framework in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libTiApplepay.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* ti.applepay */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = ti.applepay;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A15719C1C05788C00EA749D /* PassKit.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				24DE9E0F11C5FE74003F90F6 /* TiApplepayModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* TiApplepayModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* TiApplepayModule.h */,
+				24DD6CF81134B3F500162E58 /* TiApplepayModule.m */,
+				3A3B2EA81C06BE980048E291 /* Payment Button */,
+				3A7501961C077A7D0036ABDD /* Summary Item */,
+				3A1571A21C05791500EA749D /* Payment Request */,
+				3A3B2EA31C06BA040048E291 /* Payment Dialog */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */,
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3A1571A21C05791500EA749D /* Payment Request */ = {
+			isa = PBXGroup;
+			children = (
+				3A15719E1C05791100EA749D /* TiApplepayPaymentRequestProxy.h */,
+				3A15719F1C05791100EA749D /* TiApplepayPaymentRequestProxy.m */,
+			);
+			name = "Payment Request";
+			sourceTree = "<group>";
+		};
+		3A3B2EA31C06BA040048E291 /* Payment Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				3A3B2EAD1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.h */,
+				3A3B2EAE1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.m */,
+			);
+			name = "Payment Dialog";
+			sourceTree = "<group>";
+		};
+		3A3B2EA81C06BE980048E291 /* Payment Button */ = {
+			isa = PBXGroup;
+			children = (
+				3A1D0F671C079485006C5167 /* TiApplepayPaymentButton.h */,
+				3A1D0F681C079485006C5167 /* TiApplepayPaymentButton.m */,
+				3A3B2EA41C06BE940048E291 /* TiApplepayPaymentButtonProxy.h */,
+				3A3B2EA51C06BE950048E291 /* TiApplepayPaymentButtonProxy.m */,
+			);
+			name = "Payment Button";
+			sourceTree = "<group>";
+		};
+		3A7501961C077A7D0036ABDD /* Summary Item */ = {
+			isa = PBXGroup;
+			children = (
+				3A7501971C077A970036ABDD /* TiApplepaySummaryItemProxy.h */,
+				3A7501981C077A970036ABDD /* TiApplepaySummaryItemProxy.m */,
+			);
+			name = "Summary Item";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* TiApplepay_Prefix.pch in Headers */,
+				24DD6CF91134B3F500162E58 /* TiApplepayModule.h in Headers */,
+				3A1D0F691C079485006C5167 /* TiApplepayPaymentButton.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* TiApplepayModuleAssets.h in Headers */,
+				3A3B2EAF1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.h in Headers */,
+				3A7501991C077A970036ABDD /* TiApplepaySummaryItemProxy.h in Headers */,
+				3A1571A01C05791100EA749D /* TiApplepayPaymentRequestProxy.h in Headers */,
+				3A3B2EA61C06BE950048E291 /* TiApplepayPaymentButtonProxy.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* ti.applepay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "ti.applepay" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ti.applepay;
+			productName = ti.applepay;
+			productReference = D2AAC07E0554694100DB518D /* libTiApplepay.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ti.applepay" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* ti.applepay */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* ti.applepay */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A1D0F6A1C079485006C5167 /* TiApplepayPaymentButton.m in Sources */,
+				24DD6CFA1134B3F500162E58 /* TiApplepayModule.m in Sources */,
+				3A3B2EA71C06BE950048E291 /* TiApplepayPaymentButtonProxy.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* TiApplepayModuleAssets.m in Sources */,
+				3A75019A1C077A970036ABDD /* TiApplepaySummaryItemProxy.m in Sources */,
+				3A1571A11C05791100EA749D /* TiApplepayPaymentRequestProxy.m in Sources */,
+				3A3B2EB01C06BEC60048E291 /* TiApplepayPaymentDialogProxy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* ti.applepay */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/TiApplepay.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiApplepay_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiApplepay;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/TiApplepay.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiApplepay_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiApplepay;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/TiApplepay.dst;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiApplepay_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiApplepay;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				DSTROOT = /tmp/TiApplepay.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiApplepay_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiApplepay;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build & test";
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build & test";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "ti.applepay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ti.applepay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
