@@ -9,6 +9,8 @@
 #import "TiApp.h"
 #import "TiApplepayConstants.h"
 #import "TiApplepayPaymentGatewayConfiguration.h"
+#import <Stripe/Stripe.h>
+// #import <ChasePaymentech/ChasePaymentech.h>
 
 @implementation TiApplepayPaymentDialogProxy
 
@@ -22,7 +24,7 @@
 {
     if (paymentController == nil) {
         if (paymentRequestProxy == nil) {
-            [self throwException:@"Trying to initialize a payment dialog without specifying a payment request: The paymentRequest property is null!" subreason:nil location:CODELOCATION];
+            [self throwException:@"⚠️ Trying to initialize a payment dialog without specifying a payment request: The paymentRequest property is null! ⚠️" subreason:nil location:CODELOCATION];
             return;
         }
         
@@ -49,7 +51,7 @@
     if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayStripe) {
         DebugLog(@"[DEBUG] Ti.ApplePay: Stripe configured: %@", [Stripe defaultPublishableKey]);
     } else {
-        DebugLog(@"[WARN] Ti.ApplePay: No gateway configured: %@", [[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider]);
+        DebugLog(@"[WARN] Ti.ApplePay: ⚠️ No gateway configured: %@", [[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider]);
     }
     
     [[[[TiApp app] controller] topPresentedController] presentViewController:[self paymentController] animated:[TiUtils boolValue:animated def:YES] completion:nil];
@@ -59,47 +61,26 @@
 
 -(void)paymentAuthorizationViewControllerWillAuthorizePayment:(PKPaymentAuthorizationViewController *)controller
 {
-    NSLog(@"willAuthorizePayment");
+    NSLog(@"[DEBUG] Ti.ApplePay: willAuthorizePayment");
 
     if ([self _hasListeners:@"willAuthorizePayment"]) {
-        [self fireEvent:@"willAuthorizePayment" withObject:@{}];
+        [self fireEvent:@"willAuthorizePayment" withObject:nil];
     }
 }
 
 -(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion
 {
-    NSLog(@"didAuthorizePayment");
+    NSLog(@"[DEBUG] Ti.ApplePay: didAuthorizePayment");
     
-    // TODO: Move to own payment gateway handler.
-    if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayStripe) {
-        DebugLog(@"[INFO] Ti.ApplePay: Stripe payment gateway configured. Completing payment ...");
-        
-        [[STPAPIClient sharedClient] createTokenWithPayment:payment completion:^(STPToken *token, NSError *error) {
-             if (error) {
-                 completion(PKPaymentAuthorizationStatusFailure);
-                 return;
-             }
-
-             if ([self _hasListeners:@"didAuthorizePayment"]) {
-                 [self fireEvent:@"didAuthorizePayment" withObject:@{}];
-             } else {
-                 DebugLog(@"[WARN] Ti.ApplePay: Authorization completed, but no didAuthorizePayment event configured.");
-             }
-             
-             completion(PKPaymentAuthorizationStatusSuccess);
-        }];
-    } else {
-        DebugLog(@"[WARN] Ti.ApplePay: No payment gateway configured, skipping ...");
-        completion(PKPaymentAuthorizationStatusSuccess);
-    }
+    [self handleAuthorizedPayment:payment withCompletionHandler:completion];
 }
 
 -(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectPaymentMethod:(PKPaymentMethod *)paymentMethod completion:(void (^)(NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
 {
-    NSLog(@"didSelectPayment");
+    NSLog(@"[DEBUG] Ti.ApplePay: didSelectPayment");
     
     if ([self _hasListeners:@"didSelectPayment"]) {
-        [self fireEvent:@"didSelectPayment" withObject:@{}];
+        [self fireEvent:@"didSelectPayment" withObject:nil];
     }
     
     completion([[paymentRequestProxy paymentRequest] paymentSummaryItems]);
@@ -107,10 +88,10 @@
 
 -(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingContact:(PKContact *)contact completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKShippingMethod *> * _Nonnull, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
 {
-    NSLog(@"didSelectShippingContact");
+    NSLog(@"[DEBUG] Ti.ApplePay: didSelectShippingContact");
     
     if ([self _hasListeners:@"didSelectShippingContact"]) {
-        [self fireEvent:@"didSelectShippingContact" withObject:@{}];
+        [self fireEvent:@"didSelectShippingContact" withObject:nil];
     }
 
     completion(PKPaymentAuthorizationStatusSuccess,[[paymentRequestProxy paymentRequest] shippingMethods],[[paymentRequestProxy paymentRequest] paymentSummaryItems]);
@@ -118,10 +99,10 @@
 
 -(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingMethod:(PKShippingMethod *)shippingMethod completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
 {
-    NSLog(@"didSelectShippingMethod");
+    NSLog(@"[DEBUG] Ti.ApplePay: didSelectShippingMethod");
     
     if ([self _hasListeners:@"didSelectShippingMethod"]) {
-        [self fireEvent:@"didSelectShippingMethod" withObject:@{}];
+        [self fireEvent:@"didSelectShippingMethod" withObject:nil];
     }
     
     completion(PKPaymentAuthorizationStatusSuccess, [[paymentRequestProxy paymentRequest] paymentSummaryItems]);
@@ -129,15 +110,74 @@
 
 -(void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
 {
-    NSLog(@"paymentAuthorizationViewControllerDidFinish");
+    NSLog(@"[DEBUG] Ti.ApplePay: paymentAuthorizationViewControllerDidFinish");
 
-    if ([self _hasListeners:@"didCancel"]) {
-        [self fireEvent:@"didCancel" withObject:@{}];
+    if ([self _hasListeners:@"close"]) {
+        [self fireEvent:@"close" withObject:nil];
     }
     
     [[self paymentController] dismissViewControllerAnimated:YES completion:nil];
     RELEASE_TO_NIL(paymentController);
 }
 
+#pragma mark Helper
 
+-(void)handleAuthorizedPayment:(PKPayment *)payment withCompletionHandler:(void (^)(PKPaymentAuthorizationStatus))completion
+{
+    
+    if (![self _hasListeners:@"didAuthorizePayment"]) {
+        DebugLog(@"[WARN] Ti.ApplePay: ⚠️ No 'didAuthorizePayment' event listener configured. ⚠️");
+    }
+    
+    /**
+     *  TODO: Move to own payment gateway handler.
+     */
+    if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayStripe) {
+        DebugLog(@"[INFO] Ti.ApplePay: Stripe payment gateway configured. Completing payment ...");
+        
+        [[STPAPIClient sharedClient] createTokenWithPayment:payment completion:^(STPToken *token, NSError *error) {
+            if (error) {
+                [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(NO)}];
+                completion(PKPaymentAuthorizationStatusFailure);
+                return;
+            }
+            
+            [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(YES)}];
+            completion(PKPaymentAuthorizationStatusSuccess);
+            
+        }];
+    } else if([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayChase) {
+        DebugLog(@"[WARN] Ti.ApplePay: ⚠️ Chase payments are not possible, yet. ⚠️");
+
+        /* CPSGateway *gateway = [[CPSGateway alloc] init];
+        
+        gateway.test = YES;
+        
+        CPSAuthorizationRequest *request = [[CPSAuthorizationRequest alloc] initWithPaymentData:payment.token.paymentData];
+        
+        request.orderId = [NSString stringWithFormat:@"%ld", arc4random()%9000 + 10000000000];
+        request.billingAddress = [[CPSBillingAddress alloc] init];
+        request.billingAddress.postalCode = @"33333";
+        request.capture = NO;
+        
+        [gateway authorizePaymentWithRequest:request withCompletionHandler:^(CPSAuthorizationResponse *response, NSError *error) {
+            if(error != nil) {
+                [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(NO)}];
+            } else {
+                if([response.procStatus isEqualToString:@"0"] && [response.respCode isEqualToString:@"00"]) {
+                    [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(YES)}];
+                    completion(PKPaymentAuthorizationStatusSuccess);
+                    return;
+                } else {
+                    [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(NO)}];
+                }
+            }
+            completion(PKPaymentAuthorizationStatusFailure);
+            
+        }];*/
+    } else {
+        DebugLog(@"[WARN] Ti.ApplePay: ⚠️ No payment gateway configured, skipping ... ⚠️");
+        completion(PKPaymentAuthorizationStatusSuccess);
+    }
+}
 @end

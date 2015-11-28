@@ -12,7 +12,7 @@
     BOOL usingStripe;
 }
 
--(void)setPaymentGateway:(id)args;
+-(void)setupPaymentGateway:(id)args;
 
 -(NSNumber*)isSupported:(id)unused;
 

@@ -5,13 +5,8 @@
  * Please see the LICENSE included with this distribution for details.
  */
 
-#import <Foundation/Foundation.h>
-
 typedef NS_ENUM(NSUInteger, TiApplepayPaymentGateway) {
     TiApplepayPaymentGatewayNone = 0,
-    TiApplepayPaymentGatewayStripe
+    TiApplepayPaymentGatewayStripe,
+    TiApplepayPaymentGatewayChase
 };
-
-@interface TiApplepayConstants : NSObject
-
-@end

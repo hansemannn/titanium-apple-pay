@@ -40,8 +40,9 @@
 
 #pragma mark Public APIs
 
--(void)setPaymentGateway:(id)args
+-(void)setupPaymentGateway:(id)args
 {
+    args = [args objectAtIndex:0];
     ENSURE_TYPE(args, NSDictionary);
     
     id name = [args valueForKey:@"name"];
@@ -88,11 +89,6 @@
     return NUMBOOL([PKPaymentAuthorizationViewController canMakePayments]);
 }
 
--(TiApplepayPaymentDialogProxy*)createPaymentDialog:(id)args
-{
-    return [[[TiApplepayPaymentDialogProxy alloc] _initWithPageContext:[self pageContext] args:args] autorelease];
-}
-
 #pragma mark Public constants
 
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_PLAIN,             PKPaymentButtonTypePlain);
@@ -136,5 +132,6 @@ MAKE_SYSTEM_PROP(ADDRESS_FIELD_ALL,                     PKAddressFieldAll);
 
 MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_NONE,                  TiApplepayPaymentGatewayNone);
 MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_STRIPE,                TiApplepayPaymentGatewayStripe);
+MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_CHASE,                 TiApplepayPaymentGatewayChase);
 
 @end

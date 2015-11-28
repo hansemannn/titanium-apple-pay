@@ -39,9 +39,10 @@
 
 -(void)setupProvider
 {
-    switch ([self paymentProvider]) {
-        case TiApplepayPaymentGatewayStripe: [Stripe setDefaultPublishableKey:[self apiKey]];
-            break;
+    if ([self paymentProvider] == TiApplepayPaymentGatewayStripe) {
+        [Stripe setDefaultPublishableKey:[self apiKey]];
+    } else if ([self paymentProvider] == TiApplepayPaymentGatewayChase) {
+        
     }
 }
 
