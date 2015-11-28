@@ -35,6 +35,7 @@
 {
     ENSURE_TYPE(value, NSString);
     [[self paymentRequest] setMerchantIdentifier:[TiUtils stringValue:value]];
+    [self replaceValue:value forKey:@"merchantIdentifier" notification:NO];
 }
 
 -(void)setMerchantCapabilities:(id)args
@@ -42,18 +43,21 @@
     ENSURE_SINGLE_ARG(args, NSNumber)
 
     [[self paymentRequest] setMerchantCapabilities:[TiUtils intValue:args]];
+    [self replaceValue:args forKey:@"merchantCapabilities" notification:NO];
 }
 
 -(void)setCountryCode:(id)value
 {
     ENSURE_TYPE(value, NSString);
     [[self paymentRequest] setCountryCode:[TiUtils stringValue:value]];
+    [self replaceValue:value forKey:@"countryCode" notification:NO];
 }
 
 -(void)setCurrencyCode:(id)value
 {
     ENSURE_TYPE(value, NSString);
     [[self paymentRequest] setCurrencyCode:[TiUtils stringValue:value]];
+    [self replaceValue:value forKey:@"currencyCode" notification:NO];
 }
 
 -(void)setSupportedNetworks:(id)args
@@ -65,6 +69,7 @@
     }
     
     [[self paymentRequest] setSupportedNetworks:args];
+    [self replaceValue:args forKey:@"supportedNetworks" notification:NO];
 }
 
 -(void)setShippingType:(id)value
@@ -72,6 +77,8 @@
     ENSURE_TYPE(value, NSNumber);
     
     [[self paymentRequest] setShippingType:[TiUtils intValue:value def:PKShippingTypeShipping]];
+    [self replaceValue:value forKey:@"shippingType" notification:NO];
+
 }
 
 -(void)setShippingMethods:(id)args
@@ -85,6 +92,7 @@
     }
     
     [[self paymentRequest] setShippingMethods:shippingMethods];
+    [self replaceValue:args forKey:@"shippingMethids" notification:NO];
 }
 
 -(void)setRequiredBillingAddressFields:(id)args
@@ -92,6 +100,7 @@
     ENSURE_TYPE(args, NSNumber);
     
     [[self paymentRequest] setRequiredBillingAddressFields:args];
+    [self replaceValue:args forKey:@"requiredBillingAddressFields" notification:NO];
 }
 
 -(void)setRequiredShippingAddressFields:(id)args
@@ -99,12 +108,14 @@
     ENSURE_TYPE(args, NSNumber);
     
     [[self paymentRequest] setRequiredShippingAddressFields:args];
+    [self replaceValue:args forKey:@"requiredShippingAddressFields" notification:NO];
 }
 
 -(void)setApplicationData:(id)args
 {
     ENSURE_TYPE(args, NSDictionary);
     [[self paymentRequest] setApplicationData:[NSKeyedArchiver archivedDataWithRootObject:args]];
+    [self replaceValue:args forKey:@"applicationData" notification:NO];
 }
 
 -(void)setSummaryItems:(id)args
@@ -118,6 +129,7 @@
     }
     
     [[self paymentRequest] setPaymentSummaryItems:items];
+    [self replaceValue:args forKey:@"summaryItems" notification:NO];
 }
 
 @end

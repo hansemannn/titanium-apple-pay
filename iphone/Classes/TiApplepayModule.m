@@ -91,47 +91,53 @@
 
 #pragma mark Public constants
 
-MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_PLAIN,             PKPaymentButtonTypePlain);
-MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_BUY,               PKPaymentButtonTypeBuy);
-MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_SETUP,             PKPaymentButtonTypeSetUp);
+MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_PLAIN,                                     PKPaymentButtonTypePlain);
+MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_BUY,                                       PKPaymentButtonTypeBuy);
+MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_SETUP,                                     PKPaymentButtonTypeSetUp);
 
-MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_BLACK,            PKPaymentButtonStyleBlack);
-MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_WHITE,            PKPaymentButtonStyleWhite);
-MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_WHITE_OUTLINE,    PKPaymentButtonStyleWhiteOutline);
+MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_BLACK,                                    PKPaymentButtonStyleBlack);
+MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_WHITE,                                    PKPaymentButtonStyleWhite);
+MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_WHITE_OUTLINE,                            PKPaymentButtonStyleWhiteOutline);
 
-MAKE_SYSTEM_PROP(PAYMENT_METHOD_TYPE_CREDIT,            PKPaymentMethodTypeCredit);
-MAKE_SYSTEM_PROP(PAYMENT_METHOD_TYPE_DEBIT,             PKPaymentMethodTypeDebit);
-MAKE_SYSTEM_PROP(PAYMENT_METHOD_TYPE_PREPAID,           PKPaymentMethodTypePrepaid);
-MAKE_SYSTEM_PROP(PAYMENT_METHOD_TYPE_STORE,             PKPaymentMethodTypeStore);
+MAKE_SYSTEM_PROP(PAYMENT_METHOD_TYPE_CREDIT,                                    PKPaymentMethodTypeCredit);
+MAKE_SYSTEM_PROP(PAYMENT_METHOD_TYPE_DEBIT,                                     PKPaymentMethodTypeDebit);
+MAKE_SYSTEM_PROP(PAYMENT_METHOD_TYPE_PREPAID,                                   PKPaymentMethodTypePrepaid);
+MAKE_SYSTEM_PROP(PAYMENT_METHOD_TYPE_STORE,                                     PKPaymentMethodTypeStore);
 
-MAKE_SYSTEM_PROP(MERCHANT_CAPABILITY_3DS,               PKMerchantCapability3DS);
-MAKE_SYSTEM_PROP(MERCHANT_CAPABILITY_CREDIT,            PKMerchantCapabilityCredit);
-MAKE_SYSTEM_PROP(MERCHANT_CAPABILITY_DEBIT,             PKMerchantCapabilityDebit);
-MAKE_SYSTEM_PROP(MERCHANT_CAPABILITY_EMV,               PKMerchantCapabilityEMV);
+MAKE_SYSTEM_PROP(PAYMENT_SUMMARY_ITEM_TYPE_PENDING,                             PKPaymentSummaryItemTypePending);
+MAKE_SYSTEM_PROP(PAYMENT_SUMMARY_ITEM_TYPE_FINAL,                               PKPaymentSummaryItemTypeFinal);
 
-MAKE_SYSTEM_STR(PAYMENT_NETWORK_AMEX,                   PKPaymentNetworkAmex);
-MAKE_SYSTEM_STR(PAYMENT_NETWORK_DISCOVER,               PKPaymentNetworkDiscover);
-MAKE_SYSTEM_STR(PAYMENT_NETWORK_MASTERCARD,             PKPaymentNetworkMasterCard);
-MAKE_SYSTEM_STR(PAYMENT_NETWORK_VISA,                   PKPaymentNetworkVisa);
-MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,          PKPaymentNetworkPrivateLabel);
+MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_SUCCESS,                          PKPaymentAuthorizationStatusSuccess);
+MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_FAILTURE,                         PKPaymentAuthorizationStatusFailure);
+MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_BILLING_POSTAL_ADDRESS,   PKPaymentAuthorizationStatusInvalidBillingPostalAddress);
+MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_SHIPPING_POSTAL_ADDRESS,  PKPaymentAuthorizationStatusInvalidShippingPostalAddress);
+MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_SHIPPING_CONTACT,         PKPaymentAuthorizationStatusInvalidShippingContact);
 
-MAKE_SYSTEM_PROP(PAYMENT_SUMMARY_ITEM_TYPE_PENDING,     PKPaymentSummaryItemTypePending);
-MAKE_SYSTEM_PROP(PAYMENT_SUMMARY_ITEM_TYPE_FINAL,       PKPaymentSummaryItemTypeFinal);
+MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_NONE,                                          TiApplepayPaymentGatewayNone);
+MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_STRIPE,                                        TiApplepayPaymentGatewayStripe);
+MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_CHASE,                                         TiApplepayPaymentGatewayChase);
 
-MAKE_SYSTEM_PROP(SHIPPING_TYPE_SHIPPING,                PKShippingTypeShipping);
-MAKE_SYSTEM_PROP(SHIPPING_TYPE_DELIVERY,                PKShippingTypeDelivery);
-MAKE_SYSTEM_PROP(SHIPPING_TYPE_SERVICE_PICKUP,          PKShippingTypeServicePickup);
-MAKE_SYSTEM_PROP(SHIPPING_TYPE_STORE_PICKUP,            PKShippingTypeStorePickup);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_AMEX,                                           PKPaymentNetworkAmex);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_DISCOVER,                                       PKPaymentNetworkDiscover);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_MASTERCARD,                                     PKPaymentNetworkMasterCard);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_VISA,                                           PKPaymentNetworkVisa);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,                                  PKPaymentNetworkPrivateLabel);
 
-MAKE_SYSTEM_PROP(ADDRESS_FIELD_NONE,                    PKAddressFieldNone);
-MAKE_SYSTEM_PROP(ADDRESS_FIELD_POSTAL_ADDRESS,          PKAddressFieldPostalAddress);
-MAKE_SYSTEM_PROP(ADDRESS_FIELD_PHONE,                   PKAddressFieldPhone);
-MAKE_SYSTEM_PROP(ADDRESS_FIELD_EMAIL,                   PKAddressFieldEmail);
-MAKE_SYSTEM_PROP(ADDRESS_FIELD_NAME,                    PKAddressFieldName);
-MAKE_SYSTEM_PROP(ADDRESS_FIELD_ALL,                     PKAddressFieldAll);
+MAKE_SYSTEM_PROP(SHIPPING_TYPE_SHIPPING,                                        PKShippingTypeShipping);
+MAKE_SYSTEM_PROP(SHIPPING_TYPE_DELIVERY,                                        PKShippingTypeDelivery);
+MAKE_SYSTEM_PROP(SHIPPING_TYPE_SERVICE_PICKUP,                                  PKShippingTypeServicePickup);
+MAKE_SYSTEM_PROP(SHIPPING_TYPE_STORE_PICKUP,                                    PKShippingTypeStorePickup);
 
-MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_NONE,                  TiApplepayPaymentGatewayNone);
-MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_STRIPE,                TiApplepayPaymentGatewayStripe);
-MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_CHASE,                 TiApplepayPaymentGatewayChase);
+MAKE_SYSTEM_PROP(ADDRESS_FIELD_NONE,                                            PKAddressFieldNone);
+MAKE_SYSTEM_PROP(ADDRESS_FIELD_POSTAL_ADDRESS,                                  PKAddressFieldPostalAddress);
+MAKE_SYSTEM_PROP(ADDRESS_FIELD_PHONE,                                           PKAddressFieldPhone);
+MAKE_SYSTEM_PROP(ADDRESS_FIELD_EMAIL,                                           PKAddressFieldEmail);
+MAKE_SYSTEM_PROP(ADDRESS_FIELD_NAME,                                            PKAddressFieldName);
+MAKE_SYSTEM_PROP(ADDRESS_FIELD_ALL,                                             PKAddressFieldAll);
+
+MAKE_SYSTEM_PROP(MERCHANT_CAPABILITY_3DS,                                       PKMerchantCapability3DS);
+MAKE_SYSTEM_PROP(MERCHANT_CAPABILITY_CREDIT,                                    PKMerchantCapabilityCredit);
+MAKE_SYSTEM_PROP(MERCHANT_CAPABILITY_DEBIT,                                     PKMerchantCapabilityDebit);
+MAKE_SYSTEM_PROP(MERCHANT_CAPABILITY_EMV,                                       PKMerchantCapabilityEMV);
 
 @end

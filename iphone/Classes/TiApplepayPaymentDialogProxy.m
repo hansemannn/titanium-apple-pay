@@ -9,8 +9,8 @@
 #import "TiApp.h"
 #import "TiApplepayConstants.h"
 #import "TiApplepayPaymentGatewayConfiguration.h"
+#import "TiApplepayShippingMethodCompletionHandlerProxy.h"
 #import <Stripe/Stripe.h>
-// #import <ChasePaymentech/ChasePaymentech.h>
 
 @implementation TiApplepayPaymentDialogProxy
 
@@ -102,10 +102,14 @@
     NSLog(@"[DEBUG] Ti.ApplePay: didSelectShippingMethod");
     
     if ([self _hasListeners:@"didSelectShippingMethod"]) {
-        [self fireEvent:@"didSelectShippingMethod" withObject:nil];
+        TiApplepayShippingMethodCompletionHandlerProxy *handlerProxy = [[TiApplepayShippingMethodCompletionHandlerProxy alloc] _initWithPageContext:[self pageContext]];
+        [handlerProxy setHandler:completion];
+
+        [self fireEvent:@"didSelectShippingMethod" withObject:@{
+            @"identifier" : [shippingMethod identifier],
+            @"handler" : handlerProxy
+        }];
     }
-    
-    completion(PKPaymentAuthorizationStatusSuccess, [[paymentRequestProxy paymentRequest] paymentSummaryItems]);
 }
 
 -(void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
