@@ -7,6 +7,7 @@
 
 #import "TiApplePayPaymentRequestProxy.h"
 #import "TiApplepaySummaryItemProxy.h"
+#import "TiApplepayShippingMethodProxy.h"
 #import "TiApp.h"
 
 @implementation TiApplepayPaymentRequestProxy
@@ -71,6 +72,19 @@
     ENSURE_TYPE(value, NSNumber);
     
     [[self paymentRequest] setShippingType:[TiUtils intValue:value def:PKShippingTypeShipping]];
+}
+
+-(void)setShippingMethods:(id)args
+{
+    ENSURE_TYPE(args, NSArray);
+    NSMutableArray *shippingMethods = [NSMutableArray array];
+
+    for (id arg in args) {
+        ENSURE_TYPE(arg, TiApplepayShippingMethodProxy);
+        [shippingMethods addObject:[(TiApplepayShippingMethodProxy*)arg shippingMethod]];
+    }
+    
+    [[self paymentRequest] setShippingMethods:shippingMethods];
 }
 
 -(void)setRequiredBillingAddressFields:(id)args
