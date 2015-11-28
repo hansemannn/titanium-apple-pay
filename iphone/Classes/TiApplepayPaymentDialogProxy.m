@@ -7,6 +7,8 @@
 
 #import "TiApplepayPaymentDialogProxy.h"
 #import "TiApp.h"
+#import "TiApplepayConstants.h"
+#import "TiApplepayPaymentGatewayConfiguration.h"
 
 @implementation TiApplepayPaymentDialogProxy
 
@@ -44,6 +46,12 @@
     id animated = [args valueForKey:@"animated"];
     ENSURE_TYPE_OR_NIL(animated, NSNumber);
     
+    if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayStripe) {
+        DebugLog(@"[DEBUG] Ti.ApplePay: Stripe configured: %@", [Stripe defaultPublishableKey]);
+    } else {
+        DebugLog(@"[WARN] Ti.ApplePay: No gateway configured: %@", [[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider]);
+    }
+    
     [[[[TiApp app] controller] topPresentedController] presentViewController:[self paymentController] animated:[TiUtils boolValue:animated def:YES] completion:nil];
 }
 
@@ -62,11 +70,28 @@
 {
     NSLog(@"didAuthorizePayment");
     
-    if ([self _hasListeners:@"didAuthorizePayment"]) {
-        [self fireEvent:@"didAuthorizePayment" withObject:@{}];
+    // TODO: Move to own payment gateway handler.
+    if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayStripe) {
+        DebugLog(@"[INFO] Ti.ApplePay: Stripe payment gateway configured. Completing payment ...");
+        
+        [[STPAPIClient sharedClient] createTokenWithPayment:payment completion:^(STPToken *token, NSError *error) {
+             if (error) {
+                 completion(PKPaymentAuthorizationStatusFailure);
+                 return;
+             }
+
+             if ([self _hasListeners:@"didAuthorizePayment"]) {
+                 [self fireEvent:@"didAuthorizePayment" withObject:@{}];
+             } else {
+                 DebugLog(@"[WARN] Ti.ApplePay: Authorization completed, but no didAuthorizePayment event configured.");
+             }
+             
+             completion(PKPaymentAuthorizationStatusSuccess);
+        }];
+    } else {
+        DebugLog(@"[WARN] Ti.ApplePay: No payment gateway configured, skipping ...");
+        completion(PKPaymentAuthorizationStatusSuccess);
     }
-    
-    completion(PKPaymentAuthorizationStatusSuccess);
 }
 
 -(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectPaymentMethod:(PKPaymentMethod *)paymentMethod completion:(void (^)(NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
@@ -76,6 +101,8 @@
     if ([self _hasListeners:@"didSelectPayment"]) {
         [self fireEvent:@"didSelectPayment" withObject:@{}];
     }
+    
+    completion([[paymentRequestProxy paymentRequest] paymentSummaryItems]);
 }
 
 -(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingContact:(PKContact *)contact completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKShippingMethod *> * _Nonnull, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
@@ -85,6 +112,8 @@
     if ([self _hasListeners:@"didSelectShippingContact"]) {
         [self fireEvent:@"didSelectShippingContact" withObject:@{}];
     }
+
+    completion(PKPaymentAuthorizationStatusSuccess,[[paymentRequestProxy paymentRequest] shippingMethods],[[paymentRequestProxy paymentRequest] paymentSummaryItems]);
 }
 
 -(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingMethod:(PKShippingMethod *)shippingMethod completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
@@ -94,6 +123,8 @@
     if ([self _hasListeners:@"didSelectShippingMethod"]) {
         [self fireEvent:@"didSelectShippingMethod" withObject:@{}];
     }
+    
+    completion(PKPaymentAuthorizationStatusSuccess, [[paymentRequestProxy paymentRequest] paymentSummaryItems]);
 }
 
 -(void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller

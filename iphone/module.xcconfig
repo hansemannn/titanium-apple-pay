@@ -1,1 +1,3 @@
-OTHER_LDFLAGS=$(inherited) -weak_framework PassKit
+FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/ti.applepay/0.1.0/platform/ios/PaymentProcessors "~/Library/Application\ Support/Titanium/modules/iphone/ti.applepay/0.1.0/platform/ios/PaymentProcessors"
+
+OTHER_LDFLAGS=$(inherited) -weak_framework PassKit -framework Stripe

@@ -5,17 +5,13 @@
  * Please see the LICENSE included with this distribution for details.
  */
 
-#import "TiModule.h"
-#import "TiApplepayPaymentGatewayConfiguration.h"
+#import <Foundation/Foundation.h>
 
-@interface TiApplepayModule : TiModule {
-    BOOL usingStripe;
-}
+typedef NS_ENUM(NSUInteger, TiApplepayPaymentGateway) {
+    TiApplepayPaymentGatewayNone = 0,
+    TiApplepayPaymentGatewayStripe
+};
 
--(void)setPaymentGateway:(id)args;
-
--(NSNumber*)isSupported:(id)unused;
-
--(NSNumber*)canMakePayments:(id)args;
+@interface TiApplepayConstants : NSObject
 
 @end
