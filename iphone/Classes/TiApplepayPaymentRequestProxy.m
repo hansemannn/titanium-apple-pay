@@ -92,7 +92,7 @@
     }
     
     [[self paymentRequest] setShippingMethods:shippingMethods];
-    [self replaceValue:args forKey:@"shippingMethids" notification:NO];
+    [self replaceValue:args forKey:@"shippingMethods" notification:NO];
 }
 
 -(void)setRequiredBillingAddressFields:(id)args

@@ -7,9 +7,9 @@
 #import "TiProxy.h"
 #import <PassKit/PassKit.h>
 
-@interface TiApplepayShippingMethodCompletionHandlerProxy : TiProxy {}
+@interface TiApplepayShippingContactCompletionHandlerProxy : TiProxy {}
 
-@property(nonatomic,copy) void(^ _Nonnull handler)(PKPaymentAuthorizationStatus, NSArray<PKPaymentSummaryItem *> * _Nonnull);
+@property(nonatomic,copy) void (^ _Nonnull handler)(PKPaymentAuthorizationStatus, NSArray<PKShippingMethod *> * _Nonnull, NSArray<PKPaymentSummaryItem *> * _Nonnull);
 
 -(void)complete:(id _Nonnull)args;
 
