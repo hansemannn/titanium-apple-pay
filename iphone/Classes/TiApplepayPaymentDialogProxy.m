@@ -7,12 +7,16 @@
 
 #import "TiApplepayPaymentDialogProxy.h"
 #import "TiApp.h"
+#import "TiUtils.h"
 #import "TiApplepayConstants.h"
 #import "TiApplepayPaymentGatewayConfiguration.h"
 #import "TiApplepayShippingMethodCompletionHandlerProxy.h"
 #import "TiApplepayShippingContactCompletionHandlerProxy.h"
 #import "TiApplepayPaymentMethodCompletionHandlerProxy.h"
+#import "TiApplepayPaymentAuthorizationCompletionHandlerProxy.h"
 #import <Stripe/Stripe.h>
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @implementation TiApplepayPaymentDialogProxy
 
@@ -26,7 +30,7 @@
 {
     if (paymentController == nil) {
         if (paymentRequestProxy == nil) {
-            [self throwException:@"⚠️ Trying to initialize a payment dialog without specifying a payment request: The paymentRequest property is null! ⚠️" subreason:nil location:CODELOCATION];
+            [self throwException:@"⚠️ Trying to initialize a payment dialog without specifying a valid payment request: The paymentRequest property is null! ⚠️" subreason:nil location:CODELOCATION];
             return;
         }
         
@@ -54,6 +58,11 @@
         DebugLog(@"[DEBUG] Ti.ApplePay: Stripe configured: %@", [Stripe defaultPublishableKey]);
     } else {
         DebugLog(@"[WARN] Ti.ApplePay: ⚠️ No payment gateway configured to process the transaction. ⚠️ ");
+    }
+    
+    if ([self paymentController] == nil) {
+        [self throwException:@"⚠️ Payment dialog could not be shown: Looks like the confirguration is invalid! ⚠️" subreason:nil location:CODELOCATION];
+        return;
     }
     
     [[[[TiApp app] controller] topPresentedController] presentViewController:[self paymentController] animated:[TiUtils boolValue:animated def:YES] completion:nil];
@@ -102,9 +111,9 @@
         TiApplepayShippingContactCompletionHandlerProxy *handlerProxy = [[TiApplepayShippingContactCompletionHandlerProxy alloc] _initWithPageContext:[self pageContext]];
         [handlerProxy setHandler:completion];
         
-        // TODO: Write proxy for PKContact to handle change
         [self fireEvent:@"didSelectShippingContact" withObject:@{
-            @"handler" : handlerProxy
+            @"handler" : handlerProxy,
+            @"contact" : [self dictionaryWithPaymentContact:contact]
         }];
     }
 }
@@ -140,10 +149,13 @@
 
 -(void)handleAuthorizedPayment:(PKPayment *)payment withCompletionHandler:(void (^)(PKPaymentAuthorizationStatus))completion
 {
-    
     if (![self _hasListeners:@"didAuthorizePayment"]) {
-        DebugLog(@"[WARN] Ti.ApplePay: ⚠️ No 'didAuthorizePayment' event listener configured. ⚠️");
+        [self throwException:@"⚠️ Cannot handle a payment without a 'didAuthorizePayment' eventListener being configured. ⚠️" subreason:nil location:CODELOCATION];
+        return;
     }
+    
+    TiApplepayPaymentAuthorizationCompletionHandlerProxy *handlerProxy = [[TiApplepayPaymentAuthorizationCompletionHandlerProxy alloc] _initWithPageContext:[self pageContext]];
+    [handlerProxy setHandler:completion];
     
     /**
      *  TODO: Move to own payment gateway handler.
@@ -153,47 +165,70 @@
         
         [[STPAPIClient sharedClient] createTokenWithPayment:payment completion:^(STPToken *token, NSError *error) {
             if (error) {
-                [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(NO)}];
-                completion(PKPaymentAuthorizationStatusFailure);
+                [self fireEvent:@"didAuthorizePayment" withObject:@{
+                    @"success": NUMBOOL(NO),
+                    @"handler": handlerProxy
+                }];
+                
                 return;
             }
             
-            [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(YES)}];
-            completion(PKPaymentAuthorizationStatusSuccess);
-            
+            [self fireEvent:@"didAuthorizePayment" withObject:@{
+                @"success": NUMBOOL(YES),
+                @"handler": handlerProxy,
+                @"payment": [self dictionaryWithPayment:payment],
+                @"stripeTokenId": token.tokenId
+            }];
         }];
-    } /*else if([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayChase) {
-        DebugLog(@"[WARN] Ti.ApplePay: ⚠️ Chase payments are not possible, yet. ⚠️");
-
-        CPSGateway *gateway = [[CPSGateway alloc] init];
-        
-        gateway.test = YES;
-        
-        CPSAuthorizationRequest *request = [[CPSAuthorizationRequest alloc] initWithPaymentData:payment.token.paymentData];
-        
-        request.orderId = [NSString stringWithFormat:@"%ld", arc4random()%9000 + 10000000000];
-        request.billingAddress = [[CPSBillingAddress alloc] init];
-        request.billingAddress.postalCode = @"33333";
-        request.capture = NO;
-        
-        [gateway authorizePaymentWithRequest:request withCompletionHandler:^(CPSAuthorizationResponse *response, NSError *error) {
-            if(error != nil) {
-                [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(NO)}];
-            } else {
-                if([response.procStatus isEqualToString:@"0"] && [response.respCode isEqualToString:@"00"]) {
-                    [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(YES)}];
-                    completion(PKPaymentAuthorizationStatusSuccess);
-                    return;
-                } else {
-                    [self fireEvent:@"didAuthorizePayment" withObject:@{@"success": NUMBOOL(NO)}];
-                }
-            }
-            completion(PKPaymentAuthorizationStatusFailure);
-            
-        }];
-    } */ else {
-        DebugLog(@"[WARN] Ti.ApplePay: ⚠️ No payment gateway configured, skipping ... ⚠️");
-        completion(PKPaymentAuthorizationStatusSuccess);
+    } else {
+        [self throwException:@"⚠️ No payment gateway configured! ⚠️" subreason:nil location:CODELOCATION];
+        completion(PKPaymentAuthorizationStatusFailure);
     }
 }
+
+-(NSDictionary *)dictionaryWithPaymentContact:(PKContact*)contact
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
+        @"prefix": [self proxyValueFromContactValue:[[contact name] namePrefix]],
+        @"firstName": [self proxyValueFromContactValue:[[contact name] givenName]],
+        @"middleName": [self proxyValueFromContactValue:[[contact name] middleName]],
+        @"lastName": [self proxyValueFromContactValue:[[contact name] familyName]],
+        @"suffix": [self proxyValueFromContactValue:[[contact name] nameSuffix]],
+        @"email": [self proxyValueFromContactValue:[contact emailAddress]],
+        @"phone": [self proxyValueFromContactValue:[[contact phoneNumber] stringValue]],
+        @"address": @{
+            @"street": [self proxyValueFromContactValue:[[contact postalAddress] street]],
+            @"postalCode": [self proxyValueFromContactValue:[[contact postalAddress] postalCode]],
+            @"city": [self proxyValueFromContactValue:[[contact postalAddress] city]],
+            @"state": [self proxyValueFromContactValue:[[contact postalAddress] state]],
+            @"country": [self proxyValueFromContactValue:[[contact postalAddress] country]]
+        }
+    }];
+    
+#if __IPHONE_9_2
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
+        [dict setValue:[self proxyValueFromContactValue:[self proxyValueFromContactValue:[contact supplementarySubLocality]]] forKey:@"supplementarySubLocality"];
+    }
+#endif
+    
+    return dict;
+}
+
+-(NSDictionary *)dictionaryWithPayment:(PKPayment *)payment
+{
+    return @{
+        @"transactionIdentifier" : payment.token.transactionIdentifier,
+        @"paymentData" : [[TiBlob alloc] initWithData:payment.token.paymentData mimetype:@"text/json"],
+    };
+}
+
+-(id)proxyValueFromContactValue:(id)value
+{
+    if (value == nil) {
+        return [NSNull null];
+    }
+    
+    return value;
+}
+
 @end

@@ -43,8 +43,12 @@
 		3AB302431C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB302411C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.m */; };
 		3AB302471C0A781200902339 /* TiApplepayPaymentMethodCompletionHandlerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB302451C0A781200902339 /* TiApplepayPaymentMethodCompletionHandlerProxy.h */; };
 		3AB302481C0A781200902339 /* TiApplepayPaymentMethodCompletionHandlerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB302461C0A781200902339 /* TiApplepayPaymentMethodCompletionHandlerProxy.m */; };
+		3AB67A151C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB67A131C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.h */; };
+		3AB67A161C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB67A141C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.m */; };
 		3ABE15621C0A157B004B35AC /* TiApplepayShippingMethodProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABE15601C0A157B004B35AC /* TiApplepayShippingMethodProxy.m */; };
 		3ABE15641C0A15BF004B35AC /* TiApplepayShippingMethodProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ABE15631C0A15BF004B35AC /* TiApplepayShippingMethodProxy.h */; };
+		3ABE1F4D1C0DFD5B00725C95 /* TiApplepayContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ABE1F4B1C0DFD5B00725C95 /* TiApplepayContact.h */; };
+		3ABE1F4E1C0DFD5B00725C95 /* TiApplepayContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABE1F4C1C0DFD5B00725C95 /* TiApplepayContact.m */; };
 		3AE9AB5D1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9AB5B1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.h */; };
 		3AE9AB5E1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AB5C1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.m */; };
 		3AE9AB631C092D300058B80E /* TiApplepayConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9AB611C092D300058B80E /* TiApplepayConstants.h */; };
@@ -86,8 +90,12 @@
 		3AB302411C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayShippingContactCompletionHandlerProxy.m; path = Classes/TiApplepayShippingContactCompletionHandlerProxy.m; sourceTree = "<group>"; };
 		3AB302451C0A781200902339 /* TiApplepayPaymentMethodCompletionHandlerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayPaymentMethodCompletionHandlerProxy.h; path = Classes/TiApplepayPaymentMethodCompletionHandlerProxy.h; sourceTree = "<group>"; };
 		3AB302461C0A781200902339 /* TiApplepayPaymentMethodCompletionHandlerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentMethodCompletionHandlerProxy.m; path = Classes/TiApplepayPaymentMethodCompletionHandlerProxy.m; sourceTree = "<group>"; };
+		3AB67A131C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayPaymentAuthorizationCompletionHandlerProxy.h; path = Classes/TiApplepayPaymentAuthorizationCompletionHandlerProxy.h; sourceTree = "<group>"; };
+		3AB67A141C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentAuthorizationCompletionHandlerProxy.m; path = Classes/TiApplepayPaymentAuthorizationCompletionHandlerProxy.m; sourceTree = "<group>"; };
 		3ABE15601C0A157B004B35AC /* TiApplepayShippingMethodProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayShippingMethodProxy.m; path = Classes/TiApplepayShippingMethodProxy.m; sourceTree = "<group>"; };
 		3ABE15631C0A15BF004B35AC /* TiApplepayShippingMethodProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayShippingMethodProxy.h; path = Classes/TiApplepayShippingMethodProxy.h; sourceTree = "<group>"; };
+		3ABE1F4B1C0DFD5B00725C95 /* TiApplepayContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayContact.h; path = Classes/TiApplepayContact.h; sourceTree = "<group>"; };
+		3ABE1F4C1C0DFD5B00725C95 /* TiApplepayContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayContact.m; path = Classes/TiApplepayContact.m; sourceTree = "<group>"; };
 		3AE9AB5B1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayPaymentGatewayConfiguration.h; path = Classes/TiApplepayPaymentGatewayConfiguration.h; sourceTree = "<group>"; };
 		3AE9AB5C1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentGatewayConfiguration.m; path = Classes/TiApplepayPaymentGatewayConfiguration.m; sourceTree = "<group>"; };
 		3AE9AB611C092D300058B80E /* TiApplepayConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayConstants.h; path = Classes/TiApplepayConstants.h; sourceTree = "<group>"; };
@@ -209,6 +217,7 @@
 		3AB302031C0A20C600902339 /* Completion Handler */ = {
 			isa = PBXGroup;
 			children = (
+				3AB67A121C0E3B02008652BA /* Payment Authorization */,
 				3AB302441C0A77DD00902339 /* Payment Method */,
 				3AB3023F1C0A745E00902339 /* Shipping Contact */,
 				3AB302091C0A2C3E00902339 /* Shipping Method */,
@@ -219,6 +228,7 @@
 		3AB302041C0A20CD00902339 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3ABE1F4A1C0DFD3700725C95 /* PKContact */,
 				3AB302031C0A20C600902339 /* Completion Handler */,
 			);
 			name = Helper;
@@ -251,6 +261,15 @@
 			name = "Payment Method";
 			sourceTree = "<group>";
 		};
+		3AB67A121C0E3B02008652BA /* Payment Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				3AB67A131C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.h */,
+				3AB67A141C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.m */,
+			);
+			name = "Payment Authorization";
+			sourceTree = "<group>";
+		};
 		3ABE155E1C0A1565004B35AC /* Shipping Method */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +277,15 @@
 				3ABE15601C0A157B004B35AC /* TiApplepayShippingMethodProxy.m */,
 			);
 			name = "Shipping Method";
+			sourceTree = "<group>";
+		};
+		3ABE1F4A1C0DFD3700725C95 /* PKContact */ = {
+			isa = PBXGroup;
+			children = (
+				3ABE1F4B1C0DFD5B00725C95 /* TiApplepayContact.h */,
+				3ABE1F4C1C0DFD5B00725C95 /* TiApplepayContact.m */,
+			);
+			name = PKContact;
 			sourceTree = "<group>";
 		};
 		3AE9AB5F1C092C610058B80E /* Payment Gateway Configuration */ = {
@@ -276,6 +304,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABE1F4D1C0DFD5B00725C95 /* TiApplepayContact.h in Headers */,
 				3AE9AB631C092D300058B80E /* TiApplepayConstants.h in Headers */,
 				AA747D9F0F9514B9006C5449 /* TiApplepay_Prefix.pch in Headers */,
 				24DD6CF91134B3F500162E58 /* TiApplepayModule.h in Headers */,
@@ -289,6 +318,7 @@
 				3A7501991C077A970036ABDD /* TiApplepaySummaryItemProxy.h in Headers */,
 				3A1571A01C05791100EA749D /* TiApplepayPaymentRequestProxy.h in Headers */,
 				3A3B2EA61C06BE950048E291 /* TiApplepayPaymentButtonProxy.h in Headers */,
+				3AB67A151C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.h in Headers */,
 				3AB302421C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,12 +393,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABE1F4E1C0DFD5B00725C95 /* TiApplepayContact.m in Sources */,
 				3AB302481C0A781200902339 /* TiApplepayPaymentMethodCompletionHandlerProxy.m in Sources */,
 				3AB302431C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.m in Sources */,
 				3A1D0F6A1C079485006C5167 /* TiApplepayPaymentButton.m in Sources */,
 				3ABE15621C0A157B004B35AC /* TiApplepayShippingMethodProxy.m in Sources */,
 				24DD6CFA1134B3F500162E58 /* TiApplepayModule.m in Sources */,
 				3A3B2EA71C06BE950048E291 /* TiApplepayPaymentButtonProxy.m in Sources */,
+				3AB67A161C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.m in Sources */,
 				3AE9AB5E1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* TiApplepayModuleAssets.m in Sources */,
 				3A75019A1C077A970036ABDD /* TiApplepaySummaryItemProxy.m in Sources */,
@@ -509,6 +541,7 @@
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Debug;
 		};
@@ -542,6 +575,7 @@
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Release;
 		};

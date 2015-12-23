@@ -5,10 +5,15 @@
  * Please see the LICENSE included with this distribution for details.
  */
 
+#import "TiApp.h"
 #import "TiApplePayPaymentRequestProxy.h"
 #import "TiApplepaySummaryItemProxy.h"
 #import "TiApplepayShippingMethodProxy.h"
-#import "TiApp.h"
+#import "TiApplepayContact.h"
+
+#ifdef USE_TI_CONTACTS
+#import "TiContactsPerson.h"
+#endif
 
 @implementation TiApplepayPaymentRequestProxy
 
@@ -20,7 +25,7 @@
     [super dealloc];
 }
 
--(PKPaymentRequest*)paymentRequest
+-(PKPaymentRequest *)paymentRequest
 {
     if (paymentRequest == nil) {
         paymentRequest = [PKPaymentRequest new];
@@ -40,7 +45,7 @@
 
 -(void)setMerchantCapabilities:(id)args
 {
-    ENSURE_SINGLE_ARG(args, NSNumber)
+    ENSURE_SINGLE_ARG(args, NSNumber);
 
     [[self paymentRequest] setMerchantCapabilities:[TiUtils intValue:args]];
     [self replaceValue:args forKey:@"merchantCapabilities" notification:NO];
@@ -78,7 +83,6 @@
     
     [[self paymentRequest] setShippingType:[TiUtils intValue:value def:PKShippingTypeShipping]];
     [self replaceValue:value forKey:@"shippingType" notification:NO];
-
 }
 
 -(void)setShippingMethods:(id)args
@@ -93,6 +97,18 @@
     
     [[self paymentRequest] setShippingMethods:shippingMethods];
     [self replaceValue:args forKey:@"shippingMethods" notification:NO];
+}
+
+-(void)setShippingContact:(id)value
+{
+    [[self paymentRequest] setShippingContact:[self contactFromProxy:value]];
+    [self replaceValue:value forKey:@"shippingContact" notification:NO];
+}
+
+-(void)setBillingContact:(id)value
+{
+    [[self paymentRequest] setBillingContact:[self contactFromProxy:value]];
+    [self replaceValue:value forKey:@"billingContact" notification:NO];
 }
 
 -(void)setRequiredBillingAddressFields:(id)args
@@ -130,6 +146,27 @@
     
     [[self paymentRequest] setPaymentSummaryItems:items];
     [self replaceValue:args forKey:@"summaryItems" notification:NO];
+}
+
+#pragma mark Helper
+
+-(PKContact *)contactFromProxy:(id)proxy
+{
+    PKContact *contact = nil;
+    
+    if ([proxy isKindOfClass:[NSDictionary class]]) {
+        contact = [[TiApplepayContact alloc] initWithDictionary:proxy];
+    } else {
+#ifdef USE_TI_CONTACTS
+            contact = [[TiApplepayContact alloc] initWithPerson:(TiContactsPerson*)proxy];
+#endif
+    }
+    
+    if (contact == nil) {
+        [self throwException:@"Invalid contact type provided." subreason:@"The contact must either be a Ti.Contacts.Person or an object" location:CODELOCATION];
+    }
+    
+    return contact;
 }
 
 @end
