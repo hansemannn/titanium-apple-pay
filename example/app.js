@@ -3,7 +3,7 @@
  *  Conceptual archticture
  *  Version: 0.2
  *  Author: Hans Knoechel
- *  Last modified: 2015-12-03
+ *  Last modified: 2015-11-28
  *
  *  References:
  *    - https://developer.apple.com/library/ios/documentation/PassKit/Reference/PKPaymentButton_Class/index.html
@@ -107,7 +107,8 @@ var contact = {
  //       ISOCountyCode: "USA"
     },
     email: "john@doe.com",
-    phone: "+1 123 456-7890"
+    phone: "+1 123 456-7890",
+    supplementarySubLocality: "Nödike"
 };
 
 /**
@@ -118,8 +119,8 @@ var paymentRequest = ApplePay.createPaymentRequest({
     merchantCapabilities: ApplePay.MERCHANT_CAPABILITY_3DS | ApplePay.MERCHANT_CAPABILITY_CREDIT | ApplePay.MERCHANT_CAPABILITY_DEBIT | ApplePay.MERCHANT_CAPABILITY_EMV,
     countryCode: "US",
     currencyCode: "USD",
-    billingContact: contact,
-    shippingContact: contact,
+    // billingContact: contact,
+   // shippingContact: contact,
     supportedNetworks: [ApplePay.PAYMENT_NETWORK_VISA, ApplePay.PAYMENT_NETWORK_MASTERCARD],
     requiredShippingAddressFields: ApplePay.ADDRESS_FIELD_POSTAL_ADDRESS,
     requiredBillingAddressFields: ApplePay.ADDRESS_FIELD_POSTAL_ADDRESS,
@@ -144,8 +145,8 @@ var paymentDialog = ApplePay.createPaymentDialog({
 paymentDialog.addEventListener("didSelectPayment", didSelectPayment);
 paymentDialog.addEventListener("didSelectShippingContact", didSelectShippingContact);
 paymentDialog.addEventListener("didSelectShippingMethod", didSelectShippingMethod);
-paymentDialog.addEventListener("willAuthorizePayment", didAuthorizePayment);
-paymentDialog.addEventListener("didAuthorizePayment", willAuthorizePayment);
+paymentDialog.addEventListener("willAuthorizePayment", willAuthorizePayment);
+paymentDialog.addEventListener("didAuthorizePayment", didAuthorizePayment);
 paymentDialog.addEventListener("close", willClose);
 
 function didSelectPayment(e) {
@@ -153,6 +154,7 @@ function didSelectPayment(e) {
 }
 
 function didSelectShippingContact(e) {
+    Ti.API.warn(e);
     e.handler.complete(ApplePay.PAYMENT_AUTHORIZATION_STATUS_SUCCESS, paymentRequest.getShippingMethods(), paymentRequest.getSummaryItems());
 }
 
@@ -180,8 +182,7 @@ function willAuthorizePayment() {
 function didAuthorizePayment(e) {
 
     // Send the encrypted payment data to your backend and send the completion handler afterwards.
-
-    Ti.API.ingo("Payment successfully authorized: " + e.success);
+    Ti.API.info("Payment successfully authorized: " + e.success);
     e.handler.complete(ApplePay.PAYMENT_AUTHORIZATION_STATUS_SUCCESS);
 }
 
