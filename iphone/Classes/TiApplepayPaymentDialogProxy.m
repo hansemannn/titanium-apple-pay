@@ -61,7 +61,7 @@
     }
     
     if ([self paymentController] == nil) {
-        [self throwException:@"⚠️ Payment dialog could not be shown: Looks like the confirguration is invalid! ⚠️" subreason:nil location:CODELOCATION];
+        [self throwException:@"⚠️ Payment dialog could not be shown: Looks like the configuration is invalid! ⚠️" subreason:nil location:CODELOCATION];
         return;
     }
     
@@ -161,7 +161,7 @@
      *  TODO: Move to own payment gateway handler.
      */
     if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayStripe) {
-        DebugLog(@"[INFO] Ti.ApplePay: Stripe payment gateway configured. Completing payment ...");
+        DebugLog(@"[DEBUG] Ti.ApplePay: Stripe payment gateway configured. Completing payment ...");
         
         [[STPAPIClient sharedClient] createTokenWithPayment:payment completion:^(STPToken *token, NSError *error) {
             if (error) {
