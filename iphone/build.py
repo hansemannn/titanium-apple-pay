@@ -225,12 +225,12 @@ def package_module(manifest,mf,config):
 	zf.write(mf,'%s/manifest' % modulepath)
 	libname = 'lib%s.a' % moduleid
 	zf.write('build/%s' % libname, '%s/%s' % (modulepath,libname))
-	docs = generate_doc(config)
-	if docs!=None:
-		for doc in docs:
-			for file, html in doc.iteritems():
-				filename = string.replace(file,'.md','.html')
-				zf.writestr('%s/documentation/%s'%(modulepath,filename),html)
+    #docs = generate_doc(config)
+    #if docs!=None:
+    #	for doc in docs:
+    #		for file, html in doc.iteritems():
+	#			filename = string.replace(file,'.md','.html')
+	#			zf.writestr('%s/documentation/%s'%(modulepath,filename),html)
 
 	p = os.path.join(cwd, 'assets')
 	if not os.path.exists(p):

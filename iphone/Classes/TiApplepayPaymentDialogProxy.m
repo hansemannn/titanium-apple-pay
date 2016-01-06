@@ -54,10 +54,15 @@
     id animated = [args valueForKey:@"animated"];
     ENSURE_TYPE_OR_NIL(animated, NSNumber);
     
-    if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayStripe) {
-        DebugLog(@"[DEBUG] Ti.ApplePay: Stripe configured: %@", [Stripe defaultPublishableKey]);
-    } else {
-        DebugLog(@"[WARN] Ti.ApplePay: ⚠️ No payment gateway configured to process the transaction. ⚠️ ");
+    switch ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider]) {
+        case TiApplepayPaymentGatewayStripe:
+            NSLog(@"[DEBUG] Ti.ApplePay: Stripe configured: %@", [Stripe defaultPublishableKey]);
+            break;
+
+        case TiApplepayPaymentGatewayNone:
+        default:
+            NSLog(@"[DEBUG] Ti.ApplePay: No payment provider selected, using own gateway.");
+            break;
     }
     
     if ([self paymentController] == nil) {
@@ -161,7 +166,7 @@
      *  TODO: Move to own payment gateway handler.
      */
     if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayStripe) {
-        DebugLog(@"[DEBUG] Ti.ApplePay: Stripe payment gateway configured. Completing payment ...");
+        NSLog(@"[DEBUG] Ti.ApplePay: Stripe payment gateway configured. Completing payment ...");
         
         [[STPAPIClient sharedClient] createTokenWithPayment:payment completion:^(STPToken *token, NSError *error) {
             if (error) {
@@ -179,6 +184,14 @@
                 @"payment": [self dictionaryWithPayment:payment],
                 @"stripeTokenId": token.tokenId
             }];
+        }];
+    } else if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayNone) {
+        NSLog(@"[DEBUG] Ti.ApplePay: No payment provider configured, Completing payment ...");
+        
+        [self fireEvent:@"didAuthorizePayment" withObject:@{
+            @"success": NUMBOOL(YES),
+            @"handler": handlerProxy,
+            @"payment": [self dictionaryWithPayment:payment]
         }];
     } else {
         [self throwException:@"⚠️ No payment gateway configured! ⚠️" subreason:nil location:CODELOCATION];

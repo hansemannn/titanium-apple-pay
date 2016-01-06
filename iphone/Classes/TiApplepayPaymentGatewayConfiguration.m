@@ -41,8 +41,6 @@
 {
     if ([self paymentProvider] == TiApplepayPaymentGatewayStripe) {
         [Stripe setDefaultPublishableKey:[self apiKey]];
-    } else if ([self paymentProvider] == TiApplepayPaymentGatewayChase) {
-        
     }
 }
 

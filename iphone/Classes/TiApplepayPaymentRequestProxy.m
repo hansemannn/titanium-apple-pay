@@ -46,7 +46,6 @@
 -(void)setMerchantCapabilities:(id)args
 {
     ENSURE_SINGLE_ARG(args, NSNumber);
-
     [[self paymentRequest] setMerchantCapabilities:[TiUtils intValue:args]];
     [self replaceValue:args forKey:@"merchantCapabilities" notification:NO];
 }
@@ -158,12 +157,12 @@
         contact = [[TiApplepayContact alloc] initWithDictionary:proxy];
     } else {
 #ifdef USE_TI_CONTACTS
-            contact = [[TiApplepayContact alloc] initWithPerson:(TiContactsPerson*)proxy];
+        contact = [[TiApplepayContact alloc] initWithPerson:(TiContactsPerson*)proxy];
 #endif
     }
     
     if (contact == nil) {
-        [self throwException:@"Invalid contact type provided." subreason:@"The contact must either be a Ti.Contacts.Person or an object" location:CODELOCATION];
+        [self throwException:@"Invalid contact type provided." subreason:@"The contact must either be an Object (recommended) or a Ti.Contacts.Person." location:CODELOCATION];
     }
     
     return contact;

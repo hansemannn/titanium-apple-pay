@@ -47,15 +47,14 @@
     
     id name = [args valueForKey:@"name"];
     id apiKey = [args valueForKey:@"apiKey"];
-    ENSURE_TYPE(name, NSNumber);
-    ENSURE_TYPE(apiKey, NSString);
+    ENSURE_TYPE_OR_NIL(name, NSNumber);
+    ENSURE_TYPE_OR_NIL(apiKey, NSString);
     
-    if ([TiUtils intValue:name def:TiApplepayPaymentGatewayNone] == TiApplepayPaymentGatewayNone) {
-        [self throwException:@"Invalid payment gateway set! Apple Pay needs a payment gateway to complete transactions." subreason:nil location:CODELOCATION];
-        return;
+    if (name == nil) {
+        NSLog(@"[WARN] Ti.ApplePay: Invalid payment gateway set! Apple Pay needs a payment gateway to complete transactions. Will fallback to PAYMENT_GATEWAY_NONE.");
     }
 
-    [[TiApplepayPaymentGatewayConfiguration sharedConfig] setPaymentProvider:TiApplepayPaymentGatewayStripe];
+    [[TiApplepayPaymentGatewayConfiguration sharedConfig] setPaymentProvider:[TiUtils intValue:name def:TiApplepayPaymentGatewayNone]];
     [[TiApplepayPaymentGatewayConfiguration sharedConfig] setApiKey:[TiUtils stringValue:apiKey]];
 }
 
