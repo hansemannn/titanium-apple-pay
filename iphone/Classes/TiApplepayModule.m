@@ -88,6 +88,17 @@
     return NUMBOOL([PKPaymentAuthorizationViewController canMakePayments]);
 }
 
+-(NSNumber*)isPassLibraryAvailable:(id)unused
+{
+    return NUMBOOL([PKPassLibrary isPassLibraryAvailable]);
+}
+
+-(void)openPaymentSetup:(id)unused
+{
+    PKPassLibrary *lib = [[[PKPassLibrary alloc] init] autorelease];
+    [lib openPaymentSetup];
+}
+
 #pragma mark Public constants
 
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_PLAIN,                                     PKPaymentButtonTypePlain);

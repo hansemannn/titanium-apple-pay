@@ -21,9 +21,15 @@ ApplePay.setupPaymentGateway({
  *  Apple Pay button
  */
 var payButton = ApplePay.createPaymentButton({
+
+    // You can check if passes are available using `ApplePay.isPassLibraryAvailable()`
+    // and change the type to `PAYMENT_BUTTON_TYPE_SETUP` if no passes exist, yet
     type: ApplePay.PAYMENT_BUTTON_TYPE_BUY,
     style: ApplePay.PAYMENT_BUTTON_STYLE_WHITE_OUTLINE
 });
+
+// If the user can't make payments, you can check if a display the setup dialog by
+// calling `ApplePay.openPaymentSetup();`` instead
 payButton.addEventListener("click", openPaymentDialog);
 
 /**
