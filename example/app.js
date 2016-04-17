@@ -1,9 +1,9 @@
 /**
  *  Apple Pay module for Titanium Mobile
  *  Conceptual archticture
- *  Version: 0.2
+ *  Version: 1.2.0
  *  Author: Hans Knoechel
- *  Last modified: 2015-11-28
+ *  Last modified: 2016-04-17
  *
  *  References:
  *    - https://developer.apple.com/library/ios/documentation/PassKit/Reference/PKPaymentButton_Class/index.html
@@ -29,13 +29,21 @@ var payButton = ApplePay.createPaymentButton({
 });
 
 // If the user can't make payments, you can check if a display the setup dialog by
-// calling `ApplePay.openPaymentSetup();`` instead
+// calling `ApplePay.openPaymentSetup();` instead
 payButton.addEventListener("click", openPaymentDialog);
 
 /**
  *  Check Apple Pay support
  */
 Ti.API.info("Can make payments? " + ApplePay.canMakePayments());
+
+/* 
+ * You can also check certain conditions
+ */
+// ApplePay.canMakePayments({
+//     networks: [ApplePay.PAYMENT_NETWORK_VISA, ApplePay.PAYMENT_NETWORK_MASTERCARD],
+//     capabilities: ApplePay.MERCHANT_CAPABILITY_3DS | ApplePay.MERCHANT_CAPABILITY_CREDIT
+// })
 
 /**
  *  Summary Items
