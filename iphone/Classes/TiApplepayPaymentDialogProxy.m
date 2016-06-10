@@ -31,7 +31,7 @@
     if (paymentController == nil) {
         if (paymentRequestProxy == nil) {
             [self throwException:@"⚠️ Trying to initialize a payment dialog without specifying a valid payment request: The paymentRequest property is null! ⚠️" subreason:nil location:CODELOCATION];
-            return;
+            return nil;
         }
         
         paymentController = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:[paymentRequestProxy paymentRequest]];
@@ -65,12 +65,12 @@
             break;
     }
     
-    if ([self paymentController] == nil) {
+    if (![self paymentController]) {
         [self throwException:@"⚠️ Payment dialog could not be shown: Looks like the configuration is invalid! ⚠️" subreason:nil location:CODELOCATION];
         return;
     }
     
-    [[[[TiApp app] controller] topPresentedController] presentViewController:[self paymentController] animated:[TiUtils boolValue:animated def:YES] completion:nil];
+    [[TiApp app] showModalController:[self paymentController] animated:[TiUtils boolValue:animated def:YES]];
 }
 
 #pragma mark - Apple Pay delegates
@@ -172,7 +172,9 @@
             if (error) {
                 [self fireEvent:@"didAuthorizePayment" withObject:@{
                     @"success": NUMBOOL(NO),
-                    @"handler": handlerProxy
+                    @"handler": handlerProxy,
+                    @"error": [error localizedDescription],
+                    @"code": NUMINTEGER([error code])
                 }];
                 
                 return;
@@ -182,6 +184,7 @@
                 @"success": NUMBOOL(YES),
                 @"handler": handlerProxy,
                 @"payment": [self dictionaryWithPayment:payment],
+                @"created": token.created,
                 @"stripeTokenId": token.tokenId
             }];
         }];
@@ -231,7 +234,7 @@
 {
     return @{
         @"transactionIdentifier" : payment.token.transactionIdentifier,
-        @"paymentData" : [[TiBlob alloc] initWithData:payment.token.paymentData mimetype:@"text/json"],
+        @"paymentData" : [[[TiBlob alloc] initWithData:payment.token.paymentData mimetype:@"text/json"] autorelease],
     };
 }
 

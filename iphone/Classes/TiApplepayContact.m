@@ -87,6 +87,9 @@
     
     [self setEmailAddress:[dictionary valueForKey:@"email"]];
     [self setPhoneNumber:[CNPhoneNumber phoneNumberWithStringValue:[dictionary valueForKey:@"phone"]]];
+    
+    [nameComponents release];
+    [address release];
 }
 
 @end

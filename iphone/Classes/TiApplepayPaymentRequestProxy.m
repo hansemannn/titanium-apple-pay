@@ -155,11 +155,12 @@
     
     if ([proxy isKindOfClass:[NSDictionary class]]) {
         contact = [[TiApplepayContact alloc] initWithDictionary:proxy];
-    } else {
-#ifdef USE_TI_CONTACTS
-        contact = [[TiApplepayContact alloc] initWithPerson:(TiContactsPerson*)proxy];
-#endif
     }
+#ifdef USE_TI_CONTACTS
+    else if ([proxy isKindOfClass:[TiContactsPerson class]]) {
+        contact = [[TiApplepayContact alloc] initWithPerson:(TiContactsPerson*)proxy];
+    }
+#endif
     
     if (contact == nil) {
         [self throwException:@"Invalid contact type provided." subreason:@"The contact must either be an Object (recommended) or a Ti.Contacts.Person." location:CODELOCATION];

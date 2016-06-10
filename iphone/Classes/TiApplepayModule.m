@@ -5,6 +5,8 @@
  * Please see the LICENSE included with this distribution for details.
  */
 
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 #import "TiBase.h"
 #import "TiHost.h"
 #import "TiUtils.h"
@@ -66,7 +68,7 @@
 -(NSNumber*)canMakePayments:(id)args
 {
     NSArray *networks = nil;
-    PKMerchantCapability capabilities;
+    PKMerchantCapability capabilities = nil;
     
     if ([args valueForKey:@"networks"]) {
         ENSURE_TYPE([args valueForKey:@"networks"], NSArray);
@@ -122,6 +124,29 @@ MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_FAILTURE,                         
 MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_BILLING_POSTAL_ADDRESS,   PKPaymentAuthorizationStatusInvalidBillingPostalAddress);
 MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_SHIPPING_POSTAL_ADDRESS,  PKPaymentAuthorizationStatusInvalidShippingPostalAddress);
 MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_SHIPPING_CONTACT,         PKPaymentAuthorizationStatusInvalidShippingContact);
+
+#if __IPHONE_9_2
+-(NSNumber*)PAYMENT_AUTHORIZATION_STATUS_PIN_REQUIRED
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
+        return [NSNumber numberWithInt:PKPaymentAuthorizationStatusPINRequired];
+    }
+}
+
+-(NSNumber*)PAYMENT_AUTHORIZATION_STATUS_PIN_INCORRECT
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
+        return [NSNumber numberWithInt:PKPaymentAuthorizationStatusPINIncorrect];
+    }
+}
+
+-(NSNumber*)PAYMENT_AUTHORIZATION_STATUS_PIN_LOCKOUT
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
+        return [NSNumber numberWithInt:PKPaymentAuthorizationStatusPINLockout];
+    }
+}
+#endif
 
 MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_NONE,                                          TiApplepayPaymentGatewayNone);
 MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_STRIPE,                                        TiApplepayPaymentGatewayStripe);
