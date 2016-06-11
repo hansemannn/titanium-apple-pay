@@ -12,7 +12,7 @@
 @implementation TiApplepayContact
 
 #ifdef USE_TI_CONTACTS
--(instancetype)initWithPerson:(TiContactsPerson*)_person
+-(id)initWithPerson:(TiContactsPerson*)_person
 {
     if (self = [super init]) {
         person = _person;
@@ -23,7 +23,7 @@
 }
 #endif
 
--(instancetype)initWithDictionary:(NSDictionary*)_dictionary
+-(id)initWithDictionary:(NSDictionary*)_dictionary
 {
     if (self = [super init]) {
         dictionary = _dictionary;

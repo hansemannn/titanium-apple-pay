@@ -20,9 +20,9 @@
 }
 
 #ifdef USE_TI_CONTACTS
--(instancetype)initWithPerson:(TiContactsPerson*)_person;
+-(id)initWithPerson:(TiContactsPerson*)_person;
 #endif
 
--(instancetype)initWithDictionary:(NSDictionary*)_dictionary;
+-(id)initWithDictionary:(NSDictionary*)_dictionary;
 
 @end
