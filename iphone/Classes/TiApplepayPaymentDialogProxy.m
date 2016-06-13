@@ -233,6 +233,9 @@
 -(NSDictionary *)dictionaryWithPayment:(PKPayment *)payment
 {
     return @{
+        @"paymentNetwork" : payment.token.paymentNetwork,
+        @"paymentInstrumentName" : payment.token.paymentInstrumentName,
+        @"paymentMethod" : NUMUINT(payment.token.paymentMethod.type),
         @"transactionIdentifier" : payment.token.transactionIdentifier,
         @"paymentData" : [[[TiBlob alloc] initWithData:payment.token.paymentData mimetype:@"text/json"] autorelease],
     };

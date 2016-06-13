@@ -7,3 +7,4 @@ iphone/build
 bin/**
 libs
 dist
+/iphone/ti.applepay.xcodeproj/project.xcworkspace/xcuserdata/hans.xcuserdatad/UserInterfaceState.xcuserstate
