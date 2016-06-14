@@ -36,6 +36,17 @@
 
 #pragma mark Public APIs
 
+#ifdef __IPHONE_10_0
+-(NSArray*)availableNetworks:(id)unused
+{
+    if ([TiUtils isIOS10OrGreater]) {
+        return [PKPaymentRequest availableNetworks];
+    } else {
+        return @[];
+    }
+}
+#endif
+
 -(void)setMerchantIdentifier:(id)value
 {
     ENSURE_TYPE(value, NSString);

@@ -107,6 +107,17 @@ MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_PLAIN,                                     
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_BUY,                                       PKPaymentButtonTypeBuy);
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_SETUP,                                     PKPaymentButtonTypeSetUp);
 
+#ifdef __IPHONE_10_0
+-(NSNumber*)PAYMENT_BUTTON_TYPE_IN_STORE
+{
+    if ([TiUtils isIOS10OrGreater]) {
+        return NUMINTEGER(PKPaymentButtonTypeInStore);
+    } else {
+        return nil;
+    }
+}
+#endif
+
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_BLACK,                                    PKPaymentButtonStyleBlack);
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_WHITE,                                    PKPaymentButtonStyleWhite);
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_WHITE_OUTLINE,                            PKPaymentButtonStyleWhiteOutline);
