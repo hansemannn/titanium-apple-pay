@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#define FAUXPAS_IGNORED_ON_LINE(...)
 
-static NSString *const __nonnull STPSDKVersion = @"6.0.0";
+static NSString *const __nonnull STPSDKVersion = @"7.0.2";
 
 @class STPBankAccount, STPBankAccountParams, STPCard, STPCardParams, STPToken;
 
@@ -24,7 +25,7 @@ typedef void (^STPTokenCompletionBlock)(STPToken * __nullable token, NSError * _
  A top-level class that imports the rest of the Stripe SDK. This class used to contain several methods to create Stripe tokens, but those are now deprecated in
  favor of STPAPIClient.
  */
-@interface Stripe : NSObject
+@interface Stripe : NSObject FAUXPAS_IGNORED_ON_LINE(UnprefixedClass);
 
 /**
  *  Set your Stripe API key with this method. New instances of STPAPIClient will be initialized with this value. You should call this method as early as
@@ -37,6 +38,13 @@ typedef void (^STPTokenCompletionBlock)(STPToken * __nullable token, NSError * _
 
 /// The current default publishable key.
 + (nullable NSString *)defaultPublishableKey;
+
+/**
+ *  By default, Stripe collects some basic information about SDK usage.
+ *  You can call this method to turn off analytics collection.
+ */
++ (void)disableAnalytics;
+
 @end
 
 /// A client for making connections to the Stripe API.
@@ -62,6 +70,9 @@ typedef void (^STPTokenCompletionBlock)(STPToken * __nullable token, NSError * _
 
 #pragma mark Bank Accounts
 
+/**
+ *  STPAPIClient extensions to create Stripe tokens from bank accounts.
+ */
 @interface STPAPIClient (BankAccounts)
 
 /**
@@ -76,6 +87,9 @@ typedef void (^STPTokenCompletionBlock)(STPToken * __nullable token, NSError * _
 
 #pragma mark Credit Cards
 
+/**
+ *  STPAPIClient extensions to create Stripe tokens from credit or debit cards.
+ */
 @interface STPAPIClient (CreditCards)
 
 /**
