@@ -37,6 +37,7 @@
 		3A3B2EB01C06BEC60048E291 /* TiApplepayPaymentDialogProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B2EAE1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.m */; };
 		3A7501991C077A970036ABDD /* TiApplepaySummaryItemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A7501971C077A970036ABDD /* TiApplepaySummaryItemProxy.h */; };
 		3A75019A1C077A970036ABDD /* TiApplepaySummaryItemProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7501981C077A970036ABDD /* TiApplepaySummaryItemProxy.m */; };
+		3AA9F5851D10FEB500DF6C21 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA9F5841D10FEB500DF6C21 /* Stripe.framework */; };
 		3AB302071C0A20FD00902339 /* TiApplepayShippingMethodCompletionHandlerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB302051C0A20FD00902339 /* TiApplepayShippingMethodCompletionHandlerProxy.h */; };
 		3AB302081C0A20FD00902339 /* TiApplepayShippingMethodCompletionHandlerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB302061C0A20FD00902339 /* TiApplepayShippingMethodCompletionHandlerProxy.m */; };
 		3AB302421C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AB302401C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.h */; };
@@ -52,7 +53,6 @@
 		3AE9AB5D1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9AB5B1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.h */; };
 		3AE9AB5E1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AB5C1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.m */; };
 		3AE9AB631C092D300058B80E /* TiApplepayConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9AB611C092D300058B80E /* TiApplepayConstants.h */; };
-		3AE9AB661C09364D0058B80E /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE9AB651C09364D0058B80E /* Stripe.framework */; };
 		AA747D9F0F9514B9006C5449 /* TiApplepay_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +84,7 @@
 		3A3B2EAE1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentDialogProxy.m; path = Classes/TiApplepayPaymentDialogProxy.m; sourceTree = "<group>"; };
 		3A7501971C077A970036ABDD /* TiApplepaySummaryItemProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepaySummaryItemProxy.h; path = Classes/TiApplepaySummaryItemProxy.h; sourceTree = "<group>"; };
 		3A7501981C077A970036ABDD /* TiApplepaySummaryItemProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepaySummaryItemProxy.m; path = Classes/TiApplepaySummaryItemProxy.m; sourceTree = "<group>"; };
+		3AA9F5841D10FEB500DF6C21 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = platform/ios/PaymentProcessors/Stripe.framework; sourceTree = "<group>"; };
 		3AB302051C0A20FD00902339 /* TiApplepayShippingMethodCompletionHandlerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayShippingMethodCompletionHandlerProxy.h; path = Classes/TiApplepayShippingMethodCompletionHandlerProxy.h; sourceTree = "<group>"; };
 		3AB302061C0A20FD00902339 /* TiApplepayShippingMethodCompletionHandlerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayShippingMethodCompletionHandlerProxy.m; path = Classes/TiApplepayShippingMethodCompletionHandlerProxy.m; sourceTree = "<group>"; };
 		3AB302401C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayShippingContactCompletionHandlerProxy.h; path = Classes/TiApplepayShippingContactCompletionHandlerProxy.h; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		3AE9AB5B1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayPaymentGatewayConfiguration.h; path = Classes/TiApplepayPaymentGatewayConfiguration.h; sourceTree = "<group>"; };
 		3AE9AB5C1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentGatewayConfiguration.m; path = Classes/TiApplepayPaymentGatewayConfiguration.m; sourceTree = "<group>"; };
 		3AE9AB611C092D300058B80E /* TiApplepayConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayConstants.h; path = Classes/TiApplepayConstants.h; sourceTree = "<group>"; };
-		3AE9AB651C09364D0058B80E /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = platform/ios/PaymentProcessors/Stripe.framework; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiApplepay_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTiApplepay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiApplepay.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +112,7 @@
 			files = (
 				3A15719D1C05788C00EA749D /* PassKit.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				3AE9AB661C09364D0058B80E /* Stripe.framework in Frameworks */,
+				3AA9F5851D10FEB500DF6C21 /* Stripe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +141,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3AE9AB651C09364D0058B80E /* Stripe.framework */,
+				3AA9F5841D10FEB500DF6C21 /* Stripe.framework */,
 				3A15719C1C05788C00EA749D /* PassKit.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
