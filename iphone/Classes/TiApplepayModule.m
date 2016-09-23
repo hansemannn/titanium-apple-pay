@@ -167,6 +167,8 @@ MAKE_SYSTEM_STR(PAYMENT_NETWORK_AMEX,                                           
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_DISCOVER,                                       PKPaymentNetworkDiscover);
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_MASTERCARD,                                     PKPaymentNetworkMasterCard);
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_VISA,                                           PKPaymentNetworkVisa);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_CHINA_UNION_PAY,                                PKPaymentNetworkChinaUnionPay);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_INTERAC,                                        PKPaymentNetworkInterac);
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,                                  PKPaymentNetworkPrivateLabel);
 
 MAKE_SYSTEM_PROP(SHIPPING_TYPE_SHIPPING,                                        PKShippingTypeShipping);
