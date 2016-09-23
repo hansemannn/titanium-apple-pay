@@ -169,7 +169,7 @@
     }
 #ifdef USE_TI_CONTACTS
     else if ([proxy isKindOfClass:[TiContactsPerson class]]) {
-        contact = [[TiApplepayContact alloc] initWithPerson:(TiContactsPerson*)proxy];
+        contact = [[TiApplepayContact alloc] TiApplePay_initWithPerson:(TiContactsPerson*)proxy];
     }
 #endif
     

@@ -20,7 +20,7 @@
 }
 
 #ifdef USE_TI_CONTACTS
--(id)initWithPerson:(TiContactsPerson*)_person;
+-(id)TiApplePay_initWithPerson:(TiContactsPerson*)_person;
 #endif
 
 -(id)initWithDictionary:(NSDictionary*)_dictionary;
