@@ -54,7 +54,7 @@
 		3AE9AB631C092D300058B80E /* TiApplepayConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9AB611C092D300058B80E /* TiApplepayConstants.h */; };
 		AA747D9F0F9514B9006C5449 /* TiApplepay_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		DBF6CB321D95C2480082D764 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF6CB311D95C2480082D764 /* Stripe.framework */; };
+		DB2C4F521D9997BC003A5B44 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2C4F511D9997BC003A5B44 /* Stripe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +102,7 @@
 		AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiApplepay_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTiApplepay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiApplepay.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBF6CB311D95C2480082D764 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = platform/ios/PaymentProcessors/Stripe.framework; sourceTree = "<group>"; };
+		DB2C4F511D9997BC003A5B44 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = platform/Stripe.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2C4F521D9997BC003A5B44 /* Stripe.framework in Frameworks */,
 				3A15719D1C05788C00EA749D /* PassKit.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				DBF6CB321D95C2480082D764 /* Stripe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +141,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DBF6CB311D95C2480082D764 /* Stripe.framework */,
+				DB2C4F511D9997BC003A5B44 /* Stripe.framework */,
 				3A15719C1C05788C00EA749D /* PassKit.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
@@ -432,6 +432,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PaymentProcessors",
 					"$(PROJECT_DIR)/platform/ios/PaymentProcessors",
+					"$(PROJECT_DIR)/platform",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -475,6 +476,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PaymentProcessors",
 					"$(PROJECT_DIR)/platform/ios/PaymentProcessors",
+					"$(PROJECT_DIR)/platform",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;
