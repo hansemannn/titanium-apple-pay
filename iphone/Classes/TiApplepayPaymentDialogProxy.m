@@ -51,6 +51,7 @@
 
 -(void)show:(id)args
 {
+    ENSURE_UI_THREAD(show, args);
     id animated = [args valueForKey:@"animated"];
     ENSURE_TYPE_OR_NIL(animated, NSNumber);
     
@@ -146,7 +147,7 @@
         [self fireEvent:@"close" withObject:nil];
     }
     
-    [[self paymentController] dismissViewControllerAnimated:YES completion:nil];
+    [[TiApp app] hideModalController:paymentController animated:YES];
     RELEASE_TO_NIL(paymentController);
 }
 
@@ -185,7 +186,7 @@
                 @"handler": handlerProxy,
                 @"payment": [self dictionaryWithPayment:payment],
                 @"created": token.created,
-                @"stripeTokenId": token.tokenId
+                @"stripeTokenId": [self proxyValueFromValue:token.tokenId]
             }];
         }];
     } else if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayNone) {
@@ -205,25 +206,25 @@
 -(NSDictionary *)dictionaryWithPaymentContact:(PKContact*)contact
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
-        @"prefix": [self proxyValueFromContactValue:[[contact name] namePrefix]],
-        @"firstName": [self proxyValueFromContactValue:[[contact name] givenName]],
-        @"middleName": [self proxyValueFromContactValue:[[contact name] middleName]],
-        @"lastName": [self proxyValueFromContactValue:[[contact name] familyName]],
-        @"suffix": [self proxyValueFromContactValue:[[contact name] nameSuffix]],
-        @"email": [self proxyValueFromContactValue:[contact emailAddress]],
-        @"phone": [self proxyValueFromContactValue:[[contact phoneNumber] stringValue]],
+        @"prefix": [self proxyValueFromValue:[[contact name] namePrefix]],
+        @"firstName": [self proxyValueFromValue:[[contact name] givenName]],
+        @"middleName": [self proxyValueFromValue:[[contact name] middleName]],
+        @"lastName": [self proxyValueFromValue:[[contact name] familyName]],
+        @"suffix": [self proxyValueFromValue:[[contact name] nameSuffix]],
+        @"email": [self proxyValueFromValue:[contact emailAddress]],
+        @"phone": [self proxyValueFromValue:[[contact phoneNumber] stringValue]],
         @"address": @{
-            @"street": [self proxyValueFromContactValue:[[contact postalAddress] street]],
-            @"postalCode": [self proxyValueFromContactValue:[[contact postalAddress] postalCode]],
-            @"city": [self proxyValueFromContactValue:[[contact postalAddress] city]],
-            @"state": [self proxyValueFromContactValue:[[contact postalAddress] state]],
-            @"country": [self proxyValueFromContactValue:[[contact postalAddress] country]]
+            @"street": [self proxyValueFromValue:[[contact postalAddress] street]],
+            @"postalCode": [self proxyValueFromValue:[[contact postalAddress] postalCode]],
+            @"city": [self proxyValueFromValue:[[contact postalAddress] city]],
+            @"state": [self proxyValueFromValue:[[contact postalAddress] state]],
+            @"country": [self proxyValueFromValue:[[contact postalAddress] country]]
         }
     }];
     
 #if __IPHONE_9_2
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
-        [dict setValue:[self proxyValueFromContactValue:[self proxyValueFromContactValue:[contact supplementarySubLocality]]] forKey:@"supplementarySubLocality"];
+        [dict setValue:[self proxyValueFromValue:[contact supplementarySubLocality]] forKey:@"supplementarySubLocality"];
     }
 #endif
     
@@ -233,15 +234,15 @@
 -(NSDictionary *)dictionaryWithPayment:(PKPayment *)payment
 {
     return @{
-        @"paymentNetwork" : payment.token.paymentNetwork,
-        @"paymentInstrumentName" : payment.token.paymentInstrumentName,
+        @"paymentNetwork" : [self proxyValueFromValue:payment.token.paymentNetwork],
+        @"paymentInstrumentName" : [self proxyValueFromValue:payment.token.paymentInstrumentName],
         @"paymentMethod" : NUMUINT(payment.token.paymentMethod.type),
-        @"transactionIdentifier" : payment.token.transactionIdentifier,
-        @"paymentData" : [[[TiBlob alloc] initWithData:payment.token.paymentData mimetype:@"text/json"] autorelease],
+        @"transactionIdentifier" : [self proxyValueFromValue:payment.token.transactionIdentifier],
+        @"paymentData" : payment.token.paymentData ? [[[TiBlob alloc] initWithData:payment.token.paymentData mimetype:@"text/json"] autorelease] : [NSNull null],
     };
 }
 
--(id)proxyValueFromContactValue:(id)value
+-(id)proxyValueFromValue:(id)value
 {
     if (value == nil) {
         return [NSNull null];

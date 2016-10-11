@@ -11,7 +11,7 @@
 
 @implementation TiApplepayContact
 
-#ifdef USE_TI_CONTACTS
+#ifdef USE_TI_CONTACTSPERSON
 -(id)TiApplePay_initWithPerson:(TiContactsPerson*)_person
 {
     if (self = [super init]) {
@@ -33,7 +33,7 @@
     return self;
 }
 
-#ifdef USE_TI_CONTACTS
+#ifdef USE_TI_CONTACTSPERSON
 -(void)initializePropertiesFromTiPerson
 {    
     NSPersonNameComponents *nameComponents = [[NSPersonNameComponents alloc] init];

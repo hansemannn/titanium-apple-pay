@@ -11,7 +11,7 @@
 #import "TiApplepayShippingMethodProxy.h"
 #import "TiApplepayContact.h"
 
-#ifdef USE_TI_CONTACTS
+#ifdef USE_TI_CONTACTSPERSON
 #import "TiContactsPerson.h"
 #endif
 
@@ -167,17 +167,16 @@
     if ([proxy isKindOfClass:[NSDictionary class]]) {
         contact = [[TiApplepayContact alloc] initWithDictionary:proxy];
     }
-#ifdef USE_TI_CONTACTS
+#ifdef USE_TI_CONTACTSPERSON
     else if ([proxy isKindOfClass:[TiContactsPerson class]]) {
         contact = [[TiApplepayContact alloc] TiApplePay_initWithPerson:(TiContactsPerson*)proxy];
     }
 #endif
-    
-    if (contact == nil) {
-        [self throwException:@"Invalid contact type provided." subreason:@"The contact must either be an Object (recommended) or a Ti.Contacts.Person." location:CODELOCATION];
+    else {
+        [self throwException:@"Invalid contact type provided." subreason:@"The contact must either be an Object (recommended) or a TiContacts Person." location:CODELOCATION];
     }
     
-    return contact;
+    return [contact autorelease];
 }
 
 @end

@@ -7,19 +7,19 @@
 
 #import <PassKit/PassKit.h>
 
-#ifdef USE_TI_CONTACTS
+#ifdef USE_TI_CONTACTSPERSON
 #import "TiContactsPerson.h"
 #endif
 
 @interface TiApplepayContact : PKContact {
     @private
-#ifdef USE_TI_CONTACTS
+#ifdef USE_TI_CONTACTSPERSON
     TiContactsPerson *person;
 #endif
     NSDictionary *dictionary;
 }
 
-#ifdef USE_TI_CONTACTS
+#ifdef USE_TI_CONTACTSPERSON
 -(id)TiApplePay_initWithPerson:(TiContactsPerson*)_person;
 #endif
 
