@@ -111,7 +111,7 @@
 
 -(void)setShippingContact:(id)value
 {
-    [[self paymentRequest] setShippingContact:[self contactFromProxy:value]];
+    [[self paymentRequest] setShippingContact:(PKContact*)[self contactFromProxy:value]];
     [self replaceValue:value forKey:@"shippingContact" notification:NO];
 }
 

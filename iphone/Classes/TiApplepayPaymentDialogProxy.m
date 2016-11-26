@@ -238,6 +238,8 @@
         @"paymentInstrumentName" : [self proxyValueFromValue:payment.token.paymentInstrumentName],
         @"paymentMethod" : NUMUINT(payment.token.paymentMethod.type),
         @"transactionIdentifier" : [self proxyValueFromValue:payment.token.transactionIdentifier],
+        @"shippingContact": [self dictionaryWithPaymentContact:payment.shippingContact],
+        @"billingContact": [self dictionaryWithPaymentContact:payment.billingContact],
         @"paymentData" : payment.token.paymentData ? [[[TiBlob alloc] initWithData:payment.token.paymentData mimetype:@"text/json"] autorelease] : [NSNull null],
     };
 }
