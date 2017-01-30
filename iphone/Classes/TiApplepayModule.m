@@ -110,8 +110,19 @@ MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_SETUP,                                     
 #ifdef __IPHONE_10_0
 -(NSNumber*)PAYMENT_BUTTON_TYPE_IN_STORE
 {
-    if ([TiUtils isIOS10OrGreater]) {
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
         return NUMINTEGER(PKPaymentButtonTypeInStore);
+    } else {
+        return nil;
+    }
+}
+#endif
+
+#if __IPHONE_10_2
+-(NSNumber*)PAYMENT_BUTTON_TYPE_DONATE
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.2")) {
+        return NUMINTEGER(PKPaymentButtonTypeDonate);
     } else {
         return nil;
     }
@@ -170,6 +181,46 @@ MAKE_SYSTEM_STR(PAYMENT_NETWORK_VISA,                                           
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_CHINA_UNION_PAY,                                PKPaymentNetworkChinaUnionPay);
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_INTERAC,                                        PKPaymentNetworkInterac);
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,                                  PKPaymentNetworkPrivateLabel);
+
+#if __IPHONE_10_1
+-(NSNumber*)PAYMENT_NETWORK_SUICA
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.1")) {
+        return NUMINTEGER(PKPaymentNetworkSuica);
+    } else {
+        return nil;
+    }
+}
+
+-(NSNumber*)PAYMENT_NETWORK_JCB
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.1")) {
+        return NUMINTEGER(PKPaymentNetworkJCB);
+    } else {
+        return nil;
+    }
+}
+#endif
+
+#if __IPHONE_10_3
+-(NSNumber*)PAYMENT_NETWORK_ID
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
+        return NUMINTEGER(PKPaymentNetworkiD);
+    } else {
+        return nil;
+    }
+}
+
+-(NSNumber*)PAYMENT_NETWORK_QUIC_PAY
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
+        return NUMINTEGER(PKPaymentNetworkQuicPay);
+    } else {
+        return nil;
+    }
+}
+#endif
 
 MAKE_SYSTEM_PROP(SHIPPING_TYPE_SHIPPING,                                        PKShippingTypeShipping);
 MAKE_SYSTEM_PROP(SHIPPING_TYPE_DELIVERY,                                        PKShippingTypeDelivery);
