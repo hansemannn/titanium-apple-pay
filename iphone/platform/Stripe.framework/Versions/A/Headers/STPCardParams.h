@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "STPFormEncodable.h"
+#if TARGET_OS_IPHONE
+#import "STPAddress.h"
+#endif
 
 /**
  *  Representation of a user's credit card details. You can assemble these with information that your user enters and
@@ -48,6 +51,8 @@
 /**
  *  The cardholder's address.
  */
+@property(nonatomic, copy, nonnull) STPAddress *address;
+
 @property (nonatomic, copy, nullable) NSString *addressLine1;
 @property (nonatomic, copy, nullable) NSString *addressLine2;
 @property (nonatomic, copy, nullable) NSString *addressCity;
@@ -59,33 +64,5 @@
  *  Three-letter ISO currency code representing the currency paid out to the bank account. This is only applicable when tokenizing debit cards to issue payouts to managed accounts. You should not set it otherwise. The card can then be used as a transfer destination for funds in this currency.
  */
 @property (nonatomic, copy, nullable) NSString *currency;
-
-/**
- *  Validate each field of the card.
- *  @return whether or not that field is valid.
- *  @deprecated use STPCardValidator instead.
- */
-- (BOOL)validateNumber:(__nullable id * __nullable )ioValue
-                 error:(NSError * __nullable * __nullable )outError __attribute__((deprecated("Use STPCardValidator instead.")));
-- (BOOL)validateCvc:(__nullable id * __nullable )ioValue
-              error:(NSError * __nullable * __nullable )outError __attribute__((deprecated("Use STPCardValidator instead.")));
-- (BOOL)validateExpMonth:(__nullable  id * __nullable )ioValue
-                   error:(NSError * __nullable * __nullable )outError __attribute__((deprecated("Use STPCardValidator instead.")));
-- (BOOL)validateExpYear:(__nullable id * __nullable)ioValue
-                  error:(NSError * __nullable * __nullable )outError __attribute__((deprecated("Use STPCardValidator instead.")));
-
-/**
- *  This validates a fully populated card to check for all errors, including ones that come about
- *  from the interaction of more than one property. It will also do all the validations on individual
- *  properties, so if you only want to call one method on your card to validate it after setting all the
- *  properties, call this one
- *
- *  @param outError a pointer to an NSError that, after calling this method, will be populated with an error if the card is not valid. See StripeError.h for
- possible values
- *
- *  @return whether or not the card is valid.
- *  @deprecated use STPCardValidator instead.
- */
-- (BOOL)validateCardReturningError:(NSError * __nullable * __nullable)outError __attribute__((deprecated("Use STPCardValidator instead.")));
 
 @end

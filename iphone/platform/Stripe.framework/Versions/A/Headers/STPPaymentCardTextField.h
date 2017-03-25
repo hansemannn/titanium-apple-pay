@@ -35,14 +35,29 @@
 - (void)paymentCardTextFieldDidBeginEditingNumber:(nonnull STPPaymentCardTextField *)textField;
 
 /**
+ *  Called when editing ends in the payment card field's number field.
+ */
+- (void)paymentCardTextFieldDidEndEditingNumber:(nonnull STPPaymentCardTextField *)textField;
+
+/**
  *  Called when editing begins in the payment card field's CVC field.
  */
 - (void)paymentCardTextFieldDidBeginEditingCVC:(nonnull STPPaymentCardTextField *)textField;
 
 /**
+ *  Called when editing ends in the payment card field's CVC field.
+ */
+- (void)paymentCardTextFieldDidEndEditingCVC:(nonnull STPPaymentCardTextField *)textField;
+
+/**
  *  Called when editing begins in the payment card field's expiration field.
  */
 - (void)paymentCardTextFieldDidBeginEditingExpiration:(nonnull STPPaymentCardTextField *)textField;
+
+/**
+ *  Called when editing ends in the payment card field's expiration field.
+ */
+- (void)paymentCardTextFieldDidEndEditingExpiration:(nonnull STPPaymentCardTextField *)textField;
 
 @end
 
@@ -50,7 +65,7 @@
 /**
  *  STPPaymentCardTextField is a text field with similar properties to UITextField, but specialized for collecting credit/debit card information. It manages multiple UITextFields under the hood to collect this information. It's designed to fit on a single line, and from a design perspective can be used anywhere a UITextField would be appropriate.
  */
-@interface STPPaymentCardTextField : UIControl
+@interface STPPaymentCardTextField : UIControl <UIKeyInput>
 
 /**
  *  @see STPPaymentCardTextFieldDelegate
@@ -247,35 +262,8 @@
  *  to scan your user's credit card with a camera, you can assemble that data into an STPCardParams
  *  object and set this property to that object to prefill the fields you've collected.
  */
-@property(nonatomic, readwrite, nonnull) STPCardParams *cardParams;
+@property(nonatomic, strong, readwrite, nonnull) STPCardParams *cardParams;
 
-@property(nonatomic, readwrite, nullable) STPCardParams *card __attribute__((deprecated("This has been renamed to cardParams; use that instead.")));
-
-@end
-
-#pragma mark - PaymentKit compatibility
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
-
-__attribute__((deprecated("This class is provided only for backwards-compatibility with PaymentKit. You shouldn't use it - use STPCard instead.")))
-@interface PTKCard : STPCard
-@end
-
-@class PTKView;
-
-__attribute__((deprecated("This protocol is provided only for backwards-compatibility with PaymentKit. You shouldn't use it - use STPPaymentCardTextFieldDelegate instead.")))
-@protocol PTKViewDelegate <STPPaymentCardTextFieldDelegate>
-
-@optional
-- (void)paymentView:(nonnull PTKView *)paymentView withCard:(nonnull PTKCard *)card isValid:(BOOL)valid;
+- (void)commonInit;
 
 @end
-
-__attribute__((deprecated("This class is provided only for backwards-compatibility with PaymentKit. You shouldn't use it - use STPPaymentCardTextField instead.")))
-@interface PTKView : STPPaymentCardTextField
-@property(nonatomic, weak, nullable)id<PTKViewDelegate>delegate;
-@property(nonatomic, readwrite, nonnull) PTKCard *card;
-@end
-
-#pragma clang diagnostic pop

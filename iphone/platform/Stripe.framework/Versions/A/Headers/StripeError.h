@@ -13,11 +13,22 @@
  */
 FOUNDATION_EXPORT NSString * __nonnull const StripeDomain;
 
+#define STP_ERROR_ENUM(_type, _name, _domain) \
+typedef enum _name: _type _name; \
+enum __attribute__((ns_error_domain(_domain))) _name: _type
+
+#if __has_attribute(ns_error_domain)
+STP_ERROR_ENUM(NSInteger, STPErrorCode, StripeDomain) {
+#else
 typedef NS_ENUM(NSInteger, STPErrorCode) {
+#endif
     STPConnectionError = 40,     // Trouble connecting to Stripe.
     STPInvalidRequestError = 50, // Your request had invalid parameters.
     STPAPIError = 60,            // General-purpose API error (should be rare).
     STPCardError = 70,           // Something was wrong with the given card (most common).
+    STPCancellationError = 80,   // The operation was cancelled.
+    STPCheckoutUnknownError = 5000,   // Checkout failed
+    STPCheckoutTooManyAttemptsError = 5001,   // Too many incorrect code attempts
 };
 
 #pragma mark userInfo keys
@@ -35,37 +46,43 @@ FOUNDATION_EXPORT NSString * __nonnull const STPErrorParameterKey;
 
 #pragma mark STPCardErrorCodeKeys
 
+typedef NSString * STPCardErrorCode
+#ifdef NS_STRING_ENUM
+NS_STRING_ENUM
+#endif
+;
+
 // (Usually determined locally:)
-FOUNDATION_EXPORT NSString * __nonnull const STPInvalidNumber;
-FOUNDATION_EXPORT NSString * __nonnull const STPInvalidExpMonth;
-FOUNDATION_EXPORT NSString * __nonnull const STPInvalidExpYear;
-FOUNDATION_EXPORT NSString * __nonnull const STPInvalidCVC;
+FOUNDATION_EXPORT STPCardErrorCode __nonnull const STPInvalidNumber;
+FOUNDATION_EXPORT STPCardErrorCode __nonnull const STPInvalidExpMonth;
+FOUNDATION_EXPORT STPCardErrorCode __nonnull const STPInvalidExpYear;
+FOUNDATION_EXPORT STPCardErrorCode __nonnull const STPInvalidCVC;
 
 // (Usually sent from the server:)
-FOUNDATION_EXPORT NSString * __nonnull const STPIncorrectNumber;
-FOUNDATION_EXPORT NSString * __nonnull const STPExpiredCard;
-FOUNDATION_EXPORT NSString * __nonnull const STPCardDeclined;
-FOUNDATION_EXPORT NSString * __nonnull const STPProcessingError;
-FOUNDATION_EXPORT NSString * __nonnull const STPIncorrectCVC;
+FOUNDATION_EXPORT STPCardErrorCode __nonnull const STPIncorrectNumber;
+FOUNDATION_EXPORT STPCardErrorCode __nonnull const STPExpiredCard;
+FOUNDATION_EXPORT STPCardErrorCode __nonnull const STPCardDeclined;
+FOUNDATION_EXPORT STPCardErrorCode __nonnull const STPProcessingError;
+FOUNDATION_EXPORT STPCardErrorCode __nonnull const STPIncorrectCVC;
 
-#pragma mark Strings
-
-#define STPCardErrorInvalidNumberUserMessage NSLocalizedString(@"Your card's number is invalid", @"Error when the card number is not valid")
-#define STPCardErrorInvalidCVCUserMessage NSLocalizedString(@"Your card's security code is invalid", @"Error when the card's CVC is not valid")
-#define STPCardErrorInvalidExpMonthUserMessage                                                                                                                 \
-    NSLocalizedString(@"Your card's expiration month is invalid", @"Error when the card's expiration month is not valid")
-#define STPCardErrorInvalidExpYearUserMessage                                                                                                                  \
-    NSLocalizedString(@"Your card's expiration year is invalid", @"Error when the card's expiration year is not valid")
-#define STPCardErrorExpiredCardUserMessage NSLocalizedString(@"Your card has expired", @"Error when the card has already expired")
-#define STPCardErrorDeclinedUserMessage NSLocalizedString(@"Your card was declined", @"Error when the card was declined by the credit card networks")
-#define STPUnexpectedError                                                                                                                                     \
-    NSLocalizedString(@"There was an unexpected error -- try again in a few seconds", @"Unexpected error, such as a 500 from Stripe or a JSON parse error")
-#define STPCardErrorProcessingErrorUserMessage                                                                                                                 \
-    NSLocalizedString(@"There was an error processing your card -- try again in a few seconds", @"Error when there is a problem processing the credit card")
 
 @interface NSError(Stripe)
 
 + (nullable NSError *)stp_errorFromStripeResponse:(nullable NSDictionary *)jsonDictionary;
 + (nonnull NSError *)stp_genericFailedToParseResponseError;
+- (BOOL)stp_isUnknownCheckoutError;
+- (BOOL)stp_isURLSessionCancellationError;
+
+#pragma mark Strings
+
++ (nonnull NSString *)stp_cardErrorInvalidNumberUserMessage;
++ (nonnull NSString *)stp_cardInvalidCVCUserMessage;
++ (nonnull NSString *)stp_cardErrorInvalidExpMonthUserMessage;
++ (nonnull NSString *)stp_cardErrorInvalidExpYearUserMessage;
++ (nonnull NSString *)stp_cardErrorExpiredCardUserMessage;
++ (nonnull NSString *)stp_cardErrorDeclinedUserMessage;
++ (nonnull NSString *)stp_cardErrorProcessingErrorUserMessage;
++ (nonnull NSString *)stp_unexpectedErrorMessage;
+
 
 @end
