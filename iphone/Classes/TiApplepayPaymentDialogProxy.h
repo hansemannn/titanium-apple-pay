@@ -6,7 +6,9 @@
  */
 #import "TiProxy.h"
 #import "TiApplepayPaymentRequestProxy.h"
-#import <Passkit/Passkit.h>
+
+@class PKPaymentAuthorizationViewController;
+@class PKPaymentAuthorizationViewControllerDelegate;
 
 @interface TiApplepayPaymentDialogProxy : TiProxy<PKPaymentAuthorizationViewControllerDelegate> {
     PKPaymentAuthorizationViewController *paymentController;

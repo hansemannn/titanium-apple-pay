@@ -77,7 +77,7 @@
         // Capabilities can only be checked together with networks
         if ([args valueForKey:@"capabilities"]) {
             ENSURE_TYPE([args valueForKey:@"capabilities"], NSArray);
-            capabilities = [args valueForKey:@"capabilities"];
+            capabilities = (PKMerchantCapability)[args valueForKey:@"capabilities"];
         }
     }
     
@@ -183,19 +183,19 @@ MAKE_SYSTEM_STR(PAYMENT_NETWORK_INTERAC,                                        
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,                                  PKPaymentNetworkPrivateLabel);
 
 #if __IPHONE_10_1
-- (NSNumber *)PAYMENT_NETWORK_SUICA
+- (NSString *)PAYMENT_NETWORK_SUICA
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.1")) {
-        return NUMINTEGER(PKPaymentNetworkSuica);
+        return PKPaymentNetworkSuica;
     } else {
         return nil;
     }
 }
 
-- (NSNumber *)PAYMENT_NETWORK_JCB
+- (NSString *)PAYMENT_NETWORK_JCB
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.1")) {
-        return NUMINTEGER(PKPaymentNetworkJCB);
+        return PKPaymentNetworkJCB;
     } else {
         return nil;
     }
@@ -203,28 +203,28 @@ MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,                                  
 #endif
 
 #if __IPHONE_10_3
-- (NSNumber *)PAYMENT_NETWORK_ID_CREDIT
+- (NSString *)PAYMENT_NETWORK_ID_CREDIT
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
-        return NUMINTEGER(PKPaymentNetworkIDCredit);
+        return PKPaymentNetworkIDCredit;
     } else {
         return nil;
     }
 }
 
-- (NSNumber *)PAYMENT_NETWORK_QUIC_PAY
+- (NSString *)PAYMENT_NETWORK_QUIC_PAY
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
-        return NUMINTEGER(PKPaymentNetworkQuicPay);
+        return PKPaymentNetworkQuicPay;
     } else {
         return nil;
     }
 }
 
-- (NSNumber *)PAYMENT_NETWORK_CARTE_BANCAIRE
+- (NSString *)PAYMENT_NETWORK_CARTE_BANCAIRE
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
-        return NUMINTEGER(PKPaymentNetworkCarteBancaire);
+        return PKPaymentNetworkCarteBancaire;
     } else {
         return nil;
     }

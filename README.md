@@ -168,7 +168,8 @@ A payment request is initialized using the `ApplePay.createPaymentRequest method
   - (String) state
   - (String) country
   - (String) ISOCountryCode
-  - (String) supplementarySubLocality (iOS 9.2+)
+  - (String) subLocality (iOS 10.3+)
+  - (String) subAdministrativeArea (iOS 10.3+)
   - (String) email
   - (String) phone
 - (Object) shippingContact: An object representing a shipping contact. Allowed properties are same as in billingContact.

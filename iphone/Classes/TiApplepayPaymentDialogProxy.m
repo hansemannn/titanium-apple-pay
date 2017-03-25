@@ -14,6 +14,8 @@
 #import "TiApplepayShippingContactCompletionHandlerProxy.h"
 #import "TiApplepayPaymentMethodCompletionHandlerProxy.h"
 #import "TiApplepayPaymentAuthorizationCompletionHandlerProxy.h"
+
+#import <Passkit/Passkit.h>
 #import <Stripe/Stripe.h>
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -24,7 +26,7 @@
 {
     if (paymentController == nil) {
         if (paymentRequestProxy == nil) {
-            [self throwException:@"⚠️ Trying to initialize a payment dialog without specifying a valid payment request: The paymentRequest property is null! ⚠️" subreason:nil location:CODELOCATION];
+            [self throwException:@"⚠️ Trying to initialize a payment dialog without specifying a valid payment request: The 'paymentRequest' property is null! ⚠️" subreason:nil location:CODELOCATION];
             return nil;
         }
         
@@ -215,9 +217,10 @@
         }
     }];
     
-#if __IPHONE_9_2
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
-        [dict setValue:[self proxyValueFromValue:[contact supplementarySubLocality]] forKey:@"supplementarySubLocality"];
+#if __IPHONE_10_3
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
+        [dict setValue:[self proxyValueFromValue:[[contact postalAddress] subAdministrativeArea]] forKey:@"subAdministrativeArea"];
+        [dict setValue:[self proxyValueFromValue:[[contact postalAddress] subLocality]] forKey:@"subLocality"];
     }
 #endif
     
@@ -239,11 +242,7 @@
 
 - (id)proxyValueFromValue:(id)value
 {
-    if (value == nil) {
-        return [NSNull null];
-    }
-    
-    return value;
+    return NULL_IF_NIL(value);
 }
 
 @end

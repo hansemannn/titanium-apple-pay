@@ -119,7 +119,7 @@
 {
     ENSURE_TYPE(args, NSNumber);
     
-    [[self paymentRequest] setRequiredBillingAddressFields:args];
+    [[self paymentRequest] setRequiredBillingAddressFields:(PKAddressField)args];
     [self replaceValue:args forKey:@"requiredBillingAddressFields" notification:NO];
 }
 
@@ -127,7 +127,7 @@
 {
     ENSURE_TYPE(args, NSNumber);
     
-    [[self paymentRequest] setRequiredShippingAddressFields:args];
+    [[self paymentRequest] setRequiredShippingAddressFields:(PKAddressField)args];
     [self replaceValue:args forKey:@"requiredShippingAddressFields" notification:NO];
 }
 
