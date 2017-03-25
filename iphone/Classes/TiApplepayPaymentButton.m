@@ -1,6 +1,6 @@
 /**
- * Appcelerator Titanium Mobile
- * Copyright (c) 2009-2015 by Appcelerator, Inc. All Rights Reserved.
+ * Titanium Apple Pay
+ * Copyright (c) 2015-Present by Hans Knoechel. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
@@ -10,12 +10,12 @@
 
 @implementation TiApplepayPaymentButton
 
--(TiApplepayPaymentButtonProxy*)paymentButtonProxy
+- (TiApplepayPaymentButtonProxy *)paymentButtonProxy
 {
-    return (TiApplepayPaymentButtonProxy*)[self proxy];
+    return (TiApplepayPaymentButtonProxy *)[self proxy];
 }
 
--(void)dealloc
+- (void)dealloc
 {
     [paymentButton removeTarget:self action:@selector(didTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
     RELEASE_TO_NIL(paymentButton);
@@ -23,7 +23,7 @@
     [super dealloc];
 }
 
--(PKPaymentButton*)paymentButton
+- (PKPaymentButton *)paymentButton
 {
     if (paymentButton == nil) {
         id type = [[self paymentButtonProxy] valueForKey:@"type"];
@@ -46,17 +46,17 @@
     }
 }
 
--(BOOL)hasTouchableListener
+- (BOOL)hasTouchableListener
 {
     return YES;
 }
 
--(CGFloat)verifyWidth:(CGFloat)suggestedWidth
+- (CGFloat)verifyWidth:(CGFloat)suggestedWidth
 {
     return [self sizeThatFits:CGSizeZero].width;
 }
 
--(CGFloat)verifyHeight:(CGFloat)suggestedHeight
+- (CGFloat)verifyHeight:(CGFloat)suggestedHeight
 {
     return [self sizeThatFits:CGSizeZero].height;
 }

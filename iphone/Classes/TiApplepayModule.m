@@ -1,6 +1,6 @@
 /**
- * Appcelerator Titanium Mobile
- * Copyright (c) 2009-2015 by Appcelerator, Inc. All Rights Reserved.
+ * Titanium Apple Pay
+ * Copyright (c) 2015-Present by Hans Knoechel. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
@@ -21,19 +21,19 @@
 
 #pragma mark Internal
 
--(id)moduleGUID
+- (id)moduleGUID
 {
 	return @"50220394-a69d-4820-b11c-7de647935809";
 }
 
--(NSString*)moduleId
+- (NSString *)moduleId
 {
 	return @"ti.applepay";
 }
 
 #pragma mark Lifecycle
 
--(void)startup
+- (void)startup
 {
 	[super startup];
 
@@ -42,7 +42,7 @@
 
 #pragma mark Public APIs
 
--(void)setupPaymentGateway:(id)args
+- (void)setupPaymentGateway:(id)args
 {
     args = [args objectAtIndex:0];
     ENSURE_TYPE(args, NSDictionary);
@@ -60,12 +60,12 @@
     [[TiApplepayPaymentGatewayConfiguration sharedConfig] setApiKey:[TiUtils stringValue:apiKey]];
 }
 
--(NSNumber*)isSupported:(id)unused
+- (NSNumber *)isSupported:(id)unused
 {
     return NUMBOOL([TiUtils isIOS9OrGreater] == YES);
 }
 
--(NSNumber*)canMakePayments:(id)args
+- (NSNumber *)canMakePayments:(id)args
 {
     NSArray *networks = nil;
     PKMerchantCapability capabilities = nil;
@@ -90,12 +90,12 @@
     return NUMBOOL([PKPaymentAuthorizationViewController canMakePayments]);
 }
 
--(NSNumber*)isPassLibraryAvailable:(id)unused
+- (NSNumber *)isPassLibraryAvailable:(id)unused
 {
     return NUMBOOL([PKPassLibrary isPassLibraryAvailable]);
 }
 
--(void)openPaymentSetup:(id)unused
+- (void)openPaymentSetup:(id)unused
 {
     PKPassLibrary *lib = [[[PKPassLibrary alloc] init] autorelease];
     [lib openPaymentSetup];
@@ -108,7 +108,7 @@ MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_BUY,                                       
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_SETUP,                                     PKPaymentButtonTypeSetUp);
 
 #ifdef __IPHONE_10_0
--(NSNumber*)PAYMENT_BUTTON_TYPE_IN_STORE
+- (NSNumber *)PAYMENT_BUTTON_TYPE_IN_STORE
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
         return NUMINTEGER(PKPaymentButtonTypeInStore);
@@ -119,7 +119,7 @@ MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_SETUP,                                     
 #endif
 
 #if __IPHONE_10_2
--(NSNumber*)PAYMENT_BUTTON_TYPE_DONATE
+- (NSNumber *)PAYMENT_BUTTON_TYPE_DONATE
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.2")) {
         return NUMINTEGER(PKPaymentButtonTypeDonate);
@@ -148,21 +148,21 @@ MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_SHIPPING_POSTAL_ADDRESS,  
 MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_SHIPPING_CONTACT,         PKPaymentAuthorizationStatusInvalidShippingContact);
 
 #if __IPHONE_9_2
--(NSNumber*)PAYMENT_AUTHORIZATION_STATUS_PIN_REQUIRED
+- (NSNumber *)PAYMENT_AUTHORIZATION_STATUS_PIN_REQUIRED
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
         return [NSNumber numberWithInt:PKPaymentAuthorizationStatusPINRequired];
     }
 }
 
--(NSNumber*)PAYMENT_AUTHORIZATION_STATUS_PIN_INCORRECT
+- (NSNumber *)PAYMENT_AUTHORIZATION_STATUS_PIN_INCORRECT
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
         return [NSNumber numberWithInt:PKPaymentAuthorizationStatusPINIncorrect];
     }
 }
 
--(NSNumber*)PAYMENT_AUTHORIZATION_STATUS_PIN_LOCKOUT
+- (NSNumber *)PAYMENT_AUTHORIZATION_STATUS_PIN_LOCKOUT
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
         return [NSNumber numberWithInt:PKPaymentAuthorizationStatusPINLockout];
@@ -183,7 +183,7 @@ MAKE_SYSTEM_STR(PAYMENT_NETWORK_INTERAC,                                        
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,                                  PKPaymentNetworkPrivateLabel);
 
 #if __IPHONE_10_1
--(NSNumber*)PAYMENT_NETWORK_SUICA
+- (NSNumber *)PAYMENT_NETWORK_SUICA
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.1")) {
         return NUMINTEGER(PKPaymentNetworkSuica);
@@ -192,7 +192,7 @@ MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,                                  
     }
 }
 
--(NSNumber*)PAYMENT_NETWORK_JCB
+- (NSNumber *)PAYMENT_NETWORK_JCB
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.1")) {
         return NUMINTEGER(PKPaymentNetworkJCB);
@@ -203,19 +203,28 @@ MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,                                  
 #endif
 
 #if __IPHONE_10_3
--(NSNumber*)PAYMENT_NETWORK_ID
+- (NSNumber *)PAYMENT_NETWORK_ID_CREDIT
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
-        return NUMINTEGER(PKPaymentNetworkiD);
+        return NUMINTEGER(PKPaymentNetworkIDCredit);
     } else {
         return nil;
     }
 }
 
--(NSNumber*)PAYMENT_NETWORK_QUIC_PAY
+- (NSNumber *)PAYMENT_NETWORK_QUIC_PAY
 {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
         return NUMINTEGER(PKPaymentNetworkQuicPay);
+    } else {
+        return nil;
+    }
+}
+
+- (NSNumber *)PAYMENT_NETWORK_CARTE_BANCAIRE
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
+        return NUMINTEGER(PKPaymentNetworkCarteBancaire);
     } else {
         return nil;
     }

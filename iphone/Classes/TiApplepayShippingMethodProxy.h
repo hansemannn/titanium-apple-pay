@@ -1,6 +1,6 @@
 /**
- * Appcelerator Titanium Mobile
- * Copyright (c) 2009-2015 by Appcelerator, Inc. All Rights Reserved.
+ * Titanium Apple Pay
+ * Copyright (c) 2015-Present by Hans Knoechel. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
@@ -11,14 +11,14 @@
     PKShippingMethod *shippingMethod;
 }
 
--(void)setTitle:(id)value;
+- (void)setTitle:(id)value;
 
--(void)setIdentifier:(id)value;
+- (void)setIdentifier:(id)value;
 
--(void)setDescription:(id)value;
+- (void)setDescription:(id)value;
 
--(void)setPrice:(id)value;
+- (void)setPrice:(id)value;
 
--(PKShippingMethod*)shippingMethod;
+- (PKShippingMethod *)shippingMethod;
 
 @end

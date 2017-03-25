@@ -1,6 +1,6 @@
 /**
- * Appcelerator Titanium Mobile
- * Copyright (c) 2009-2015 by Appcelerator, Inc. All Rights Reserved.
+ * Titanium Apple Pay
+ * Copyright (c) 2015-Present by Hans Knoechel. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
@@ -20,13 +20,13 @@
 
 @implementation TiApplepayPaymentDialogProxy
 
--(void)dealloc
+- (void)dealloc
 {
     RELEASE_TO_NIL(paymentController);
     [super dealloc];
 }
 
--(PKPaymentAuthorizationViewController*)paymentController
+- (PKPaymentAuthorizationViewController *)paymentController
 {
     if (paymentController == nil) {
         if (paymentRequestProxy == nil) {
@@ -43,13 +43,13 @@
 
 #pragma mark - Public APIs
 
--(void)setPaymentRequest:(id)value
+- (void)setPaymentRequest:(id)value
 {
-    paymentRequestProxy = (TiApplepayPaymentRequestProxy*)value;
+    paymentRequestProxy = (TiApplepayPaymentRequestProxy *)value;
     [self replaceValue:value forKey:@"paymentRequest" notification:NO];
 }
 
--(void)show:(id)args
+- (void)show:(id)args
 {
     ENSURE_UI_THREAD(show, args);
     id animated = [args valueForKey:@"animated"];
@@ -76,7 +76,7 @@
 
 #pragma mark - Apple Pay delegates
 
--(void)paymentAuthorizationViewControllerWillAuthorizePayment:(PKPaymentAuthorizationViewController *)controller
+- (void)paymentAuthorizationViewControllerWillAuthorizePayment:(PKPaymentAuthorizationViewController *)controller
 {
     NSLog(@"[DEBUG] Ti.ApplePay: willAuthorizePayment");
 
@@ -85,14 +85,14 @@
     }
 }
 
--(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion
 {
     NSLog(@"[DEBUG] Ti.ApplePay: didAuthorizePayment");
     
     [self handleAuthorizedPayment:payment withCompletionHandler:completion];
 }
 
--(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectPaymentMethod:(PKPaymentMethod *)paymentMethod completion:(void (^)(NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectPaymentMethod:(PKPaymentMethod *)paymentMethod completion:(void (^)(NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
 {
     NSLog(@"[DEBUG] Ti.ApplePay: didSelectPayment");
     
@@ -108,7 +108,7 @@
     }
 }
 
--(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingContact:(PKContact *)contact completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKShippingMethod *> * _Nonnull, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingContact:(PKContact *)contact completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKShippingMethod *> * _Nonnull, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
 {
     NSLog(@"[DEBUG] Ti.ApplePay: didSelectShippingContact");
     
@@ -124,7 +124,7 @@
     }
 }
 
--(void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingMethod:(PKShippingMethod *)shippingMethod completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didSelectShippingMethod:(PKShippingMethod *)shippingMethod completion:(void (^)(PKPaymentAuthorizationStatus, NSArray<PKPaymentSummaryItem *> * _Nonnull))completion
 {
     NSLog(@"[DEBUG] Ti.ApplePay: didSelectShippingMethod");
     
@@ -139,7 +139,7 @@
     }
 }
 
--(void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
+- (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller
 {
     NSLog(@"[DEBUG] Ti.ApplePay: paymentAuthorizationViewControllerDidFinish");
 
@@ -153,7 +153,7 @@
 
 #pragma mark Helper
 
--(void)handleAuthorizedPayment:(PKPayment *)payment withCompletionHandler:(void (^)(PKPaymentAuthorizationStatus))completion
+- (void)handleAuthorizedPayment:(PKPayment *)payment withCompletionHandler:(void (^)(PKPaymentAuthorizationStatus))completion
 {
     if (![self _hasListeners:@"didAuthorizePayment"]) {
         [self throwException:@"⚠️ Cannot handle a payment without a 'didAuthorizePayment' eventListener being configured. ⚠️" subreason:nil location:CODELOCATION];
@@ -203,7 +203,7 @@
     }
 }
 
--(NSDictionary *)dictionaryWithPaymentContact:(PKContact*)contact
+- (NSDictionary *)dictionaryWithPaymentContact:(PKContact *)contact
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
         @"prefix": [self proxyValueFromValue:[[contact name] namePrefix]],
@@ -231,7 +231,7 @@
     return dict;
 }
 
--(NSDictionary *)dictionaryWithPayment:(PKPayment *)payment
+- (NSDictionary *)dictionaryWithPayment:(PKPayment *)payment
 {
     return @{
         @"paymentNetwork" : [self proxyValueFromValue:payment.token.paymentNetwork],
@@ -244,7 +244,7 @@
     };
 }
 
--(id)proxyValueFromValue:(id)value
+- (id)proxyValueFromValue:(id)value
 {
     if (value == nil) {
         return [NSNull null];

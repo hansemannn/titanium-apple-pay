@@ -1,6 +1,6 @@
 /**
- * Appcelerator Titanium Mobile
- * Copyright (c) 2009-2015 by Appcelerator, Inc. All Rights Reserved.
+ * Titanium Apple Pay
+ * Copyright (c) 2015-Present by Hans Knoechel. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
@@ -12,13 +12,13 @@
 
 @implementation TiApplepayShippingContactCompletionHandlerProxy
 
--(void)dealloc
+- (void)dealloc
 {
     RELEASE_TO_NIL(_handler);
     [super dealloc];
 }
 
--(void)complete:(id _Nonnull)args
+- (void)complete:(id _Nonnull)args
 {
     if (_handler != nil) {
         
@@ -38,12 +38,12 @@
         
         for (id item in shippingMethods) {
             ENSURE_TYPE(item, TiApplepayShippingMethodProxy);
-            [resultShippingMethods addObject:[(TiApplepayShippingMethodProxy*)item shippingMethod]];
+            [resultShippingMethods addObject:[(TiApplepayShippingMethodProxy *)item shippingMethod]];
         }
         
         for (id item in summaryItems) {
             ENSURE_TYPE(item, TiApplepaySummaryItemProxy);
-            [resultSummaryItems addObject:[(TiApplepaySummaryItemProxy*)item item]];
+            [resultSummaryItems addObject:[(TiApplepaySummaryItemProxy *)item item]];
         }
         
         _handler(PKPaymentAuthorizationStatusSuccess,resultShippingMethods,resultSummaryItems);

@@ -1,6 +1,6 @@
 /**
- * Appcelerator Titanium Mobile
- * Copyright (c) 2009-2015 by Appcelerator, Inc. All Rights Reserved.
+ * Titanium Apple Pay
+ * Copyright (c) 2015-Present by Hans Knoechel. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
@@ -12,10 +12,10 @@
     BOOL usingStripe;
 }
 
--(void)setupPaymentGateway:(id)args;
+- (void)setupPaymentGateway:(id)args;
 
--(NSNumber*)isSupported:(id)unused;
+- (NSNumber *)isSupported:(id)unused;
 
--(NSNumber*)canMakePayments:(id)args;
+- (NSNumber *)canMakePayments:(id)args;
 
 @end

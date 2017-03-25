@@ -1,6 +1,6 @@
 /**
- * Appcelerator Titanium Mobile
- * Copyright (c) 2009-2015 by Appcelerator, Inc. All Rights Reserved.
+ * Titanium Apple Pay
+ * Copyright (c) 2015-Present by Hans Knoechel. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
@@ -20,9 +20,9 @@
 }
 
 #ifdef USE_TI_CONTACTSPERSON
--(id)TiApplePay_initWithPerson:(TiContactsPerson*)_person;
+- (id)TiApplePay_initWithPerson:(TiContactsPerson *)_person;
 #endif
 
--(id)initWithDictionary:(NSDictionary*)_dictionary;
+- (id)initWithDictionary:(NSDictionary *)_dictionary;
 
 @end
