@@ -11,12 +11,6 @@
 
 @implementation TiApplepayShippingMethodCompletionHandlerProxy
 
-- (void)dealloc
-{
-    RELEASE_TO_NIL(_handler);
-    [super dealloc];
-}
-
 - (void)complete:(id _Nonnull)args
 {
     if (_handler != nil) {

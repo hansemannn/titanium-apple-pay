@@ -10,12 +10,6 @@
 
 @implementation TiApplepaySummaryItemProxy
 
-- (void)dealloc
-{
-    RELEASE_TO_NIL(item);
-    [super dealloc];
-}
-
 - (PKPaymentSummaryItem *)item
 {
     if (item == nil) {

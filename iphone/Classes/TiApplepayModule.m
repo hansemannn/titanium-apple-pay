@@ -97,7 +97,7 @@
 
 - (void)openPaymentSetup:(id)unused
 {
-    PKPassLibrary *lib = [[[PKPassLibrary alloc] init] autorelease];
+    PKPassLibrary *lib = [[PKPassLibrary alloc] init];
     [lib openPaymentSetup];
 }
 

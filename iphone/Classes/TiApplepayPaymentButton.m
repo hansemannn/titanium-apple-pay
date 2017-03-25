@@ -17,10 +17,7 @@
 
 - (void)dealloc
 {
-    [paymentButton removeTarget:self action:@selector(didTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
-    RELEASE_TO_NIL(paymentButton);
-    
-    [super dealloc];
+    [paymentButton removeTarget:self action:@selector(didTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];    
 }
 
 - (PKPaymentButton *)paymentButton

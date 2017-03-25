@@ -35,7 +35,7 @@
 
 - (void)setApiKey:(NSString *)apiKey
 {
-    _apiKey = [apiKey retain];
+    _apiKey = apiKey;
     [self setupProvider];
 }
 

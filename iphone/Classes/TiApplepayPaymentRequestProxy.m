@@ -19,12 +19,6 @@
 
 #pragma mark - Proxy configuration
 
-- (void)dealloc
-{
-    RELEASE_TO_NIL(paymentRequest);
-    [super dealloc];
-}
-
 - (PKPaymentRequest *)paymentRequest
 {
     if (paymentRequest == nil) {
@@ -176,7 +170,7 @@
         [self throwException:@"Invalid contact type provided." subreason:@"The contact must either be an Object (recommended) or a TiContacts Person." location:CODELOCATION];
     }
     
-    return [contact autorelease];
+    return contact;
 }
 
 @end

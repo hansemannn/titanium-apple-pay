@@ -20,12 +20,6 @@
 
 @implementation TiApplepayPaymentDialogProxy
 
-- (void)dealloc
-{
-    RELEASE_TO_NIL(paymentController);
-    [super dealloc];
-}
-
 - (PKPaymentAuthorizationViewController *)paymentController
 {
     if (paymentController == nil) {
@@ -148,7 +142,6 @@
     }
     
     [[TiApp app] hideModalController:paymentController animated:YES];
-    RELEASE_TO_NIL(paymentController);
 }
 
 #pragma mark Helper
@@ -240,7 +233,7 @@
         @"transactionIdentifier" : [self proxyValueFromValue:payment.token.transactionIdentifier],
         @"shippingContact": [self dictionaryWithPaymentContact:payment.shippingContact],
         @"billingContact": [self dictionaryWithPaymentContact:payment.billingContact],
-        @"paymentData" : payment.token.paymentData ? [[[TiBlob alloc] initWithData:payment.token.paymentData mimetype:@"text/json"] autorelease] : [NSNull null],
+        @"paymentData" : payment.token.paymentData ? [[TiBlob alloc] initWithData:payment.token.paymentData mimetype:@"text/json"] : [NSNull null],
     };
 }
 
