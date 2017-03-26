@@ -190,7 +190,7 @@ A payment request is initialized using the `ApplePay.createPaymentRequest method
 A payment dialog is initialized using the `ApplePay.createPaymentDialog` method.
 
 #### Properties
-- (PaymentRequest) paymentRequest. The payment request storing the payment-relevant data.
+- (`PaymentRequest`) paymentRequest. The payment request storing the payment-relevant data.
 
 #### Methods
 - (`void`) open: Opens the payment dialog modally.
