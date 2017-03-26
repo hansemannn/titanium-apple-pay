@@ -210,7 +210,7 @@ A payment dialog is initialized using the `ApplePay.createPaymentDialog` method.
   - (`Object`) payment:	An Object of payment-related data (`paymentNetwork`, `paymentInstrumentName`, `paymentMethod`, `transactionIdentifier`, `shippingContact`, `billingContact` and `paymentData`).
   - (`Date`) created: The exact timestamp of the time the payment was created (Available when using Stripe). 
   - (`String`) stripeTokenId: The Stripe payment token ID of the processed payment (Available when using Stripe).
-- close: Tells the application that payment authorization has completed and the dialog is closed.
+- `close`: Tells the application that payment authorization has completed and the dialog is closed.
 
 ### PaymentButton
 A payment button is initialized using the `ApplePay.createPaymentButton` method.
