@@ -1,6 +1,8 @@
 # Apple Pay in Appcelerator Titanium
 [![Build Status](https://travis-ci.com/hansemannn/titanium-apple-pay.svg?token=sih3uU2Lq37ph2ThuwSJ&branch=master)](https://travis-ci.com/hansemannn/titanium-apple-pay) [![License](http://hans-knoechel.de/shields/shield-license.svg?v=2)](./LICENSE)  [![Contact](http://hans-knoechel.de/shields/shield-twitter.svg?v=2)](http://twitter.com/hansemannnn)
 
+<img src="assets/titanium-apple-pay.png" width="900" alt="Titanium Apple Pay" />
+
 ## Summary
 This module provides access to the native iOS Apply Pay PassKit Framework. Using this module, you can 
 easily accept Apple Pay payments using Titanium Mobile. The payment gateway is Stripe (stripe.com), 
