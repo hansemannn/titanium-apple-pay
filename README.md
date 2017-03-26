@@ -151,38 +151,38 @@ A payment request is initialized using the `ApplePay.createPaymentRequest method
 
 #### Properties
 
-- (String) merchantIdentifier: Your merchant identifier, e.g. `merchant.com.company.app`.
-- (Number) merchantCapabilities: A bit field of the payment processing constants (`MERCHANT_CAPABILITY_*`) you support.
-- (String) countryCode: The two-letter ISO 3166 country code, e.g. `US`.
-- (String) currencyCode: The three-letter ISO 4217 currency code, e.g. `USD`.
-- (Object) billingContact: An object representing a billing contact. Allowed properties:
-  - (String) firstName
-  - (String) middleName
-  - (String) lastName
-  - (String) prefix
-  - (String) suffix
-  - (Object) address
-  - (String) street
-  - (String) city
-  - (String) zip
-  - (String) state
-  - (String) country
-  - (String) ISOCountryCode
-  - (String) subLocality (iOS 10.3+)
-  - (String) subAdministrativeArea (iOS 10.3+)
-  - (String) email
-  - (String) phone
-- (Object) shippingContact: An object representing a shipping contact. Allowed properties are same as in billingContact.
-- (Array) supportedNetworks: The payment networks that you support, e.g. `[ApplePay.PAYMENT_NETWORK_VISA, ApplePay.PAYMENT_NETWORK_MASTERCARD]`.
-- (Number) requiredShippingAddressFields: A bit field of shipping address field constants (`ADDRESS_FIELD_*`) that you need in order to process the transaction.
-- (Number) requiredBillingAddressFields: A bit field of billing address field constants (`ADDRESS_FIELD_*`) that you need in order to process the transaction.
-- (Number) shippingType: The type of shipping used by this request, one of `SHIPPING_TYPE_*`.
-- (ShippingMethod) shippingMethods: An array of `ApplePay.ShippingMethod` objects that describe the supported shipping methods.
-- ([SummaryItem]) summaryItems: summaryItems: An array of `ApplePay.SummaryItem` objects that summarize the amount of the payment.
-- (Object) applicationData: Application-specific data or state, e.g. `{"userId": 1337}`
+- (`String`) merchantIdentifier: Your merchant identifier, e.g. `merchant.com.company.app`.
+- (`Number`) merchantCapabilities: A bit field of the payment processing constants (`MERCHANT_CAPABILITY_*`) you support.
+- (`String`) countryCode: The two-letter ISO 3166 country code, e.g. `US`.
+- (`String`) currencyCode: The three-letter ISO 4217 currency code, e.g. `USD`.
+- (`Object`) billingContact: An object representing a billing contact. Allowed properties:
+  - (`String`) firstName
+  - (`String`) middleName
+  - (`String`) lastName
+  - (`String`) prefix
+  - (`String`) suffix
+  - (`Object`) address
+  - (`String`) street
+  - (`String`) city
+  - (`String`) zip
+  - (`String`) state
+  - (`String`) country
+  - (`String`) ISOCountryCode
+  - (`String`) subLocality (iOS 10.3+)
+  - (`String`) subAdministrativeArea (iOS 10.3+)
+  - (`String`) email
+  - (`String`) phone
+- (`Object`) shippingContact: An object representing a shipping contact. Allowed properties are same as in billingContact.
+- (`Array`) supportedNetworks: The payment networks that you support, e.g. `[ApplePay.PAYMENT_NETWORK_VISA, ApplePay.PAYMENT_NETWORK_MASTERCARD]`.
+- (`Number`) requiredShippingAddressFields: A bit field of shipping address field constants (`ADDRESS_FIELD_*`) that you need in order to process the transaction.
+- (`Number`) requiredBillingAddressFields: A bit field of billing address field constants (`ADDRESS_FIELD_*`) that you need in order to process the transaction.
+- (`Number) shippingType: The type of shipping used by this request, one of `SHIPPING_TYPE_*`.
+- (`ShippingMethod`) shippingMethods: An array of `ApplePay.ShippingMethod` objects that describe the supported shipping methods.
+- (`[SummaryItem]`) summaryItems: summaryItems: An array of `ApplePay.SummaryItem` objects that summarize the amount of the payment.
+- (`Object`) applicationData: Application-specific data or state, e.g. `{"userId": 1337}`
 
 #### Methods
-- ([`PAYMENT_NETWORK_*`]) availableNetworks: Returns the available payment networks. The result is an array of `PAYMENT_NETWORK_*` constants, e.g. `PAYMENT_NETWORK_MASTERCARD`. This method is only available on iOS 10 and later.
+- (`[PAYMENT_NETWORK_*]`) availableNetworks: Returns the available payment networks. The result is an array of `PAYMENT_NETWORK_*` constants, e.g. `PAYMENT_NETWORK_MASTERCARD`. This method is only available on iOS 10 and later.
 
 ### PaymentDialog
 A payment dialog is initialized using the `ApplePay.createPaymentDialog` method.
@@ -191,51 +191,51 @@ A payment dialog is initialized using the `ApplePay.createPaymentDialog` method.
 - (PaymentRequest) paymentRequest. The payment request storing the payment-relevant data.
 
 #### Methods
-- (void) open: Opens the payment dialog modally.
+- (`void`) open: Opens the payment dialog modally.
 
 #### Events
-- didSelectPayment: Tells the application that the payment method has changed and asks for a list of updated summary items.
-- didSelectShippingContact: Tells the application that the user selected a shipping address:
-  - (ShippingContactCompletionHandler) handler: The completion handler of the shipping contact. Call this in order to proceed with updated 	shipping options based on the new address.
-  - (Object) contact: The updated shipping contact. Note that you won’t receive the full shipping address in this step due to privacy restrictions from Apple. You will only receive parts of the address to able 	to calculate the shipping. The complete shipping- and billing-contact infos are available in 	the `didAuthorizePayment` event.
-- didSelectShippingMethod: Tells the application that the user selected a shipping method:
-  - (ShippingMethodCompletionHandler) handler: The completion handler of the shipping method. Call this in order to proceed with updated 	items based on the new shipping method.
-  - (String) identifier: The identifier of the new shipping method.
-- willAuthorizePayment: Tells the application that the user is authorizing the payment request.
-- didAuthorizePayment: Tells the application that the user has authorized the payment request:
-  - (AuthorizationCompletionHandler) handler:	The completion handler of the authorized payment. Call this in order to finish the 			transaction after you processed the payment data (e.g. sending it to the server.
-  - (Boolean) success: Indicates whether or not the authorization succeeded.
-  - (Object) payment:	An Object of payment-related data (`paymentNetwork`, `paymentInstrumentName`, `paymentMethod`, `transactionIdentifier`, `shippingContact`, `billingContact` and `paymentData`).
-  - (Date) created:	The exact timestamp of the time the payment was created (Available when using Stripe). 
-  - (String) stripeTokenId:	The Stripe payment token ID of the processed payment (Available when using Stripe).
+- `didSelectPayment`: Tells the application that the payment method has changed and asks for a list of updated summary items.
+- `didSelectShippingContact`: Tells the application that the user selected a shipping address:
+  - (`ShippingContactCompletionHandler`) handler: The completion handler of the shipping contact. Call this in order to proceed with updated 	shipping options based on the new address.
+  - (`Object`) contact: The updated shipping contact. Note that you won’t receive the full shipping address in this step due to privacy restrictions from Apple. You will only receive parts of the address to able 	to calculate the shipping. The complete shipping- and billing-contact infos are available in 	the `didAuthorizePayment` event.
+- `didSelectShippingMethod`: Tells the application that the user selected a shipping method:
+  - (`ShippingMethodCompletionHandler`) handler: The completion handler of the shipping method. Call this in order to proceed with updated items based on the new shipping method.
+  - (`String`) identifier: The identifier of the new shipping method.
+- `willAuthorizePayment`: Tells the application that the user is authorizing the payment request.
+- `didAuthorizePayment`: Tells the application that the user has authorized the payment request:
+  - (`AuthorizationCompletionHandler`) handler:	The completion handler of the authorized payment. Call this in order to finish the transaction after you processed the payment data (e.g. sending it to the server.
+  - (`Boolean`) success: Indicates whether or not the authorization succeeded.
+  - (`Object`) payment:	An Object of payment-related data (`paymentNetwork`, `paymentInstrumentName`, `paymentMethod`, `transactionIdentifier`, `shippingContact`, `billingContact` and `paymentData`).
+  - (`Date`) created: The exact timestamp of the time the payment was created (Available when using Stripe). 
+  - (`String`) stripeTokenId: The Stripe payment token ID of the processed payment (Available when using Stripe).
 - close: Tells the application that payment authorization has completed and the dialog is closed.
 
 ### PaymentButton
 A payment button is initialized using the `ApplePay.createPaymentButton` method.
 
 #### Properties
-- (Number) type: The button's content, one of `PAYMENT_BUTTON_TYPE_*`.
-- (Number) style: The button's appearance, one of `PAYMENT_BUTTON_STYLE_*`.
+- (`Number`) type: The button's content, one of `PAYMENT_BUTTON_TYPE_*`.
+- (`Number`) style: The button's appearance, one of `PAYMENT_BUTTON_STYLE_*`.
 
 #### Events
-- click: Tells the application that the payment button was clicked.
+- `click`: Tells the application that the payment button was clicked.
 
 ### ShippingMethod
 A shipping method is initialized using the `ApplePay.createShippingMethod` method.
 
 #### Properties
-- (String) identifier: A unique identifier for the shipping method, used by the app, e.g. "free_shipping".
-- (String) title: A short, localized description of the shipping method, e.g. "Free Shipping".
-- (String) description: A user-readable description of the shipping method, e.g. "3-5 working days".
-- (Number) price: The shipping method's price, e.g. 99.99.
+- (`String`) identifier: A unique identifier for the shipping method, used by the app, e.g. "free_shipping".
+- (`String`) title: A short, localized description of the shipping method, e.g. "Free Shipping".
+- (`String`) description: A user-readable description of the shipping method, e.g. "3-5 working days".
+- (`Number`) price: The shipping method's price, e.g. 99.99.
 
 ### SummaryItem
 A summary item is initialized using the `ApplePay.createSummaryItem` method.
 
 #### Properties
-- (Number) itemType: This property defaults to a `PAYMENT_SUMMARY_ITEM_TYPE_FINAL` type. For a list of possible summary item types, see `PAYMENT_SUMMARY_ITEM_TYPE_*`.
-- (String) title: A short, localized description of the summary item.
-- (Number) price: The summary item's price. Important: The total price of the shopping cart is not calculated automatically by the native API. You need to take care of the current amount of the shopping cart. The last summary item of your shopping cart normally is the name of your store and the total amount added together.
+- (`Number`) itemType: This property defaults to a `PAYMENT_SUMMARY_ITEM_TYPE_FINAL` type. For a list of possible summary item types, see `PAYMENT_SUMMARY_ITEM_TYPE_*`.
+- (`String`) title: A short, localized description of the summary item.
+- (`Number`) price: The summary item's price. Important: The total price of the shopping cart is not calculated automatically by the native API. You need to take care of the current amount of the shopping cart. The last summary item of your shopping cart normally is the name of your store and the total amount added together.
 
 ### Constants
 - `PAYMENT_BUTTON_TYPE_PLAIN`
