@@ -1,6 +1,8 @@
 # Apple Pay in Appcelerator Titanium
 [![Build Status](https://travis-ci.com/hansemannn/titanium-apple-pay.svg?token=sih3uU2Lq37ph2ThuwSJ&branch=master)](https://travis-ci.com/hansemannn/titanium-apple-pay) [![License](http://hans-knoechel.de/shields/shield-license.svg?v=2)](./LICENSE)  [![Contact](http://hans-knoechel.de/shields/shield-twitter.svg?v=2)](http://twitter.com/hansemannnn)
 
+<img src="assets/titanium-apple-pay.png" width="900" alt="Titanium Apple Pay" />
+
 ## Summary
 This module provides access to the native iOS Apply Pay PassKit Framework. Using this module, you can 
 easily accept Apple Pay payments using Titanium Mobile. The payment gateway is Stripe (stripe.com), 
@@ -188,7 +190,7 @@ A payment request is initialized using the `ApplePay.createPaymentRequest method
 A payment dialog is initialized using the `ApplePay.createPaymentDialog` method.
 
 #### Properties
-- (PaymentRequest) paymentRequest. The payment request storing the payment-relevant data.
+- (`PaymentRequest`) paymentRequest. The payment request storing the payment-relevant data.
 
 #### Methods
 - (`void`) open: Opens the payment dialog modally.
@@ -208,7 +210,7 @@ A payment dialog is initialized using the `ApplePay.createPaymentDialog` method.
   - (`Object`) payment:	An Object of payment-related data (`paymentNetwork`, `paymentInstrumentName`, `paymentMethod`, `transactionIdentifier`, `shippingContact`, `billingContact` and `paymentData`).
   - (`Date`) created: The exact timestamp of the time the payment was created (Available when using Stripe). 
   - (`String`) stripeTokenId: The Stripe payment token ID of the processed payment (Available when using Stripe).
-- close: Tells the application that payment authorization has completed and the dialog is closed.
+- `close`: Tells the application that payment authorization has completed and the dialog is closed.
 
 ### PaymentButton
 A payment button is initialized using the `ApplePay.createPaymentButton` method.
