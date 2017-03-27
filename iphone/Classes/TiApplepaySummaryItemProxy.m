@@ -21,7 +21,6 @@
 
 #pragma mark Public APIs
 
-
 - (void)setType:(id)value
 {
     ENSURE_TYPE(value, NSNumber);

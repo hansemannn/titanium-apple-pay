@@ -43,4 +43,10 @@
     [[self shippingMethod] setAmount:[NSDecimalNumber decimalNumberWithDecimal:[[TiUtils numberFromObject:value] decimalValue]]];
 }
 
+- (void)setType:(id)value
+{
+    ENSURE_TYPE(value, NSNumber);
+    [[self shippingMethod] setType:[TiUtils intValue:value def:PKPaymentSummaryItemTypeFinal]];
+}
+
 @end
