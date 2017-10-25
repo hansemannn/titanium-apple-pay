@@ -67,7 +67,7 @@
 
 - (NSNumber *)canMakePayments:(id)args
 {
-    args = [args objectAtIndex:0];
+    ENSURE_SINGLE_ARG(args, NSDictionary);
     
     NSArray *networks = nil;
     PKMerchantCapability capabilities = nil;
