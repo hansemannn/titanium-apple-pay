@@ -67,6 +67,8 @@
 
 - (NSNumber *)canMakePayments:(id)args
 {
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+    
     NSArray *networks = nil;
     PKMerchantCapability capabilities = nil;
     
@@ -76,7 +78,7 @@
         
         // Capabilities can only be checked together with networks
         if ([args valueForKey:@"capabilities"]) {
-            ENSURE_TYPE([args valueForKey:@"capabilities"], NSArray);
+            ENSURE_TYPE([args valueForKey:@"capabilities"], NSNumber);
             capabilities = (PKMerchantCapability)[args valueForKey:@"capabilities"];
         }
     }
