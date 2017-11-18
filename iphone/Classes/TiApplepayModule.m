@@ -37,7 +37,7 @@
 {
   [super startup];
 
-  NSLog(@"[INFO] %@ loaded", self);
+  DebugLog(@"[INFO] %@ loaded", self);
 }
 
 #pragma mark Public APIs
@@ -53,7 +53,7 @@
   ENSURE_TYPE_OR_NIL(apiKey, NSString);
 
   if (name == nil) {
-    NSLog(@"[WARN] Ti.ApplePay: Invalid payment gateway set! Apple Pay needs a payment gateway to complete transactions. Will fallback to PAYMENT_GATEWAY_NONE.");
+    DebugLog(@"[WARN] Ti.ApplePay: Invalid payment gateway set! Apple Pay needs a payment gateway to complete transactions. Will fallback to PAYMENT_GATEWAY_NONE.");
   }
 
   [[TiApplepayPaymentGatewayConfiguration sharedConfig] setPaymentProvider:[TiUtils intValue:name def:TiApplepayPaymentGatewayNone]];
