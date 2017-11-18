@@ -18,6 +18,8 @@
 #import <Passkit/Passkit.h>
 #import <Stripe/Stripe.h>
 
+#import "BTApplePayClient.h"
+
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @implementation TiApplepayPaymentDialogProxy
@@ -53,12 +55,15 @@
     
     switch ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider]) {
         case TiApplepayPaymentGatewayStripe:
-            NSLog(@"[DEBUG] Ti.ApplePay: Stripe configured: %@", [Stripe defaultPublishableKey]);
-            break;
+          DebugLog(@"[DEBUG] Ti.ApplePay: Using Stripe integration!");
+          break;
+        case TiApplepayPaymentGatewayBraintree:
+          DebugLog(@"[DEBUG] Ti.ApplePay: Using Braintree integration!");
+          break;
 
         case TiApplepayPaymentGatewayNone:
         default:
-            NSLog(@"[DEBUG] Ti.ApplePay: No payment provider selected, using own gateway.");
+            DebugLog(@"[DEBUG] Ti.ApplePay: No payment provider selected, using own gateway.");
             break;
     }
     
@@ -192,6 +197,31 @@
             @"handler": handlerProxy,
             @"payment": [self dictionaryWithPayment:payment]
         }];
+    } else if ([[TiApplepayPaymentGatewayConfiguration sharedConfig] paymentProvider] == TiApplepayPaymentGatewayBraintree) {
+      BTAPIClient *client = [[TiApplepayPaymentGatewayConfiguration sharedConfig] braintreeClient];
+      BTApplePayClient *applePayClient = [[BTApplePayClient alloc] initWithAPIClient:client];
+
+      [applePayClient tokenizeApplePayPayment:payment
+                                   completion:^(BTApplePayCardNonce *tokenizedApplePayPayment,
+                                                NSError *error) {
+                                     if (error != nil) {
+                                       [self fireEvent:@"didAuthorizePayment" withObject:@{
+                                           @"success": NUMBOOL(NO),
+                                           @"handler": handlerProxy,
+                                           @"error": [error localizedDescription],
+                                           @"code": NUMINTEGER([error code])
+                                        }];
+                                       
+                                       return;
+                                     }
+                                     
+                                     [self fireEvent:@"didAuthorizePayment" withObject:@{
+                                         @"success": NUMBOOL(YES),
+                                         @"handler": handlerProxy,
+                                         @"payment": [self dictionaryWithPayment:payment],
+                                         @"braintreeNonce": [self proxyValueFromValue:tokenizedApplePayPayment.nonce]
+                                      }];
+                                   }];
     } else {
         [self throwException:@"⚠️ No payment gateway configured! ⚠️" subreason:nil location:CODELOCATION];
         completion(PKPaymentAuthorizationStatusFailure);

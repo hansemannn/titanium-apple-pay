@@ -70,8 +70,7 @@
     ENSURE_SINGLE_ARG(args, NSDictionary);
     
     NSArray *networks = nil;
-    PKMerchantCapability capabilities = nil;
-    
+  
     if ([args valueForKey:@"networks"]) {
         ENSURE_TYPE([args valueForKey:@"networks"], NSArray);
         networks = [args valueForKey:@"networks"];
@@ -79,16 +78,14 @@
         // Capabilities can only be checked together with networks
         if ([args valueForKey:@"capabilities"]) {
             ENSURE_TYPE([args valueForKey:@"capabilities"], NSNumber);
-            capabilities = (PKMerchantCapability)[args valueForKey:@"capabilities"];
+            PKMerchantCapability capabilities = (PKMerchantCapability)[args valueForKey:@"capabilities"];
+          
+            return  NUMBOOL([PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:networks capabilities:capabilities]);
         }
-    }
-    
-    if (networks != nil && capabilities) {
-        return  NUMBOOL([PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:networks capabilities:capabilities]);
-    } else if (networks != nil && !capabilities) {
+
         return NUMBOOL([PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:networks]);
     }
-    
+
     return NUMBOOL([PKPaymentAuthorizationViewController canMakePayments]);
 }
 
@@ -108,28 +105,8 @@
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_PLAIN,                                     PKPaymentButtonTypePlain);
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_BUY,                                       PKPaymentButtonTypeBuy);
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_SETUP,                                     PKPaymentButtonTypeSetUp);
-
-#ifdef __IPHONE_10_0
-- (NSNumber *)PAYMENT_BUTTON_TYPE_IN_STORE
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-        return NUMINTEGER(PKPaymentButtonTypeInStore);
-    } else {
-        return nil;
-    }
-}
-#endif
-
-#if __IPHONE_10_2
-- (NSNumber *)PAYMENT_BUTTON_TYPE_DONATE
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.2")) {
-        return NUMINTEGER(PKPaymentButtonTypeDonate);
-    } else {
-        return nil;
-    }
-}
-#endif
+MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_IN_STORE,                                  PKPaymentButtonTypeInStore);
+MAKE_SYSTEM_PROP(PAYMENT_BUTTON_TYPE_DONATE,                                    PKPaymentButtonTypeDonate);
 
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_BLACK,                                    PKPaymentButtonStyleBlack);
 MAKE_SYSTEM_PROP(PAYMENT_BUTTON_STYLE_WHITE,                                    PKPaymentButtonStyleWhite);
@@ -148,33 +125,13 @@ MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_FAILTURE,                         
 MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_BILLING_POSTAL_ADDRESS,   PKPaymentAuthorizationStatusInvalidBillingPostalAddress);
 MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_SHIPPING_POSTAL_ADDRESS,  PKPaymentAuthorizationStatusInvalidShippingPostalAddress);
 MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_INVALID_SHIPPING_CONTACT,         PKPaymentAuthorizationStatusInvalidShippingContact);
-
-#if __IPHONE_9_2
-- (NSNumber *)PAYMENT_AUTHORIZATION_STATUS_PIN_REQUIRED
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
-        return [NSNumber numberWithInt:PKPaymentAuthorizationStatusPINRequired];
-    }
-}
-
-- (NSNumber *)PAYMENT_AUTHORIZATION_STATUS_PIN_INCORRECT
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
-        return [NSNumber numberWithInt:PKPaymentAuthorizationStatusPINIncorrect];
-    }
-}
-
-- (NSNumber *)PAYMENT_AUTHORIZATION_STATUS_PIN_LOCKOUT
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.2")) {
-        return [NSNumber numberWithInt:PKPaymentAuthorizationStatusPINLockout];
-    }
-}
-#endif
+MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_PIN_REQUIRED,                     PKPaymentAuthorizationStatusPINRequired);
+MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_PIN_INCORRECT,                    PKPaymentAuthorizationStatusPINIncorrect);
+MAKE_SYSTEM_PROP(PAYMENT_AUTHORIZATION_STATUS_PIN_LOCKOUT,                      PKPaymentAuthorizationStatusPINLockout);
 
 MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_NONE,                                          TiApplepayPaymentGatewayNone);
 MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_STRIPE,                                        TiApplepayPaymentGatewayStripe);
-MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_CHASE,                                         TiApplepayPaymentGatewayChase);
+MAKE_SYSTEM_PROP(PAYMENT_GATEWAY_BRAINTREE,                                     TiApplepayPaymentGatewayBraintree);
 
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_AMEX,                                           PKPaymentNetworkAmex);
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_DISCOVER,                                       PKPaymentNetworkDiscover);
@@ -183,55 +140,11 @@ MAKE_SYSTEM_STR(PAYMENT_NETWORK_VISA,                                           
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_CHINA_UNION_PAY,                                PKPaymentNetworkChinaUnionPay);
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_INTERAC,                                        PKPaymentNetworkInterac);
 MAKE_SYSTEM_STR(PAYMENT_NETWORK_PRIVATE_LABEL,                                  PKPaymentNetworkPrivateLabel);
-
-#if __IPHONE_10_1
-- (NSString *)PAYMENT_NETWORK_SUICA
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.1")) {
-        return PKPaymentNetworkSuica;
-    } else {
-        return nil;
-    }
-}
-
-- (NSString *)PAYMENT_NETWORK_JCB
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.1")) {
-        return PKPaymentNetworkJCB;
-    } else {
-        return nil;
-    }
-}
-#endif
-
-#if __IPHONE_10_3
-- (NSString *)PAYMENT_NETWORK_ID_CREDIT
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
-        return PKPaymentNetworkIDCredit;
-    } else {
-        return nil;
-    }
-}
-
-- (NSString *)PAYMENT_NETWORK_QUIC_PAY
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
-        return PKPaymentNetworkQuicPay;
-    } else {
-        return nil;
-    }
-}
-
-- (NSString *)PAYMENT_NETWORK_CARTE_BANCAIRE
-{
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
-        return PKPaymentNetworkCarteBancaire;
-    } else {
-        return nil;
-    }
-}
-#endif
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_SUICA,                                          PKPaymentNetworkSuica);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_JCB,                                            PKPaymentNetworkJCB);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_ID_CREDIT,                                      PKPaymentNetworkIDCredit);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_QUIC_PAY,                                       PKPaymentNetworkQuicPay);
+MAKE_SYSTEM_STR(PAYMENT_NETWORK_CARTE_BANCAIRE,                                 PKPaymentNetworkCarteBancaire);
 
 MAKE_SYSTEM_PROP(SHIPPING_TYPE_SHIPPING,                                        PKShippingTypeShipping);
 MAKE_SYSTEM_PROP(SHIPPING_TYPE_DELIVERY,                                        PKShippingTypeDelivery);

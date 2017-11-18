@@ -8,10 +8,14 @@
 #import <Foundation/Foundation.h>
 #import "TiApplepayConstants.h"
 
+#import "BTAPIClient.h"
+
 @interface TiApplepayPaymentGatewayConfiguration : NSObject
 
-@property(nonatomic,retain) NSString *apiKey;
+@property(nonatomic,copy) NSString *apiKey;
 @property(nonatomic,assign) TiApplepayPaymentGateway paymentProvider;
+
+@property(nonatomic, strong) BTAPIClient *braintreeClient;
 
 + (id)sharedConfig;
 

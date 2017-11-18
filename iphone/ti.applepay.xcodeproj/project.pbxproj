@@ -55,6 +55,60 @@
 		AA747D9F0F9514B9006C5449 /* TiApplepay_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		DB521F881E86D27100DCDC60 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB521F871E86D27100DCDC60 /* Stripe.framework */; };
+		DB8765841FC066E000F68A63 /* BTApplePayClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87654B1FC066E000F68A63 /* BTApplePayClient.m */; };
+		DB8765851FC066E000F68A63 /* BTApplePayCardNonce.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87654C1FC066E000F68A63 /* BTApplePayCardNonce.m */; };
+		DB8765861FC066E000F68A63 /* BTApplePayClient_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87654D1FC066E000F68A63 /* BTApplePayClient_Internal.h */; };
+		DB8765871FC066E000F68A63 /* BTApplePayCardNonce.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87654F1FC066E000F68A63 /* BTApplePayCardNonce.h */; };
+		DB8765881FC066E000F68A63 /* BraintreeApplePay.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765501FC066E000F68A63 /* BraintreeApplePay.h */; };
+		DB8765891FC066E000F68A63 /* BTConfiguration+ApplePay.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765511FC066E000F68A63 /* BTConfiguration+ApplePay.h */; };
+		DB87658A1FC066E000F68A63 /* BTApplePayClient.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765521FC066E000F68A63 /* BTApplePayClient.h */; };
+		DB87658B1FC066E000F68A63 /* BTConfiguration+ApplePay.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765531FC066E000F68A63 /* BTConfiguration+ApplePay.m */; };
+		DB87658C1FC066E000F68A63 /* BTKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765551FC066E000F68A63 /* BTKeychain.h */; };
+		DB87658D1FC066E000F68A63 /* BTHTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765561FC066E000F68A63 /* BTHTTP.h */; };
+		DB87658E1FC066E000F68A63 /* BTLogger_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765571FC066E000F68A63 /* BTLogger_Internal.h */; };
+		DB87658F1FC066E000F68A63 /* BTErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765581FC066E000F68A63 /* BTErrors.m */; };
+		DB8765901FC066E000F68A63 /* BTAnalyticsMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765591FC066E000F68A63 /* BTAnalyticsMetadata.m */; };
+		DB8765911FC066E000F68A63 /* BTClientToken.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87655A1FC066E000F68A63 /* BTClientToken.m */; };
+		DB8765921FC066E000F68A63 /* BTAPIPinnedCertificates.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87655B1FC066E000F68A63 /* BTAPIPinnedCertificates.h */; };
+		DB8765931FC066E000F68A63 /* BTJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87655C1FC066E000F68A63 /* BTJSON.m */; };
+		DB8765941FC066E000F68A63 /* BTBinData.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87655D1FC066E000F68A63 /* BTBinData.m */; };
+		DB8765951FC066E000F68A63 /* BTURLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87655E1FC066E000F68A63 /* BTURLUtils.m */; };
+		DB8765961FC066E000F68A63 /* BTAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87655F1FC066E000F68A63 /* BTAPIClient.m */; };
+		DB8765971FC066E000F68A63 /* BTAnalyticsService.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765601FC066E000F68A63 /* BTAnalyticsService.m */; };
+		DB8765981FC066E000F68A63 /* BTPaymentMethodNonceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765611FC066E000F68A63 /* BTPaymentMethodNonceParser.m */; };
+		DB8765991FC066E000F68A63 /* BTAppSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765621FC066E000F68A63 /* BTAppSwitch.m */; };
+		DB87659A1FC066E000F68A63 /* BTPaymentMethodNonce.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765631FC066E000F68A63 /* BTPaymentMethodNonce.m */; };
+		DB87659B1FC066E000F68A63 /* BTTokenizationService.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765641FC066E000F68A63 /* BTTokenizationService.m */; };
+		DB87659C1FC066E000F68A63 /* BTHTTPErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765651FC066E000F68A63 /* BTHTTPErrors.m */; };
+		DB87659D1FC066E000F68A63 /* BTHTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765661FC066E000F68A63 /* BTHTTP.m */; };
+		DB87659E1FC066E000F68A63 /* BTPostalAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765671FC066E000F68A63 /* BTPostalAddress.m */; };
+		DB87659F1FC066E000F68A63 /* BTLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765691FC066E000F68A63 /* BTLogger.h */; };
+		DB8765A01FC066E000F68A63 /* BTPostalAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87656A1FC066E000F68A63 /* BTPostalAddress.h */; };
+		DB8765A11FC066E000F68A63 /* BraintreeCore.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87656B1FC066E000F68A63 /* BraintreeCore.h */; };
+		DB8765A21FC066E000F68A63 /* BTClientMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87656C1FC066E000F68A63 /* BTClientMetadata.h */; };
+		DB8765A31FC066E000F68A63 /* BTConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87656D1FC066E000F68A63 /* BTConfiguration.h */; };
+		DB8765A41FC066E000F68A63 /* BTEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87656E1FC066E000F68A63 /* BTEnums.h */; };
+		DB8765A51FC066E000F68A63 /* BTViewControllerPresentingDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87656F1FC066E000F68A63 /* BTViewControllerPresentingDelegate.h */; };
+		DB8765A61FC066E000F68A63 /* BTJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765701FC066E000F68A63 /* BTJSON.h */; };
+		DB8765A71FC066E000F68A63 /* BTClientToken.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765711FC066E000F68A63 /* BTClientToken.h */; };
+		DB8765A81FC066E000F68A63 /* BTErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765721FC066E000F68A63 /* BTErrors.h */; };
+		DB8765A91FC066E000F68A63 /* BTAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765731FC066E000F68A63 /* BTAPIClient.h */; };
+		DB8765AA1FC066E000F68A63 /* BTBinData.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765741FC066E000F68A63 /* BTBinData.h */; };
+		DB8765AB1FC066E000F68A63 /* BTHTTPErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765751FC066E000F68A63 /* BTHTTPErrors.h */; };
+		DB8765AC1FC066E000F68A63 /* BTTokenizationService.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765761FC066E000F68A63 /* BTTokenizationService.h */; };
+		DB8765AD1FC066E000F68A63 /* BTPaymentMethodNonce.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765771FC066E000F68A63 /* BTPaymentMethodNonce.h */; };
+		DB8765AE1FC066E000F68A63 /* BTAppSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765781FC066E000F68A63 /* BTAppSwitch.h */; };
+		DB8765AF1FC066E000F68A63 /* BTPaymentMethodNonceParser.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765791FC066E000F68A63 /* BTPaymentMethodNonceParser.h */; };
+		DB8765B01FC066E000F68A63 /* BTLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87657A1FC066E000F68A63 /* BTLogger.m */; };
+		DB8765B11FC066E000F68A63 /* BTKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87657B1FC066E000F68A63 /* BTKeychain.m */; };
+		DB8765B21FC066E000F68A63 /* BTAPIPinnedCertificates.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87657C1FC066E000F68A63 /* BTAPIPinnedCertificates.m */; };
+		DB8765B31FC066E000F68A63 /* BTAnalyticsMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87657D1FC066E000F68A63 /* BTAnalyticsMetadata.h */; };
+		DB8765B41FC066E000F68A63 /* BTURLUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87657E1FC066E000F68A63 /* BTURLUtils.h */; };
+		DB8765B51FC066E000F68A63 /* BTClientMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87657F1FC066E000F68A63 /* BTClientMetadata.m */; };
+		DB8765B61FC066E000F68A63 /* BTAnalyticsService.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765801FC066E000F68A63 /* BTAnalyticsService.h */; };
+		DB8765B71FC066E000F68A63 /* Braintree-Version.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765811FC066E000F68A63 /* Braintree-Version.h */; };
+		DB8765B81FC066E000F68A63 /* BTAPIClient_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = DB8765821FC066E000F68A63 /* BTAPIClient_Internal.h */; };
+		DB8765B91FC066E000F68A63 /* BTConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8765831FC066E000F68A63 /* BTConfiguration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +157,60 @@
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTiApplepay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiApplepay.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB521F871E86D27100DCDC60 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = platform/Stripe.framework; sourceTree = "<group>"; };
+		DB87654B1FC066E000F68A63 /* BTApplePayClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTApplePayClient.m; sourceTree = "<group>"; };
+		DB87654C1FC066E000F68A63 /* BTApplePayCardNonce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTApplePayCardNonce.m; sourceTree = "<group>"; };
+		DB87654D1FC066E000F68A63 /* BTApplePayClient_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTApplePayClient_Internal.h; sourceTree = "<group>"; };
+		DB87654F1FC066E000F68A63 /* BTApplePayCardNonce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTApplePayCardNonce.h; sourceTree = "<group>"; };
+		DB8765501FC066E000F68A63 /* BraintreeApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeApplePay.h; sourceTree = "<group>"; };
+		DB8765511FC066E000F68A63 /* BTConfiguration+ApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BTConfiguration+ApplePay.h"; sourceTree = "<group>"; };
+		DB8765521FC066E000F68A63 /* BTApplePayClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTApplePayClient.h; sourceTree = "<group>"; };
+		DB8765531FC066E000F68A63 /* BTConfiguration+ApplePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BTConfiguration+ApplePay.m"; sourceTree = "<group>"; };
+		DB8765551FC066E000F68A63 /* BTKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTKeychain.h; sourceTree = "<group>"; };
+		DB8765561FC066E000F68A63 /* BTHTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTHTTP.h; sourceTree = "<group>"; };
+		DB8765571FC066E000F68A63 /* BTLogger_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLogger_Internal.h; sourceTree = "<group>"; };
+		DB8765581FC066E000F68A63 /* BTErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTErrors.m; sourceTree = "<group>"; };
+		DB8765591FC066E000F68A63 /* BTAnalyticsMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTAnalyticsMetadata.m; sourceTree = "<group>"; };
+		DB87655A1FC066E000F68A63 /* BTClientToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTClientToken.m; sourceTree = "<group>"; };
+		DB87655B1FC066E000F68A63 /* BTAPIPinnedCertificates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTAPIPinnedCertificates.h; sourceTree = "<group>"; };
+		DB87655C1FC066E000F68A63 /* BTJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTJSON.m; sourceTree = "<group>"; };
+		DB87655D1FC066E000F68A63 /* BTBinData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBinData.m; sourceTree = "<group>"; };
+		DB87655E1FC066E000F68A63 /* BTURLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTURLUtils.m; sourceTree = "<group>"; };
+		DB87655F1FC066E000F68A63 /* BTAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTAPIClient.m; sourceTree = "<group>"; };
+		DB8765601FC066E000F68A63 /* BTAnalyticsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTAnalyticsService.m; sourceTree = "<group>"; };
+		DB8765611FC066E000F68A63 /* BTPaymentMethodNonceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPaymentMethodNonceParser.m; sourceTree = "<group>"; };
+		DB8765621FC066E000F68A63 /* BTAppSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTAppSwitch.m; sourceTree = "<group>"; };
+		DB8765631FC066E000F68A63 /* BTPaymentMethodNonce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPaymentMethodNonce.m; sourceTree = "<group>"; };
+		DB8765641FC066E000F68A63 /* BTTokenizationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTTokenizationService.m; sourceTree = "<group>"; };
+		DB8765651FC066E000F68A63 /* BTHTTPErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTHTTPErrors.m; sourceTree = "<group>"; };
+		DB8765661FC066E000F68A63 /* BTHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTHTTP.m; sourceTree = "<group>"; };
+		DB8765671FC066E000F68A63 /* BTPostalAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTPostalAddress.m; sourceTree = "<group>"; };
+		DB8765691FC066E000F68A63 /* BTLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLogger.h; sourceTree = "<group>"; };
+		DB87656A1FC066E000F68A63 /* BTPostalAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTPostalAddress.h; sourceTree = "<group>"; };
+		DB87656B1FC066E000F68A63 /* BraintreeCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BraintreeCore.h; sourceTree = "<group>"; };
+		DB87656C1FC066E000F68A63 /* BTClientMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTClientMetadata.h; sourceTree = "<group>"; };
+		DB87656D1FC066E000F68A63 /* BTConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTConfiguration.h; sourceTree = "<group>"; };
+		DB87656E1FC066E000F68A63 /* BTEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTEnums.h; sourceTree = "<group>"; };
+		DB87656F1FC066E000F68A63 /* BTViewControllerPresentingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTViewControllerPresentingDelegate.h; sourceTree = "<group>"; };
+		DB8765701FC066E000F68A63 /* BTJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTJSON.h; sourceTree = "<group>"; };
+		DB8765711FC066E000F68A63 /* BTClientToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTClientToken.h; sourceTree = "<group>"; };
+		DB8765721FC066E000F68A63 /* BTErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTErrors.h; sourceTree = "<group>"; };
+		DB8765731FC066E000F68A63 /* BTAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTAPIClient.h; sourceTree = "<group>"; };
+		DB8765741FC066E000F68A63 /* BTBinData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBinData.h; sourceTree = "<group>"; };
+		DB8765751FC066E000F68A63 /* BTHTTPErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTHTTPErrors.h; sourceTree = "<group>"; };
+		DB8765761FC066E000F68A63 /* BTTokenizationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTTokenizationService.h; sourceTree = "<group>"; };
+		DB8765771FC066E000F68A63 /* BTPaymentMethodNonce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTPaymentMethodNonce.h; sourceTree = "<group>"; };
+		DB8765781FC066E000F68A63 /* BTAppSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTAppSwitch.h; sourceTree = "<group>"; };
+		DB8765791FC066E000F68A63 /* BTPaymentMethodNonceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTPaymentMethodNonceParser.h; sourceTree = "<group>"; };
+		DB87657A1FC066E000F68A63 /* BTLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLogger.m; sourceTree = "<group>"; };
+		DB87657B1FC066E000F68A63 /* BTKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTKeychain.m; sourceTree = "<group>"; };
+		DB87657C1FC066E000F68A63 /* BTAPIPinnedCertificates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTAPIPinnedCertificates.m; sourceTree = "<group>"; };
+		DB87657D1FC066E000F68A63 /* BTAnalyticsMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTAnalyticsMetadata.h; sourceTree = "<group>"; };
+		DB87657E1FC066E000F68A63 /* BTURLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTURLUtils.h; sourceTree = "<group>"; };
+		DB87657F1FC066E000F68A63 /* BTClientMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTClientMetadata.m; sourceTree = "<group>"; };
+		DB8765801FC066E000F68A63 /* BTAnalyticsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTAnalyticsService.h; sourceTree = "<group>"; };
+		DB8765811FC066E000F68A63 /* Braintree-Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Braintree-Version.h"; sourceTree = "<group>"; };
+		DB8765821FC066E000F68A63 /* BTAPIClient_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTAPIClient_Internal.h; sourceTree = "<group>"; };
+		DB8765831FC066E000F68A63 /* BTConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTConfiguration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +259,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DB8765491FC066D300F68A63 /* Braintree */,
 				3AE9AB611C092D300058B80E /* TiApplepayConstants.h */,
 				24DE9E0F11C5FE74003F90F6 /* TiApplepayModuleAssets.h */,
 				24DE9E1011C5FE74003F90F6 /* TiApplepayModuleAssets.m */,
@@ -297,6 +406,101 @@
 			name = "Payment Gateway Configuration";
 			sourceTree = "<group>";
 		};
+		DB8765491FC066D300F68A63 /* Braintree */ = {
+			isa = PBXGroup;
+			children = (
+				DB87654A1FC066E000F68A63 /* BraintreeApplePay */,
+				DB8765541FC066E000F68A63 /* BraintreeCore */,
+			);
+			name = Braintree;
+			sourceTree = "<group>";
+		};
+		DB87654A1FC066E000F68A63 /* BraintreeApplePay */ = {
+			isa = PBXGroup;
+			children = (
+				DB87654B1FC066E000F68A63 /* BTApplePayClient.m */,
+				DB87654C1FC066E000F68A63 /* BTApplePayCardNonce.m */,
+				DB87654D1FC066E000F68A63 /* BTApplePayClient_Internal.h */,
+				DB87654E1FC066E000F68A63 /* Public */,
+				DB8765531FC066E000F68A63 /* BTConfiguration+ApplePay.m */,
+			);
+			name = BraintreeApplePay;
+			path = Classes/Braintree/BraintreeApplePay;
+			sourceTree = "<group>";
+		};
+		DB87654E1FC066E000F68A63 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				DB87654F1FC066E000F68A63 /* BTApplePayCardNonce.h */,
+				DB8765501FC066E000F68A63 /* BraintreeApplePay.h */,
+				DB8765511FC066E000F68A63 /* BTConfiguration+ApplePay.h */,
+				DB8765521FC066E000F68A63 /* BTApplePayClient.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		DB8765541FC066E000F68A63 /* BraintreeCore */ = {
+			isa = PBXGroup;
+			children = (
+				DB8765551FC066E000F68A63 /* BTKeychain.h */,
+				DB8765561FC066E000F68A63 /* BTHTTP.h */,
+				DB8765571FC066E000F68A63 /* BTLogger_Internal.h */,
+				DB8765581FC066E000F68A63 /* BTErrors.m */,
+				DB8765591FC066E000F68A63 /* BTAnalyticsMetadata.m */,
+				DB87655A1FC066E000F68A63 /* BTClientToken.m */,
+				DB87655B1FC066E000F68A63 /* BTAPIPinnedCertificates.h */,
+				DB87655C1FC066E000F68A63 /* BTJSON.m */,
+				DB87655D1FC066E000F68A63 /* BTBinData.m */,
+				DB87655E1FC066E000F68A63 /* BTURLUtils.m */,
+				DB87655F1FC066E000F68A63 /* BTAPIClient.m */,
+				DB8765601FC066E000F68A63 /* BTAnalyticsService.m */,
+				DB8765611FC066E000F68A63 /* BTPaymentMethodNonceParser.m */,
+				DB8765621FC066E000F68A63 /* BTAppSwitch.m */,
+				DB8765631FC066E000F68A63 /* BTPaymentMethodNonce.m */,
+				DB8765641FC066E000F68A63 /* BTTokenizationService.m */,
+				DB8765651FC066E000F68A63 /* BTHTTPErrors.m */,
+				DB8765661FC066E000F68A63 /* BTHTTP.m */,
+				DB8765671FC066E000F68A63 /* BTPostalAddress.m */,
+				DB8765681FC066E000F68A63 /* Public */,
+				DB87657A1FC066E000F68A63 /* BTLogger.m */,
+				DB87657B1FC066E000F68A63 /* BTKeychain.m */,
+				DB87657C1FC066E000F68A63 /* BTAPIPinnedCertificates.m */,
+				DB87657D1FC066E000F68A63 /* BTAnalyticsMetadata.h */,
+				DB87657E1FC066E000F68A63 /* BTURLUtils.h */,
+				DB87657F1FC066E000F68A63 /* BTClientMetadata.m */,
+				DB8765801FC066E000F68A63 /* BTAnalyticsService.h */,
+				DB8765811FC066E000F68A63 /* Braintree-Version.h */,
+				DB8765821FC066E000F68A63 /* BTAPIClient_Internal.h */,
+				DB8765831FC066E000F68A63 /* BTConfiguration.m */,
+			);
+			name = BraintreeCore;
+			path = Classes/Braintree/BraintreeCore;
+			sourceTree = "<group>";
+		};
+		DB8765681FC066E000F68A63 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				DB8765691FC066E000F68A63 /* BTLogger.h */,
+				DB87656A1FC066E000F68A63 /* BTPostalAddress.h */,
+				DB87656B1FC066E000F68A63 /* BraintreeCore.h */,
+				DB87656C1FC066E000F68A63 /* BTClientMetadata.h */,
+				DB87656D1FC066E000F68A63 /* BTConfiguration.h */,
+				DB87656E1FC066E000F68A63 /* BTEnums.h */,
+				DB87656F1FC066E000F68A63 /* BTViewControllerPresentingDelegate.h */,
+				DB8765701FC066E000F68A63 /* BTJSON.h */,
+				DB8765711FC066E000F68A63 /* BTClientToken.h */,
+				DB8765721FC066E000F68A63 /* BTErrors.h */,
+				DB8765731FC066E000F68A63 /* BTAPIClient.h */,
+				DB8765741FC066E000F68A63 /* BTBinData.h */,
+				DB8765751FC066E000F68A63 /* BTHTTPErrors.h */,
+				DB8765761FC066E000F68A63 /* BTTokenizationService.h */,
+				DB8765771FC066E000F68A63 /* BTPaymentMethodNonce.h */,
+				DB8765781FC066E000F68A63 /* BTAppSwitch.h */,
+				DB8765791FC066E000F68A63 /* BTPaymentMethodNonceParser.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -308,17 +512,48 @@
 				3AE9AB631C092D300058B80E /* TiApplepayConstants.h in Headers */,
 				AA747D9F0F9514B9006C5449 /* TiApplepay_Prefix.pch in Headers */,
 				24DD6CF91134B3F500162E58 /* TiApplepayModule.h in Headers */,
+				DB8765B71FC066E000F68A63 /* Braintree-Version.h in Headers */,
+				DB8765AD1FC066E000F68A63 /* BTPaymentMethodNonce.h in Headers */,
+				DB87659F1FC066E000F68A63 /* BTLogger.h in Headers */,
+				DB87658A1FC066E000F68A63 /* BTApplePayClient.h in Headers */,
+				DB8765A21FC066E000F68A63 /* BTClientMetadata.h in Headers */,
 				3AB302471C0A781200902339 /* TiApplepayPaymentMethodCompletionHandlerProxy.h in Headers */,
+				DB8765AF1FC066E000F68A63 /* BTPaymentMethodNonceParser.h in Headers */,
 				3AE9AB5D1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.h in Headers */,
+				DB8765B31FC066E000F68A63 /* BTAnalyticsMetadata.h in Headers */,
+				DB8765AB1FC066E000F68A63 /* BTHTTPErrors.h in Headers */,
 				3AB302071C0A20FD00902339 /* TiApplepayShippingMethodCompletionHandlerProxy.h in Headers */,
 				3A1D0F691C079485006C5167 /* TiApplepayPaymentButton.h in Headers */,
+				DB8765A61FC066E000F68A63 /* BTJSON.h in Headers */,
+				DB8765921FC066E000F68A63 /* BTAPIPinnedCertificates.h in Headers */,
+				DB8765A81FC066E000F68A63 /* BTErrors.h in Headers */,
 				24DE9E1111C5FE74003F90F6 /* TiApplepayModuleAssets.h in Headers */,
 				3ABE15641C0A15BF004B35AC /* TiApplepayShippingMethodProxy.h in Headers */,
 				3A3B2EAF1C06BEC60048E291 /* TiApplepayPaymentDialogProxy.h in Headers */,
 				3A7501991C077A970036ABDD /* TiApplepaySummaryItemProxy.h in Headers */,
+				DB8765AA1FC066E000F68A63 /* BTBinData.h in Headers */,
+				DB8765861FC066E000F68A63 /* BTApplePayClient_Internal.h in Headers */,
 				3A1571A01C05791100EA749D /* TiApplepayPaymentRequestProxy.h in Headers */,
+				DB8765881FC066E000F68A63 /* BraintreeApplePay.h in Headers */,
+				DB8765A11FC066E000F68A63 /* BraintreeCore.h in Headers */,
+				DB8765A41FC066E000F68A63 /* BTEnums.h in Headers */,
+				DB87658D1FC066E000F68A63 /* BTHTTP.h in Headers */,
+				DB87658C1FC066E000F68A63 /* BTKeychain.h in Headers */,
+				DB8765A01FC066E000F68A63 /* BTPostalAddress.h in Headers */,
 				3A3B2EA61C06BE950048E291 /* TiApplepayPaymentButtonProxy.h in Headers */,
+				DB8765B41FC066E000F68A63 /* BTURLUtils.h in Headers */,
+				DB8765A51FC066E000F68A63 /* BTViewControllerPresentingDelegate.h in Headers */,
+				DB87658E1FC066E000F68A63 /* BTLogger_Internal.h in Headers */,
 				3AB67A151C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.h in Headers */,
+				DB8765A71FC066E000F68A63 /* BTClientToken.h in Headers */,
+				DB8765AE1FC066E000F68A63 /* BTAppSwitch.h in Headers */,
+				DB8765891FC066E000F68A63 /* BTConfiguration+ApplePay.h in Headers */,
+				DB8765AC1FC066E000F68A63 /* BTTokenizationService.h in Headers */,
+				DB8765A31FC066E000F68A63 /* BTConfiguration.h in Headers */,
+				DB8765B81FC066E000F68A63 /* BTAPIClient_Internal.h in Headers */,
+				DB8765B61FC066E000F68A63 /* BTAnalyticsService.h in Headers */,
+				DB8765871FC066E000F68A63 /* BTApplePayCardNonce.h in Headers */,
+				DB8765A91FC066E000F68A63 /* BTAPIClient.h in Headers */,
 				3AB302421C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,20 +628,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8765911FC066E000F68A63 /* BTClientToken.m in Sources */,
+				DB8765991FC066E000F68A63 /* BTAppSwitch.m in Sources */,
 				3ABE1F4E1C0DFD5B00725C95 /* TiApplepayContact.m in Sources */,
 				3AB302481C0A781200902339 /* TiApplepayPaymentMethodCompletionHandlerProxy.m in Sources */,
 				3AB302431C0A747600902339 /* TiApplepayShippingContactCompletionHandlerProxy.m in Sources */,
 				3A1D0F6A1C079485006C5167 /* TiApplepayPaymentButton.m in Sources */,
 				3ABE15621C0A157B004B35AC /* TiApplepayShippingMethodProxy.m in Sources */,
+				DB8765981FC066E000F68A63 /* BTPaymentMethodNonceParser.m in Sources */,
+				DB87659B1FC066E000F68A63 /* BTTokenizationService.m in Sources */,
+				DB8765B21FC066E000F68A63 /* BTAPIPinnedCertificates.m in Sources */,
+				DB8765971FC066E000F68A63 /* BTAnalyticsService.m in Sources */,
+				DB8765901FC066E000F68A63 /* BTAnalyticsMetadata.m in Sources */,
+				DB8765961FC066E000F68A63 /* BTAPIClient.m in Sources */,
+				DB87659C1FC066E000F68A63 /* BTHTTPErrors.m in Sources */,
 				24DD6CFA1134B3F500162E58 /* TiApplepayModule.m in Sources */,
 				3A3B2EA71C06BE950048E291 /* TiApplepayPaymentButtonProxy.m in Sources */,
+				DB87659A1FC066E000F68A63 /* BTPaymentMethodNonce.m in Sources */,
+				DB8765931FC066E000F68A63 /* BTJSON.m in Sources */,
 				3AB67A161C0E3B14008652BA /* TiApplepayPaymentAuthorizationCompletionHandlerProxy.m in Sources */,
+				DB8765941FC066E000F68A63 /* BTBinData.m in Sources */,
+				DB87659D1FC066E000F68A63 /* BTHTTP.m in Sources */,
+				DB8765951FC066E000F68A63 /* BTURLUtils.m in Sources */,
+				DB8765B11FC066E000F68A63 /* BTKeychain.m in Sources */,
+				DB87658F1FC066E000F68A63 /* BTErrors.m in Sources */,
+				DB8765B01FC066E000F68A63 /* BTLogger.m in Sources */,
 				3AE9AB5E1C092C5B0058B80E /* TiApplepayPaymentGatewayConfiguration.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* TiApplepayModuleAssets.m in Sources */,
 				3A75019A1C077A970036ABDD /* TiApplepaySummaryItemProxy.m in Sources */,
 				3A1571A11C05791100EA749D /* TiApplepayPaymentRequestProxy.m in Sources */,
 				3A3B2EB01C06BEC60048E291 /* TiApplepayPaymentDialogProxy.m in Sources */,
+				DB87659E1FC066E000F68A63 /* BTPostalAddress.m in Sources */,
+				DB8765B91FC066E000F68A63 /* BTConfiguration.m in Sources */,
 				3AB302081C0A20FD00902339 /* TiApplepayShippingMethodCompletionHandlerProxy.m in Sources */,
+				DB87658B1FC066E000F68A63 /* BTConfiguration+ApplePay.m in Sources */,
+				DB8765841FC066E000F68A63 /* BTApplePayClient.m in Sources */,
+				DB8765851FC066E000F68A63 /* BTApplePayCardNonce.m in Sources */,
+				DB8765B51FC066E000F68A63 /* BTClientMetadata.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +729,7 @@
 			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DSTROOT = /tmp/TiApplepay.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -482,7 +741,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TiApplepay_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"TI_VERSION=$(TI_VERSION)",
+					NDEBUG,
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
@@ -510,6 +772,7 @@
 			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -568,6 +831,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;

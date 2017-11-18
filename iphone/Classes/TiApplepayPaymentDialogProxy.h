@@ -11,8 +11,8 @@
 @class PKPaymentAuthorizationViewControllerDelegate;
 
 @interface TiApplepayPaymentDialogProxy : TiProxy<PKPaymentAuthorizationViewControllerDelegate> {
-    PKPaymentAuthorizationViewController *paymentController;
-    TiApplepayPaymentRequestProxy *paymentRequestProxy;
+  PKPaymentAuthorizationViewController *paymentController;
+  TiApplepayPaymentRequestProxy *paymentRequestProxy;
 }
 
 @end
