@@ -6,7 +6,7 @@
  */
 
 typedef NS_ENUM(NSUInteger, TiApplepayPaymentGateway) {
-    TiApplepayPaymentGatewayNone = 0,
-    TiApplepayPaymentGatewayStripe,
-    TiApplepayPaymentGatewayBraintree
+  TiApplepayPaymentGatewayNone = 0,
+  TiApplepayPaymentGatewayStripe,
+  TiApplepayPaymentGatewayBraintree
 };

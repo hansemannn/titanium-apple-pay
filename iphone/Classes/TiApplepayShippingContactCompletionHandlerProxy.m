@@ -14,34 +14,34 @@
 
 - (void)complete:(id _Nonnull)args
 {
-    if (_handler != nil) {
-        
-        ENSURE_TYPE(args, NSArray);
-        ENSURE_ARG_COUNT(args, 3);
-        
-        id status = [args objectAtIndex:0];
-        id shippingMethods = [args objectAtIndex:1];
-        id summaryItems = [args objectAtIndex:2];
-        
-        ENSURE_TYPE(status, NSNumber);
-        ENSURE_TYPE(shippingMethods, NSArray);
-        ENSURE_TYPE(summaryItems, NSArray);
-        
-        NSMutableArray *resultShippingMethods = [NSMutableArray array];
-        NSMutableArray *resultSummaryItems = [NSMutableArray array];
-        
-        for (id item in shippingMethods) {
-            ENSURE_TYPE(item, TiApplepayShippingMethodProxy);
-            [resultShippingMethods addObject:[(TiApplepayShippingMethodProxy *)item shippingMethod]];
-        }
-        
-        for (id item in summaryItems) {
-            ENSURE_TYPE(item, TiApplepaySummaryItemProxy);
-            [resultSummaryItems addObject:[(TiApplepaySummaryItemProxy *)item item]];
-        }
-        
-        _handler(PKPaymentAuthorizationStatusSuccess,resultShippingMethods,resultSummaryItems);
+  if (_handler != nil) {
+
+    ENSURE_TYPE(args, NSArray);
+    ENSURE_ARG_COUNT(args, 3);
+
+    id status = [args objectAtIndex:0];
+    id shippingMethods = [args objectAtIndex:1];
+    id summaryItems = [args objectAtIndex:2];
+
+    ENSURE_TYPE(status, NSNumber);
+    ENSURE_TYPE(shippingMethods, NSArray);
+    ENSURE_TYPE(summaryItems, NSArray);
+
+    NSMutableArray *resultShippingMethods = [NSMutableArray array];
+    NSMutableArray *resultSummaryItems = [NSMutableArray array];
+
+    for (id item in shippingMethods) {
+      ENSURE_TYPE(item, TiApplepayShippingMethodProxy);
+      [resultShippingMethods addObject:[(TiApplepayShippingMethodProxy *)item shippingMethod]];
     }
+
+    for (id item in summaryItems) {
+      ENSURE_TYPE(item, TiApplepaySummaryItemProxy);
+      [resultSummaryItems addObject:[(TiApplepaySummaryItemProxy *)item item]];
+    }
+
+    _handler(PKPaymentAuthorizationStatusSuccess, resultShippingMethods, resultSummaryItems);
+  }
 }
 
 @end

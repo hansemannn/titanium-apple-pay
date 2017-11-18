@@ -13,23 +13,23 @@
 
 - (void)complete:(id _Nonnull)args
 {
-    if (_handler != nil) {
-        ENSURE_TYPE(args, NSArray);
-        id status = [args objectAtIndex:0];
-        id summaryItems = [args objectAtIndex:1];
-        
-        ENSURE_TYPE(status, NSNumber);
-        ENSURE_TYPE(summaryItems, NSArray);
-        
-        NSMutableArray *result = [NSMutableArray array];
-        
-        for (id item in summaryItems) {
-            ENSURE_TYPE(item, TiApplepaySummaryItemProxy);
-            [result addObject:[(TiApplepaySummaryItemProxy *)item item]];
-        }
-        
-        _handler([TiUtils intValue:status def:PKPaymentAuthorizationStatusSuccess], result);
+  if (_handler != nil) {
+    ENSURE_TYPE(args, NSArray);
+    id status = [args objectAtIndex:0];
+    id summaryItems = [args objectAtIndex:1];
+
+    ENSURE_TYPE(status, NSNumber);
+    ENSURE_TYPE(summaryItems, NSArray);
+
+    NSMutableArray *result = [NSMutableArray array];
+
+    for (id item in summaryItems) {
+      ENSURE_TYPE(item, TiApplepaySummaryItemProxy);
+      [result addObject:[(TiApplepaySummaryItemProxy *)item item]];
     }
+
+    _handler([TiUtils intValue:status def:PKPaymentAuthorizationStatusSuccess], result);
+  }
 }
 
 @end

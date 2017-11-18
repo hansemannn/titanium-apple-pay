@@ -5,47 +5,47 @@
  * Please see the LICENSE included with this distribution for details.
  */
 
-#import "TiApplepayPaymentButton.h"
 #import "TiApplepayPaymentButtonProxy.h"
-#import "TiUtils.h"
 #import "TiApp.h"
+#import "TiApplepayPaymentButton.h"
+#import "TiUtils.h"
 
 @implementation TiApplepayPaymentButtonProxy
 
 - (TiApplepayPaymentButton *)paymentButton
 {
-    return (TiApplepayPaymentButton *)self.view;
+  return (TiApplepayPaymentButton *)self.view;
 }
 
 - (void)viewDidAttach
 {
-    [[self paymentButton] paymentButton];
+  [[self paymentButton] paymentButton];
 }
 
 - (NSString *)apiName
 {
-    return @"Ti.ApplePay.PaymentButton";
+  return @"Ti.ApplePay.PaymentButton";
 }
 
 #pragma mark Public APIs
 
 - (void)setType:(id)value
 {
-    ENSURE_TYPE(value, NSNumber);
-    [self replaceValue:value forKey:@"type" notification:NO];
+  ENSURE_TYPE(value, NSNumber);
+  [self replaceValue:value forKey:@"type" notification:NO];
 }
 
 - (void)setStyle:(id)value
 {
-    ENSURE_TYPE(value, NSNumber);
-    [self replaceValue:value forKey:@"style" notification:NO];
+  ENSURE_TYPE(value, NSNumber);
+  [self replaceValue:value forKey:@"style" notification:NO];
 }
 
 #pragma mark Layout Helper
 
 - (UIViewAutoresizing)verifyAutoresizing:(UIViewAutoresizing)suggestedResizing
 {
-    return suggestedResizing & ~(UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
+  return suggestedResizing & ~(UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
 }
 
 USE_VIEW_FOR_VERIFY_HEIGHT
@@ -53,12 +53,12 @@ USE_VIEW_FOR_VERIFY_WIDTH
 
 - (TiDimension)defaultAutoWidthBehavior:(id)unused
 {
-    return TiDimensionAutoFill;
+  return TiDimensionAutoFill;
 }
 
 - (TiDimension)defaultAutoHeightBehavior:(id)unused
 {
-    return TiDimensionAutoFill;
+  return TiDimensionAutoFill;
 }
 
 @end

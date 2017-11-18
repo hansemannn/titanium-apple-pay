@@ -12,23 +12,23 @@
 
 - (void)complete:(id _Nonnull)args
 {
-    if (_handler != nil) {
-        
-        ENSURE_TYPE(args, NSArray);
-        ENSURE_ARG_COUNT(args, 1);
-        
-        id summaryItems = [args objectAtIndex:0];
-        ENSURE_TYPE(summaryItems, NSArray);
-        
-        NSMutableArray *resultSummaryItems = [NSMutableArray array];
-                
-        for (id item in summaryItems) {
-            ENSURE_TYPE(item, TiApplepaySummaryItemProxy);
-            [resultSummaryItems addObject:[(TiApplepaySummaryItemProxy *)item item]];
-        }
-        
-        _handler(resultSummaryItems);
+  if (_handler != nil) {
+
+    ENSURE_TYPE(args, NSArray);
+    ENSURE_ARG_COUNT(args, 1);
+
+    id summaryItems = [args objectAtIndex:0];
+    ENSURE_TYPE(summaryItems, NSArray);
+
+    NSMutableArray *resultSummaryItems = [NSMutableArray array];
+
+    for (id item in summaryItems) {
+      ENSURE_TYPE(item, TiApplepaySummaryItemProxy);
+      [resultSummaryItems addObject:[(TiApplepaySummaryItemProxy *)item item]];
     }
+
+    _handler(resultSummaryItems);
+  }
 }
 
 @end

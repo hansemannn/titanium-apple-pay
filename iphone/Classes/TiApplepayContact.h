@@ -12,11 +12,11 @@
 #endif
 
 @interface TiApplepayContact : PKContact {
-    @private
+  @private
 #ifdef USE_TI_CONTACTSPERSON
-    TiContactsPerson *person;
+  TiContactsPerson *person;
 #endif
-    NSDictionary *dictionary;
+  NSDictionary *dictionary;
 }
 
 #ifdef USE_TI_CONTACTSPERSON

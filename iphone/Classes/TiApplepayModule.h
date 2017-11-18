@@ -5,11 +5,11 @@
  * Please see the LICENSE included with this distribution for details.
  */
 
-#import "TiModule.h"
 #import "TiApplepayPaymentGatewayConfiguration.h"
+#import "TiModule.h"
 
 @interface TiApplepayModule : TiModule {
-    BOOL usingStripe;
+  BOOL usingStripe;
 }
 
 - (void)setupPaymentGateway:(id)args;

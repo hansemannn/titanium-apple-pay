@@ -8,7 +8,7 @@
 #import <PassKit/PassKit.h>
 
 @interface TiApplepaySummaryItemProxy : TiProxy {
-    PKPaymentSummaryItem *item;
+  PKPaymentSummaryItem *item;
 }
 
 - (void)setType:(id)value;

@@ -12,12 +12,11 @@
 
 - (void)complete:(id _Nonnull)value
 {
-    if (_handler != nil) {
-        ENSURE_SINGLE_ARG(value, NSNumber);
-        
-        _handler([TiUtils intValue:value def:PKPaymentAuthorizationStatusFailure]);
-    }
-}
+  if (_handler != nil) {
+    ENSURE_SINGLE_ARG(value, NSNumber);
 
+    _handler([TiUtils intValue:value def:PKPaymentAuthorizationStatusFailure]);
+  }
+}
 
 @end

@@ -12,41 +12,41 @@
 
 - (PKShippingMethod *)shippingMethod
 {
-    if (shippingMethod == nil) {
-        shippingMethod = [PKShippingMethod new];
-    }
-    
-    return shippingMethod;
+  if (shippingMethod == nil) {
+    shippingMethod = [PKShippingMethod new];
+  }
+
+  return shippingMethod;
 }
 
 - (void)setTitle:(id)value
 {
-    ENSURE_TYPE(value, NSString);
-    [[self shippingMethod] setLabel:[TiUtils stringValue:value]];
+  ENSURE_TYPE(value, NSString);
+  [[self shippingMethod] setLabel:[TiUtils stringValue:value]];
 }
 
 - (void)setIdentifier:(id)value
 {
-    ENSURE_TYPE(value, NSString);
-    [[self shippingMethod] setIdentifier:[TiUtils stringValue:value]];
+  ENSURE_TYPE(value, NSString);
+  [[self shippingMethod] setIdentifier:[TiUtils stringValue:value]];
 }
 
 - (void)setDescription:(id)value
 {
-    ENSURE_TYPE(value, NSString);
-    [[self shippingMethod] setDetail:[TiUtils stringValue:value]];
+  ENSURE_TYPE(value, NSString);
+  [[self shippingMethod] setDetail:[TiUtils stringValue:value]];
 }
 
 - (void)setPrice:(id)value
 {
-    ENSURE_TYPE(value, NSNumber);
-    [[self shippingMethod] setAmount:[NSDecimalNumber decimalNumberWithDecimal:[[TiUtils numberFromObject:value] decimalValue]]];
+  ENSURE_TYPE(value, NSNumber);
+  [[self shippingMethod] setAmount:[NSDecimalNumber decimalNumberWithDecimal:[[TiUtils numberFromObject:value] decimalValue]]];
 }
 
 - (void)setType:(id)value
 {
-    ENSURE_TYPE(value, NSNumber);
-    [[self shippingMethod] setType:[TiUtils intValue:value def:PKPaymentSummaryItemTypeFinal]];
+  ENSURE_TYPE(value, NSNumber);
+  [[self shippingMethod] setType:[TiUtils intValue:value def:PKPaymentSummaryItemTypeFinal]];
 }
 
 @end

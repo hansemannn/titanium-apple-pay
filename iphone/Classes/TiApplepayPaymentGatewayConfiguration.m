@@ -12,40 +12,40 @@
 
 + (id)sharedConfig
 {
-    static TiApplepayPaymentGatewayConfiguration *sharedConfig = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedConfig = [[self alloc] init];
-    });
-    return sharedConfig;
+  static TiApplepayPaymentGatewayConfiguration *sharedConfig = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    sharedConfig = [[self alloc] init];
+  });
+  return sharedConfig;
 }
 
 - (id)init
 {
-    if (self = [super init]) {
-        _paymentProvider = TiApplepayPaymentGatewayNone;
-    }
-    return self;
+  if (self = [super init]) {
+    _paymentProvider = TiApplepayPaymentGatewayNone;
+  }
+  return self;
 }
 
 - (void)setPaymentProvider:(TiApplepayPaymentGateway)paymentProvider
 {
-    _paymentProvider = paymentProvider;
+  _paymentProvider = paymentProvider;
 }
 
 - (void)setApiKey:(NSString *)apiKey
 {
-    _apiKey = apiKey;
-    [self setupProvider];
+  _apiKey = apiKey;
+  [self setupProvider];
 }
 
 - (void)setupProvider
 {
-    if ([self paymentProvider] == TiApplepayPaymentGatewayStripe) {
-      [Stripe setDefaultPublishableKey:[self apiKey]];
-    } else if ([self paymentProvider] == TiApplepayPaymentGatewayBraintree) {
-      self.braintreeClient = [[BTAPIClient alloc] initWithAuthorization:self.apiKey];
-    }
+  if ([self paymentProvider] == TiApplepayPaymentGatewayStripe) {
+    [Stripe setDefaultPublishableKey:[self apiKey]];
+  } else if ([self paymentProvider] == TiApplepayPaymentGatewayBraintree) {
+    self.braintreeClient = [[BTAPIClient alloc] initWithAuthorization:self.apiKey];
+  }
 }
 
 @end

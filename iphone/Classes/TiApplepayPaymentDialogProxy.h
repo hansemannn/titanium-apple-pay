@@ -4,13 +4,13 @@
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
-#import "TiProxy.h"
 #import "TiApplepayPaymentRequestProxy.h"
+#import "TiProxy.h"
 
 @class PKPaymentAuthorizationViewController;
 @class PKPaymentAuthorizationViewControllerDelegate;
 
-@interface TiApplepayPaymentDialogProxy : TiProxy<PKPaymentAuthorizationViewControllerDelegate> {
+@interface TiApplepayPaymentDialogProxy : TiProxy <PKPaymentAuthorizationViewControllerDelegate> {
   PKPaymentAuthorizationViewController *paymentController;
   TiApplepayPaymentRequestProxy *paymentRequestProxy;
 }

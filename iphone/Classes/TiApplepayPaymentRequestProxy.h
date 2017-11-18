@@ -8,7 +8,7 @@
 #import <PassKit/PassKit.h>
 
 @interface TiApplepayPaymentRequestProxy : TiProxy {
-    PKPaymentRequest *paymentRequest;
+  PKPaymentRequest *paymentRequest;
 }
 
 - (PKPaymentRequest *)paymentRequest;

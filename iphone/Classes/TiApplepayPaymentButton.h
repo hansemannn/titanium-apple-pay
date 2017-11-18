@@ -8,8 +8,8 @@
 #import <PassKit/PassKit.h>
 
 @interface TiApplepayPaymentButton : TiUIView {
-@private
-    PKPaymentButton *paymentButton;
+  @private
+  PKPaymentButton *paymentButton;
 }
 
 - (PKPaymentButton *)paymentButton;

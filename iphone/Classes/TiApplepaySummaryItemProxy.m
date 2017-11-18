@@ -12,40 +12,40 @@
 
 - (PKPaymentSummaryItem *)item
 {
-    if (item == nil) {
-        item = [PKPaymentSummaryItem new];
-    }
-    
-    return item;
+  if (item == nil) {
+    item = [PKPaymentSummaryItem new];
+  }
+
+  return item;
 }
 
 #pragma mark Public APIs
 
 - (void)setType:(id)value
 {
-    ENSURE_TYPE(value, NSNumber);
-    [[self item] setType:[TiUtils intValue:value def:PKPaymentSummaryItemTypeFinal]];
+  ENSURE_TYPE(value, NSNumber);
+  [[self item] setType:[TiUtils intValue:value def:PKPaymentSummaryItemTypeFinal]];
 }
 
 - (void)setTitle:(id)value
 {
-    ENSURE_TYPE(value, NSString);
-    [[self item] setLabel:[TiUtils stringValue:value]];
+  ENSURE_TYPE(value, NSString);
+  [[self item] setLabel:[TiUtils stringValue:value]];
 }
 
 - (void)setPrice:(id)value
 {
-    ENSURE_TYPE(value, NSNumber);
-    [[self item] setAmount:[self decimalNumber:value]];
+  ENSURE_TYPE(value, NSNumber);
+  [[self item] setAmount:[self decimalNumber:value]];
 }
- 
+
 #pragma mark Helper
- 
+
 - (NSDecimalNumber *)decimalNumber:(id)value
 {
-    NSNumber *number = value;
-    
-    return [NSDecimalNumber decimalNumberWithDecimal:[number decimalValue]];
+  NSNumber *number = value;
+
+  return [NSDecimalNumber decimalNumberWithDecimal:[number decimalValue]];
 }
- 
- @end
+
+@end

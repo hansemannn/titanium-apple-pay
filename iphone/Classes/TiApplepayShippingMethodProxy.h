@@ -8,7 +8,7 @@
 #import <PassKit/PassKit.h>
 
 @interface TiApplepayShippingMethodProxy : TiProxy {
-    PKShippingMethod *shippingMethod;
+  PKShippingMethod *shippingMethod;
 }
 
 - (void)setTitle:(id)value;
