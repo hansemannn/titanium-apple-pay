@@ -5,8 +5,8 @@
 
 ## Summary
 This module provides access to the native iOS Apply Pay PassKit Framework. Using this module, you can 
-easily accept Apple Pay payments using Titanium Mobile. The payment gateway is Stripe (stripe.com), 
-which is recommended by Apple to process payments to your backends easily.
+easily accept Apple Pay payments using Titanium Mobile. The currently supported payment gateways are [Stripe](https://stripe.com)
+and [Braintree](https://braintreepayments.com), which are recommended by Apple to process payments easily.
 
 ## Features
 The following features are covered:
@@ -16,7 +16,8 @@ The following features are covered:
 - [x] Payment backend-gateway using Stripe
 
 ## Requirements
-- [x] Titanium Mobile SDK 5.1.0.GA (or later) 
+- [x] Titanium Mobile SDK 6.2.2.GA or later
+- [x] Xcode 8 or later
 - [x] iOS 9 or later
 
 ## Setup
@@ -34,13 +35,13 @@ var ApplePay = require('ti.applepay');
 ```
 
 Before you can start using the many different API's, you need to configure the module 
-by providing a Stripe API-Key (from here). The gateways are determined using constants 
+by providing a Stripe / Braintree API-Key (from here). The gateways are determined using constants
 to keep the module open for more payment gateways added in feature releases. 
 The configuration looks like this:
 ```js
 ApplePay.setupPaymentGateway({
-    name: ApplePay.PAYMENT_GATEWAY_STRIPE,
-    apiKey: '<YOUR_STRIPE_API_KEY>'
+  name: ApplePay.PAYMENT_GATEWAY_STRIPE, // or: ApplePay.PAYMENT_GATEWAY_BRAINTREE
+  apiKey: '<YOUR_STRIPE_OR_BRAINTREE_API_KEY>'
 });
 ```
 You also need the Entitlements.plist with the merchant group's you want to assign. 
@@ -210,6 +211,7 @@ A payment dialog is initialized using the `ApplePay.createPaymentDialog` method.
   - (`Object`) payment:	An Object of payment-related data (`paymentNetwork`, `paymentInstrumentName`, `paymentMethod`, `transactionIdentifier`, `shippingContact`, `billingContact` and `paymentData`).
   - (`Date`) created: The exact timestamp of the time the payment was created (Available when using Stripe). 
   - (`String`) stripeTokenId: The Stripe payment token ID of the processed payment (Available when using Stripe).
+  - (`String`) braintreeNonce: The Braintree nonce token of the processed payment (Available when using Braintree).
 - `close`: Tells the application that payment authorization has completed and the dialog is closed.
 
 ### PaymentButton
@@ -269,6 +271,7 @@ A summary item is initialized using the `ApplePay.createSummaryItem` method.
 
 - `PAYMENT_GATEWAY_NONE`
 - `PAYMENT_GATEWAY_STRIPE`
+- `PAYMENT_GATEWAY_BRAINTREE`
 
 - `PAYMENT_NETWORK_AMEX`
 - `PAYMENT_NETWORK_DISCOVER`

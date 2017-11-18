@@ -1,9 +1,9 @@
 /**
- *  Apple Pay module for Titanium Mobile
+ *  Apple Pay SDK for Axway Titanium
  *  Conceptual archticture
- *  Version: 1.2.0
+ *  Version: 2.0.0
  *  Author: Hans Knoechel
- *  Last modified: 2016-04-17
+ *  Last modified: 2017-11-18
  *
  *  References:
  *    - https://developer.apple.com/library/ios/documentation/PassKit/Reference/PKPaymentButton_Class/index.html
@@ -13,8 +13,8 @@
 var ApplePay = require("ti.applepay");
 
 ApplePay.setupPaymentGateway({
-    name: ApplePay.PAYMENT_GATEWAY_STRIPE,
-    apiKey: "<YOUR_STRIPE_API_KEY>"
+    name: ApplePay.PAYMENT_GATEWAY_STRIPE, // OR: ApplePay.PAYMENT_GATEWAY_BRAINTREE
+    apiKey: "<YOUR_STRIPE_OR_BRAINTREE_API_KEY>"
 });
 
 /**
