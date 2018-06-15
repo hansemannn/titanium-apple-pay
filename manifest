@@ -1,4 +1,4 @@
-version: 2.0.0
+version: 3.0.0
 apiversion: 2
 architectures: armv7 arm64 i386 x86_64
 description: ti.applepay
@@ -11,4 +11,4 @@ name: ti.applepay
 moduleid: ti.applepay
 guid: 50220394-a69d-4820-b11c-7de647935809
 platform: iphone
-minsdk: 6.2.2
+minsdk: 7.1.1

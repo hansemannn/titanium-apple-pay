@@ -14,10 +14,11 @@ The following features are covered:
 - [x] Payment Request
 - [x] Payment Dialog
 - [x] Payment backend-gateway using Stripe
+- [x] **All** latest API's, up to iOS 12
 
 ## Requirements
-- [x] Titanium Mobile SDK 6.2.2.GA or later
-- [x] Xcode 8 or later
+- [x] Titanium Mobile SDK 7.1.1+
+- [x] Xcode 9 or later
 - [x] iOS 9 or later
 
 ## Setup
@@ -218,8 +219,9 @@ A payment dialog is initialized using the `ApplePay.createPaymentDialog` method.
 A payment button is initialized using the `ApplePay.createPaymentButton` method.
 
 #### Properties
-- (`Number`) type: The button's content, one of `PAYMENT_BUTTON_TYPE_*`.
-- (`Number`) style: The button's appearance, one of `PAYMENT_BUTTON_STYLE_*`.
+- (`Number`) type: The button's content, one of `PAYMENT_BUTTON_TYPE_*`. Creation-only.
+- (`Number`) style: The button's appearance, one of `PAYMENT_BUTTON_STYLE_*`.Creation-only.
+- (`Number`) borderRadius: The button's border radius. iOS 12+
 
 #### Events
 - `click`: Tells the application that the payment button was clicked.
@@ -247,6 +249,9 @@ A summary item is initialized using the `ApplePay.createSummaryItem` method.
 - `PAYMENT_BUTTON_TYPE_SETUP`
 - `PAYMENT_BUTTON_TYPE_IN_STORE` (iOS 10.0+)
 - `PAYMENT_BUTTON_TYPE_DONATE` (iOS 10.2+)
+- `PAYMENT_BUTTON_TYPE_CHECKOUT` (iOS 12.0+)
+- `PAYMENT_BUTTON_TYPE_SUBSCRIBE` (iOS 12.0+)
+- `PAYMENT_BUTTON_TYPE_BOOK` (iOS 12.0+)
 
 - `PAYMENT_BUTTON_STYLE_BLACK`
 - `PAYMENT_BUTTON_STYLE_WHITE`
