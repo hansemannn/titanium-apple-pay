@@ -6,6 +6,7 @@
  */
 
 #import "TiApplepayContact.h"
+#import "TiUtils.h"
 #import <Contacts/Contacts.h>
 #import <Contacts/ContactsDefines.h>
 
@@ -81,9 +82,9 @@
 
   [self setPostalAddress:address];
 
-#if __IPHONE_9_2
-  [self setSupplementarySubLocality:[addressDict valueForKey:@"supplementarySubLocality"]];
-#endif
+  if ([TiUtils isIOSVersionOrGreater:@"9.2"]) {
+    [self setSupplementarySubLocality:[addressDict valueForKey:@"supplementarySubLocality"]];
+  }
 
   [self setEmailAddress:[dictionary valueForKey:@"email"]];
   [self setPhoneNumber:[CNPhoneNumber phoneNumberWithStringValue:[dictionary valueForKey:@"phone"]]];

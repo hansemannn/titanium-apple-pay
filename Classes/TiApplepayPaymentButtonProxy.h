@@ -9,4 +9,10 @@
 
 @interface TiApplepayPaymentButtonProxy : TiViewProxy
 
+- (void)setType:(NSNumber *)type;
+
+- (void)setStyle:(NSNumber *)style;
+
+- (void)setBorderRadius:(NSNumber *)borderRadius;
+
 @end

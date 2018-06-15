@@ -1,5 +1,11 @@
 
 #ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-    #import <UIKit/UIKit.h>
+  #import <Foundation/Foundation.h>
+  #import <UIKit/UIKit.h>
+#endif
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 120000
+  #define IS_XCODE_10 true
+#else
+  #define IS_XCODE_10 false
 #endif

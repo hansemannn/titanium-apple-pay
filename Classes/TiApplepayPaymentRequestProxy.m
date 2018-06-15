@@ -30,16 +30,14 @@
 
 #pragma mark Public APIs
 
-#ifdef __IPHONE_10_0
 - (NSArray *)availableNetworks:(id)unused
 {
-  if ([TiUtils isIOS10OrGreater]) {
+  if ([TiUtils isIOSVersionOrGreater:@"10.0"]) {
     return [PKPaymentRequest availableNetworks];
   } else {
     return @[];
   }
 }
-#endif
 
 - (void)setMerchantIdentifier:(id)value
 {

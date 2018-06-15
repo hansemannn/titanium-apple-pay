@@ -29,16 +29,26 @@
 
 #pragma mark Public APIs
 
-- (void)setType:(id)value
+- (void)setType:(NSNumber*)type
 {
-  ENSURE_TYPE(value, NSNumber);
-  [self replaceValue:value forKey:@"type" notification:NO];
+  [self replaceValue:type forKey:@"type" notification:NO];
 }
 
-- (void)setStyle:(id)value
+- (void)setStyle:(NSNumber *)style
 {
-  ENSURE_TYPE(value, NSNumber);
-  [self replaceValue:value forKey:@"style" notification:NO];
+  [self replaceValue:style forKey:@"style" notification:NO];
+}
+
+- (void)setBorderRadius:(NSNumber *)borderRadius
+{
+#if IS_XCODE_10
+  if (![TiUtils isIOSVersionOrGreater:@"12.0"]) {
+    DebugLog(@"[ERROR] The borderRadius property is only available in iOS 12 and later.");
+    return;
+  }
+
+  [[[self paymentButton] paymentButton] setCornerRadius:[TiUtils floatValue:borderRadius]];
+#endif
 }
 
 #pragma mark Layout Helper

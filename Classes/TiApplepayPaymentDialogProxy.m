@@ -256,12 +256,10 @@
     }
   }];
 
-#if __IPHONE_10_3
-  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.3")) {
+  if ([TiUtils isIOSVersionOrGreater:@"10.3"]) {
     [dict setValue:[self proxyValueFromValue:[[contact postalAddress] subAdministrativeArea]] forKey:@"subAdministrativeArea"];
     [dict setValue:[self proxyValueFromValue:[[contact postalAddress] subLocality]] forKey:@"subLocality"];
   }
-#endif
 
   return dict;
 }
