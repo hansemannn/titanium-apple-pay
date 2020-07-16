@@ -39,7 +39,7 @@
 - (IBAction)didTouchUpInside:(id)sender
 {
   if ([[self paymentButtonProxy] _hasListeners:@"click"]) {
-    [[self paymentButtonProxy] fireEvent:@"click" withObject:@{ @"buttonType" : [[self paymentButtonProxy] valueForKey:@"type"] }];
+    [[self paymentButtonProxy] fireEvent:@"click" withObject:@{ @"buttonType" : NULL_IF_NIL([[self paymentButtonProxy] valueForKey:@"type"]) }];
   }
 }
 
