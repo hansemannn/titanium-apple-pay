@@ -1,0 +1,15 @@
+version: 3.0.0
+apiversion: 2
+architectures: arm64 x86_64
+description: ti.applepay
+author: Hans Knöchel
+license: Apache 2
+copyright: Copyright (c) 2015-present by Hans Knoechel
+
+# these should not be edited
+name: ti.applepay
+moduleid: ti.applepay
+guid: 50220394-a69d-4820-b11c-7de647935809
+platform: iphone
+minsdk: 9.2.0
+mac: false

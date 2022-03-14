@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -26,6 +26,14 @@
 		24DD6CFA1134B3F500162E58 /* TiApplepayModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiApplepayModule.m */; };
 		24DE9E1111C5FE74003F90F6 /* TiApplepayModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiApplepayModuleAssets.h */; };
 		24DE9E1211C5FE74003F90F6 /* TiApplepayModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiApplepayModuleAssets.m */; };
+		3A0C82F327DF58B0007CB8B6 /* StripeApplePay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0C82EB27DF58B0007CB8B6 /* StripeApplePay.xcframework */; };
+		3A0C82F427DF58B0007CB8B6 /* Stripe.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0C82EC27DF58B0007CB8B6 /* Stripe.xcframework */; };
+		3A0C82F527DF58B0007CB8B6 /* StripeUICore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0C82ED27DF58B0007CB8B6 /* StripeUICore.xcframework */; };
+		3A0C82F627DF58B0007CB8B6 /* Stripe3DS2.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0C82EE27DF58B0007CB8B6 /* Stripe3DS2.xcframework */; };
+		3A0C82F727DF58B0007CB8B6 /* StripeIdentity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0C82EF27DF58B0007CB8B6 /* StripeIdentity.xcframework */; };
+		3A0C82F827DF58B0007CB8B6 /* StripeCardScan.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0C82F027DF58B0007CB8B6 /* StripeCardScan.xcframework */; };
+		3A0C82F927DF58B0007CB8B6 /* StripeCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0C82F127DF58B0007CB8B6 /* StripeCore.xcframework */; };
+		3A0C82FA27DF58B0007CB8B6 /* StripeCameraCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0C82F227DF58B0007CB8B6 /* StripeCameraCore.xcframework */; };
 		3A15719D1C05788C00EA749D /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A15719C1C05788C00EA749D /* PassKit.framework */; };
 		3A1571A01C05791100EA749D /* TiApplepayPaymentRequestProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A15719E1C05791100EA749D /* TiApplepayPaymentRequestProxy.h */; };
 		3A1571A11C05791100EA749D /* TiApplepayPaymentRequestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A15719F1C05791100EA749D /* TiApplepayPaymentRequestProxy.m */; };
@@ -54,7 +62,6 @@
 		3AE9AB631C092D300058B80E /* TiApplepayConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE9AB611C092D300058B80E /* TiApplepayConstants.h */; };
 		AA747D9F0F9514B9006C5449 /* TiApplepay_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		DB521F881E86D27100DCDC60 /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB521F871E86D27100DCDC60 /* Stripe.framework */; };
 		DB8765841FC066E000F68A63 /* BTApplePayClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87654B1FC066E000F68A63 /* BTApplePayClient.m */; };
 		DB8765851FC066E000F68A63 /* BTApplePayCardNonce.m in Sources */ = {isa = PBXBuildFile; fileRef = DB87654C1FC066E000F68A63 /* BTApplePayCardNonce.m */; };
 		DB8765861FC066E000F68A63 /* BTApplePayClient_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = DB87654D1FC066E000F68A63 /* BTApplePayClient_Internal.h */; };
@@ -127,6 +134,14 @@
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
 		24DE9E0F11C5FE74003F90F6 /* TiApplepayModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayModuleAssets.h; path = Classes/TiApplepayModuleAssets.h; sourceTree = "<group>"; };
 		24DE9E1011C5FE74003F90F6 /* TiApplepayModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayModuleAssets.m; path = Classes/TiApplepayModuleAssets.m; sourceTree = "<group>"; };
+		3A0C82EB27DF58B0007CB8B6 /* StripeApplePay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StripeApplePay.xcframework; path = platform/StripeApplePay.xcframework; sourceTree = "<group>"; };
+		3A0C82EC27DF58B0007CB8B6 /* Stripe.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Stripe.xcframework; path = platform/Stripe.xcframework; sourceTree = "<group>"; };
+		3A0C82ED27DF58B0007CB8B6 /* StripeUICore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StripeUICore.xcframework; path = platform/StripeUICore.xcframework; sourceTree = "<group>"; };
+		3A0C82EE27DF58B0007CB8B6 /* Stripe3DS2.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Stripe3DS2.xcframework; path = platform/Stripe3DS2.xcframework; sourceTree = "<group>"; };
+		3A0C82EF27DF58B0007CB8B6 /* StripeIdentity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StripeIdentity.xcframework; path = platform/StripeIdentity.xcframework; sourceTree = "<group>"; };
+		3A0C82F027DF58B0007CB8B6 /* StripeCardScan.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StripeCardScan.xcframework; path = platform/StripeCardScan.xcframework; sourceTree = "<group>"; };
+		3A0C82F127DF58B0007CB8B6 /* StripeCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StripeCore.xcframework; path = platform/StripeCore.xcframework; sourceTree = "<group>"; };
+		3A0C82F227DF58B0007CB8B6 /* StripeCameraCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StripeCameraCore.xcframework; path = platform/StripeCameraCore.xcframework; sourceTree = "<group>"; };
 		3A15719C1C05788C00EA749D /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		3A15719E1C05791100EA749D /* TiApplepayPaymentRequestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiApplepayPaymentRequestProxy.h; path = Classes/TiApplepayPaymentRequestProxy.h; sourceTree = "<group>"; };
 		3A15719F1C05791100EA749D /* TiApplepayPaymentRequestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiApplepayPaymentRequestProxy.m; path = Classes/TiApplepayPaymentRequestProxy.m; sourceTree = "<group>"; };
@@ -156,7 +171,6 @@
 		AA747D9E0F9514B9006C5449 /* TiApplepay_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiApplepay_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTiApplepay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiApplepay.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB521F871E86D27100DCDC60 /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stripe.framework; path = platform/Stripe.framework; sourceTree = "<group>"; };
 		DB87654B1FC066E000F68A63 /* BTApplePayClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTApplePayClient.m; sourceTree = "<group>"; };
 		DB87654C1FC066E000F68A63 /* BTApplePayCardNonce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTApplePayCardNonce.m; sourceTree = "<group>"; };
 		DB87654D1FC066E000F68A63 /* BTApplePayClient_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTApplePayClient_Internal.h; sourceTree = "<group>"; };
@@ -218,9 +232,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A0C82F427DF58B0007CB8B6 /* Stripe.xcframework in Frameworks */,
+				3A0C82F727DF58B0007CB8B6 /* StripeIdentity.xcframework in Frameworks */,
 				3A15719D1C05788C00EA749D /* PassKit.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				DB521F881E86D27100DCDC60 /* Stripe.framework in Frameworks */,
+				3A0C82FA27DF58B0007CB8B6 /* StripeCameraCore.xcframework in Frameworks */,
+				3A0C82F327DF58B0007CB8B6 /* StripeApplePay.xcframework in Frameworks */,
+				3A0C82F627DF58B0007CB8B6 /* Stripe3DS2.xcframework in Frameworks */,
+				3A0C82F527DF58B0007CB8B6 /* StripeUICore.xcframework in Frameworks */,
+				3A0C82F927DF58B0007CB8B6 /* StripeCore.xcframework in Frameworks */,
+				3A0C82F827DF58B0007CB8B6 /* StripeCardScan.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +270,14 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DB521F871E86D27100DCDC60 /* Stripe.framework */,
+				3A0C82EC27DF58B0007CB8B6 /* Stripe.xcframework */,
+				3A0C82EE27DF58B0007CB8B6 /* Stripe3DS2.xcframework */,
+				3A0C82EB27DF58B0007CB8B6 /* StripeApplePay.xcframework */,
+				3A0C82F227DF58B0007CB8B6 /* StripeCameraCore.xcframework */,
+				3A0C82F027DF58B0007CB8B6 /* StripeCardScan.xcframework */,
+				3A0C82F127DF58B0007CB8B6 /* StripeCore.xcframework */,
+				3A0C82EF27DF58B0007CB8B6 /* StripeIdentity.xcframework */,
+				3A0C82ED27DF58B0007CB8B6 /* StripeUICore.xcframework */,
 				3A15719C1C05788C00EA749D /* PassKit.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
@@ -584,17 +612,18 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1320;
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ti.applepay" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				de,
+				fr,
+				Base,
+				en,
+				ja,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* ti.applepay */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
@@ -708,7 +737,7 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = (
 					"-DDEBUG",
@@ -756,7 +785,7 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-DTI_POST_1_2";
 				OTHER_LDFLAGS = "-ObjC";
@@ -771,15 +800,25 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -810,7 +849,7 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-DDEBUG",
@@ -832,15 +871,25 @@
 			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = NO;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -870,7 +919,7 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = "-DTI_POST_1_2";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TiApplepay;
@@ -898,7 +947,6 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "Build & test";
 				ZERO_LINK = NO;
 			};

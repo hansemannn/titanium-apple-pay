@@ -6,7 +6,8 @@
  */
 
 #import "TiApplepayPaymentGatewayConfiguration.h"
-#import "TiModule.h"
+@import TitaniumKit;
+@import Stripe;
 
 @interface TiApplepayModule : TiModule {
   BOOL usingStripe;

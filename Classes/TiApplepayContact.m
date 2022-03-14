@@ -6,9 +6,9 @@
  */
 
 #import "TiApplepayContact.h"
-#import "TiUtils.h"
 #import <Contacts/Contacts.h>
 #import <Contacts/ContactsDefines.h>
+@import TitaniumKit;
 
 @implementation TiApplepayContact
 

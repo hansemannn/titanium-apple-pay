@@ -6,7 +6,6 @@
  */
 
 #import "TiApplepayShippingMethodProxy.h"
-#import "TiUtils.h"
 
 @implementation TiApplepayShippingMethodProxy
 

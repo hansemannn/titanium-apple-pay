@@ -5,7 +5,8 @@
  * Please see the LICENSE included with this distribution for details.
  */
 #import "TiApplepayPaymentRequestProxy.h"
-#import "TiProxy.h"
+@import TitaniumKit;
+@import Stripe;
 
 @class PKPaymentAuthorizationViewController;
 @class PKPaymentAuthorizationViewControllerDelegate;

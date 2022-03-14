@@ -11,11 +11,7 @@
 #import "TiApplepayConstants.h"
 #import "TiApplepayPaymentDialogProxy.h"
 #import "TiApplepayPaymentRequestProxy.h"
-#import "TiBase.h"
-#import "TiHost.h"
-#import "TiUtils.h"
 #import <PassKit/PassKit.h>
-#import <Stripe/Stripe.h>
 
 @implementation TiApplepayModule
 
@@ -44,8 +40,7 @@
 
 - (void)setupPaymentGateway:(id)args
 {
-  args = [args objectAtIndex:0];
-  ENSURE_TYPE(args, NSDictionary);
+  ENSURE_SINGLE_ARG(args, NSDictionary);
 
   id name = [args valueForKey:@"name"];
   id apiKey = [args valueForKey:@"apiKey"];
@@ -62,7 +57,7 @@
 
 - (NSNumber *)isSupported:(id)unused
 {
-  return NUMBOOL([TiUtils isIOS9OrGreater] == YES);
+  return @(YES);
 }
 
 - (NSNumber *)canMakePayments:(id)args

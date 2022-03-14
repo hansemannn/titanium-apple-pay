@@ -6,18 +6,14 @@
  */
 
 #import "TiApplepayPaymentDialogProxy.h"
-#import "TiApp.h"
 #import "TiApplepayConstants.h"
 #import "TiApplepayPaymentAuthorizationCompletionHandlerProxy.h"
 #import "TiApplepayPaymentGatewayConfiguration.h"
 #import "TiApplepayPaymentMethodCompletionHandlerProxy.h"
 #import "TiApplepayShippingContactCompletionHandlerProxy.h"
 #import "TiApplepayShippingMethodCompletionHandlerProxy.h"
-#import "TiUtils.h"
 
 #import <Passkit/Passkit.h>
-#import <Stripe/Stripe.h>
-
 #import "BTApplePayClient.h"
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)

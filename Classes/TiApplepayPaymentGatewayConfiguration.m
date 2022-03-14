@@ -6,7 +6,7 @@
  */
 
 #import "TiApplepayPaymentGatewayConfiguration.h"
-#import <Stripe/Stripe.h>
+@import Stripe;
 
 @implementation TiApplepayPaymentGatewayConfiguration
 
@@ -42,7 +42,7 @@
 - (void)setupProvider
 {
   if ([self paymentProvider] == TiApplepayPaymentGatewayStripe) {
-    [Stripe setDefaultPublishableKey:[self apiKey]];
+    [StripeAPI setDefaultPublishableKey:[self apiKey]];
   } else if ([self paymentProvider] == TiApplepayPaymentGatewayBraintree) {
     self.braintreeClient = [[BTAPIClient alloc] initWithAuthorization:self.apiKey];
   }

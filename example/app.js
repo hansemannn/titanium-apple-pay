@@ -164,12 +164,12 @@ paymentDialog.addEventListener("didAuthorizePayment", didAuthorizePayment);
 paymentDialog.addEventListener("close", willClose);
 
 function didSelectPayment(e) {
-    e.handler.complete(paymentRequest.getSummaryItems());
+    e.handler.complete(paymentRequest.summaryItems);
 }
 
 function didSelectShippingContact(e) {
     Ti.API.warn(e);
-    e.handler.complete(ApplePay.PAYMENT_AUTHORIZATION_STATUS_SUCCESS, paymentRequest.getShippingMethods(), paymentRequest.getSummaryItems());
+    e.handler.complete(ApplePay.PAYMENT_AUTHORIZATION_STATUS_SUCCESS, paymentRequest.shippingMethods, paymentRequest.summaryItems);
 }
 
 function didSelectShippingMethod(e) {
@@ -186,7 +186,7 @@ function didSelectShippingMethod(e) {
                 paymentRequest.setSummaryItems(summaryItems);
     */
 
-    e.handler.complete(ApplePay.PAYMENT_AUTHORIZATION_STATUS_SUCCESS, paymentRequest.getSummaryItems());
+    e.handler.complete(ApplePay.PAYMENT_AUTHORIZATION_STATUS_SUCCESS, paymentRequest.summaryItems);
 }
 
 function willAuthorizePayment() {

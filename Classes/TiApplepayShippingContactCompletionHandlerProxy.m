@@ -8,7 +8,6 @@
 #import "TiApplepayShippingContactCompletionHandlerProxy.h"
 #import "TiApplepayShippingMethodProxy.h"
 #import "TiApplepaySummaryItemProxy.h"
-#import "TiUtils.h"
 
 @implementation TiApplepayShippingContactCompletionHandlerProxy
 

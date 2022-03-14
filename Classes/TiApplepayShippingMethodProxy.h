@@ -4,8 +4,8 @@
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
-#import "TiProxy.h"
 #import <PassKit/PassKit.h>
+@import TitaniumKit;
 
 @interface TiApplepayShippingMethodProxy : TiProxy {
   PKShippingMethod *shippingMethod;

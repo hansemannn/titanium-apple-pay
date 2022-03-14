@@ -6,9 +6,7 @@
  */
 
 #import "TiApplepayPaymentButtonProxy.h"
-#import "TiApp.h"
 #import "TiApplepayPaymentButton.h"
-#import "TiUtils.h"
 
 @implementation TiApplepayPaymentButtonProxy
 

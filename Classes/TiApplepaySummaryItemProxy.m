@@ -6,7 +6,6 @@
  */
 
 #import "TiApplepaySummaryItemProxy.h"
-#import "TiUtils.h"
 
 @implementation TiApplepaySummaryItemProxy
 

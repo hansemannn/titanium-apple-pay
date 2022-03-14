@@ -6,7 +6,6 @@
  */
 
 #import "TiApplepayPaymentAuthorizationCompletionHandlerProxy.h"
-#import "TiUtils.h"
 
 @implementation TiApplepayPaymentAuthorizationCompletionHandlerProxy
 
